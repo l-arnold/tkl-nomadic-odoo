@@ -1,0 +1,36 @@
+#include <turnkey/base>
+#include <turnkey/lapp>
+#include <turnkey/samba>
+
+postgresql-contrib       # additional facilities for PostgreSQL
+
+libapache2-mod-python    # Apache 2 module that embeds Python within the server
+python-pygresql          # PostgreSQL module for Python
+
+libapache2-mod-perl2     # Integration of perl with the Apache2 web server
+libdbd-pg-perl           # Perl DBI driver for the PostgreSQL database server
+
+
+python-psycopg2 
+python-lxml 
+python-tz 
+python-yaml 
+python-reportlab 
+python-mako 
+python-pychart 
+python-werkzeug 
+python-pybabel 
+python-dateutil 
+python-openid 
+python-imaging 
+python-psutil 
+python-docutils 
+python-unittest2 
+python-mock 
+python-jinja2
+
+python-pypdf
+python-passlib
+
+python-requests
+python-decorator

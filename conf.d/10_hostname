@@ -1,0 +1,6 @@
+#!/bin/sh -ex
+
+HOSTNAME=tkl-odoo
+echo "$HOSTNAME" > /etc/hostname
+sed -i "s|127.0.1.1 \(.*\)|127.0.1.1 $HOSTNAME|" /etc/hosts
+/etc/init.d/hostname.sh start
