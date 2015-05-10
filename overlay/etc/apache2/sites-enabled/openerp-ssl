@@ -1,0 +1,29 @@
+<VirtualHost *:12325>
+    SSLEngine on
+    SSLCertificateFile /etc/ssl/certs/cert.pem
+    ServerAdmin webmaster@localhost
+
+    ProxyRequests Off
+
+    <Proxy *>
+        Order deny,allow
+        Allow from all
+    </Proxy>
+    
+    ProxyVia On
+
+    ProxyPass / http://127.0.0.1:8069/
+    ProxyPassReverse / http://127.0.0.1:8069/
+
+    RequestHeader set "X-Forwarded-Proto" "https"
+
+    # Fix IE problem (http error 408/409)
+    SetEnv proxy-nokeepalive 1
+
+    ErrorLog /var/log/apache2/error-ssl.log
+    # Possible values include: debug, info, notice, warn, error, crit,
+    # alert, emerg.
+    LogLevel warn 
+    CustomLog /var/log/apache2/access-ssl.log combined
+    ServerSignature On
+</VirtualHost>
