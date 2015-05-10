@@ -1,12 +1,13 @@
-NameVirtualHost *:80
-NameVirtualHost *:443
+NameVirtualHost *:8080
+NameVirtualHost *:8443
 
-<VirtualHost *:80>
+
+<VirtualHost *:8080>
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/
 </VirtualHost>
 
-<VirtualHost *:443>
+<VirtualHost *:8443>
         SSLEngine on
         SSLCertificateFile /etc/ssl/certs/cert.pem
         ServerAdmin webmaster@localhost
