@@ -1,9 +1,9 @@
-Web:        http://$ipaddr:8080
-            https://$ipaddr:8443
+Web:        http://$ipaddr
+            https://$ipaddr
 Web shell:  https://$ipaddr:12320
 Webmin:     https://$ipaddr:12321
 SMB/CIFS:   \\$ipaddr (ports 139/445)
 PHPPgAdmin: https://$ipaddr:12322
 SSH/SFTP:   root@$ipaddr (port 22)
 Odoo:       http://$ipaddr:8069
-            https://$ipaddr:80
+            https://$ipaddr:12325
