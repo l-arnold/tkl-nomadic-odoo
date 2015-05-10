@@ -1,4 +1,4 @@
-<VirtualHost *:12325>
+<VirtualHost *:80>
     SSLEngine on
     SSLCertificateFile /etc/ssl/certs/cert.pem
     ServerAdmin webmaster@localhost
