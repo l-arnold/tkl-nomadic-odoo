@@ -54,4 +54,4 @@ echo "------------------------"
 echo " Make SSL work properly "
 echo "------------------------"
 a2enmod ssl proxy_http headers rewrite
-a2ensite openerp-ssl
+a2ensite openerp-ssl.conf
