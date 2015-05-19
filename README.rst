@@ -4,6 +4,8 @@ Odoo (formerly OpenERP)
 First Pull is a Clone from Carlos at:
 https://github.com/CLVsol/tkl-odoo
 
+Needs to pull from Turnkey LAPP as Updated to Ver 14 Assumably now.
+
 `Odoo`_ is a suite of web based open source business apps.
 
 It's main apps include an `Open Source CRM`_, `Website Builder`_, `eCommerce`_, `Project Management`_, `Billing and Accounting`_, `Point of Sale`_, `Human Resources`_, Marketing, Manufacturing, Purchase Management, ...  Each application is standalone but you get a full featured `Open Source ERP`_ if you install several apps as they integrate to each others.
