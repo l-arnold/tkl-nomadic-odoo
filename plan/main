@@ -1,8 +1,6 @@
 #include <turnkey/base>
 #include <turnkey/lapp>
 #include <turnkey/samba>
-#include <turnkey/ajaxplorer>
-#include <turnkey/compression>
 
 postgresql-contrib       # additional facilities for PostgreSQL
 
