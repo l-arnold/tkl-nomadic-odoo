@@ -33,19 +33,6 @@ echo " Install Odoo "
 echo "--------------"
 git clone https://github.com/odoo/odoo.git $ODOO_DIR
 
-echo "consider packaging as some form of below on http://nightly.odoo.com/
-
-echo "wget -O - https://nightly.odoo.com/odoo.key | apt-key add -""
-echo "echo "deb http://nightly.odoo.com/8.0/nightly/deb/ ./" >> /etc/apt/sources.list.d/odoo.list"
-echo "apt-get update && apt-get install -y odoo sudo"
-
-echo " sudo su - postgres -c "createuser -s odoo""
-echo "service postgresql restart"
-
-echo "wget -O - https://nightly.odoo.com/odoo.key | apt-key add -""
-echo "echo "deb http://nightly.odoo.com/8.0/nightly/deb/ ./" >> /etc/apt/sources.list"
-echo "apt-get update && apt-get install odoo --fix-missing"
-
 chown -R openerp:openerp $ODOO_DIR
 mv $ODOO_DIR_TMP/* $ODOO_DIR
 rm -rf $ODOO_DIR_TMP
