@@ -1,5 +1,4 @@
-Odoo:       http://$ipaddr
-            https://$ipaddr
+Odoo:       https://$ipaddr
             http://localhost:8069
 Web shell:  https://$ipaddr:12320
 Webmin:     https://$ipaddr:12321
