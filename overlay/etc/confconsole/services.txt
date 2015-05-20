@@ -3,7 +3,7 @@ Odoo:       http://$ipaddr
             http://$ipaddr:8069
 Web shell:  https://$ipaddr:12320
 Webmin:     https://$ipaddr:12321
-SMB/CIFS:   \\$ipaddr (ports 139/445)
+SMB/CIFS:   \\$ipaddr\Storage (ports 139/445)
 PHPPgAdmin: https://$ipaddr:12322
 SSH/SFTP:   root@$ipaddr (port 22)
 Console:    https://$ipaddr:12325
