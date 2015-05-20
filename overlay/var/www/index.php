@@ -33,27 +33,27 @@
                 <div class="fragment-content">
                     <div>
                         <a href="https://<?php print
-                        $_SERVER{'HTTP_HOST'}; ?>:12320"><img
+                        $_SERVER{'SERVER_ADDR'}; ?>:12320"><img
                         src="images/shell.png"/>Web Shell</a>
                     </div>
                     <div>
                         <a href="https://<?php print
-                        $_SERVER{'HTTP_HOST'}; ?>:12321"><img
+                        $_SERVER{'SERVER_ADDR'}; ?>:12321"><img
                         src="images/webmin.png"/>Webmin</a>
                     </div>
                     <div>
                         <a href="https://<?php print
-                        $_SERVER{'HTTP_HOST'}; ?>:12322"><img
+                        $_SERVER{'SERVER_ADDR'}; ?>:12322"><img
                         src="images/phppgadmin.png"/>PHPPgAdmin</a>
                     </div>
                     <div>
                        <a href="https://<?php print
-                       $_SERVER{'HTTP_HOST'}; ?>/web"><img
+                       $_SERVER{'SERVER_ADDR'}; ?>/web"><img
                         src="images/odoo.png"/>Odoo Main (https)</a>
                      </div>
                     <div>
                         <a href="http://<?php print
-                        $_SERVER{'HTTP_HOST'}; ?>:8069"><img
+                        $_SERVER{'SERVER_ADDR'}; ?>:8069"><img
                         src="images/odoo.png"/>Odoo Base (http)</a>
                     </div>
                     <div></div>
@@ -70,8 +70,8 @@
                           (to disable: a2dismod status)
                         </li>
                         <li>
-                          <a href="https://github.com/CLVsol/tkl-odoo">TurnKey Odoo on GitHub</a>
-                          (CLVsol/tkl-odoo)
+                          <a href="https://github.com/l-arnold/tkl-nomadic-odoo">TurnKey Odoo on GitHub</a>
+                          (l-arnold/tkl-nomadic-odoo)
                         </li>
                         <li>
                           <a href="https://github.com/odoo">Odoo on GitHub</a>
