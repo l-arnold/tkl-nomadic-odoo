@@ -1,10 +1,12 @@
-Odoo (formerly OpenERP)
+Odoo Appliance - Turnkey Linux
 =======================
 
-First Pull is a Clone from Carlos at:
+Built from initial Clone from Carlos' Tkl-Odoo at:
 https://github.com/CLVsol/tkl-odoo
 
-Needs to pull from Turnkey LAPP as Updated to Ver 14 Assumably now.
+Tailored to work with TKLDEV 14 Jessie
+Apache Configuration files scrambled to allow non Ported, Full SSL view of Odoo
+SSL Updates will be required as in other Turnkeylinux Appliances
 
 `Odoo`_ is a suite of web based open source business apps.
 
