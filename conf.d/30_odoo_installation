@@ -36,6 +36,11 @@ chown -R openerp:openerp $ODOO_DIR
 mv $ODOO_DIR_TMP/* $ODOO_DIR
 rm -rf $ODOO_DIR_TMP
 
+echo "consider packaging as below on http://nightly.odoo.com/"
+echo "wget -O - https://nightly.odoo.com/odoo.key | apt-key add -"
+echo "deb http://nightly.odoo.com/8.0/nightly/deb/ ./" >> /etc/apt/sources.list"
+echo "apt-get update && apt-get install odoo"
+
 echo "----------------------------"
 echo "  Install Odoo as a service "
 echo "----------------------------"
