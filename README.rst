@@ -1,7 +1,7 @@
 Odoo Appliance - Turnkey Linux
 =======================
 
-Built from initial Clone from Carlos' Tkl-Odoo at:
+Built from initial Git-Clone made by Carlos' Tkl-Odoo at:
 https://github.com/CLVsol/tkl-odoo
 
 Tailored to work with TKLDEV 14 Jessie
