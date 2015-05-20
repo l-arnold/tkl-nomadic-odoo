@@ -5,7 +5,4 @@ tar -zxvf gdata-2.0.17.tar.gz
 cd gdata-2.0.17
 python setup.py install
 cd ..
-wget http://downloads.sourceforge.net/project/wkhtmltopdf/${VER}/wkhtmltox-${VER}_linux-${REL}-${ARCH}.deb
-deb -i --force-depends wkhtmltox-*.deb
 
-apt-get -y -f install
