@@ -17,8 +17,9 @@ and on top of that:
 - The *postgres* user is trusted when connecting over local unix sockets
   (convenience).
 - `Odoo`_ instaled branch: **master**.
-- Odoo connection (listening on port 8069).
-- Odoo secured connection (listening on port 12325 - uses SSL).
+- Odoo secured connection http(port 80) auto redirects to https(port 443)
+- Odoo connection (listening on port 8069 - will set up to open only to localhost).
+- Odoo App Console (listening on port 12325 -).
 - Webmin module for configuring Samba.
 - File server (`Samba`_) configurations:
    - Preconfigured wordgroup: WORKGROUP
