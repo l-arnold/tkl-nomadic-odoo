@@ -1,13 +1,5 @@
 Odoo Appliance - Turnkey Linux
 =======================
-
-Built from initial Git-Clone made by Carlos' Tkl-Odoo at:
-https://github.com/CLVsol/tkl-odoo
-
-Tailored to work with TKLDEV 14 Jessie
-Apache Configuration files scrambled to allow non Ported, Full SSL view of Odoo
-SSL Updates will be required as in other Turnkeylinux Appliances
-
 `Odoo`_ is a suite of web based open source business apps.
 
 It's main apps include an `Open Source CRM`_, `Website Builder`_, `eCommerce`_, `Project Management`_, `Billing and Accounting`_, `Point of Sale`_, `Human Resources`_, Marketing, Manufacturing, Purchase Management, ...  Each application is standalone but you get a full featured `Open Source ERP`_ if you install several apps as they integrate to each others.
@@ -69,3 +61,10 @@ Credentials *(passwords set by default)*
 .. _PHPPgAdmin: http://phppgadmin.sourceforge.net/
 .. _TurnKey Core: http://www.turnkeylinux.org/core
 .. _Samba: http://www.samba.org/samba/what_is_samba.html
+
+Built from initial Git-Clone made by Carlos' Tkl-Odoo at:
+https://github.com/CLVsol/tkl-odoo
+
+Tailored to work with TKLDEV 14 Jessie
+Apache Configuration files scrambled to allow non Ported, Full SSL view of Odoo
+SSL Updates will be required as in other Turnkeylinux Appliances
