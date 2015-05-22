@@ -1,14 +1,21 @@
-turnkey-lapp-14.0  not presently showing differences except one perhaps integrated.
+tkl-nomadic-ocoo-14.0  (Based on turnkey-lapp) Tested in TKLDev Jessie RC1
+
+ *turnkey-lapp not presently showing differences except which is excluded in conf setup of odoo by necessity.
 
  * LAPP Appliance massaged into Odoo Appliance
  * Odoo Proxy set to work on ports 80 (redirected to SSL 443) and Odoo Native 8069
 
-  * Changed Turnkey web control panel 
-    #  displaying correct host when behind proxy (SERVER_ADDR -> HTTP_HOST).
-    reversed in index.php to work properly in this build  (not a critical file)
-    ((HTTP_HOST <- SERVER_ADDR)
+  * Changed Turnkey web control panel to use SERVER_NAME
+    #  (original change)  displaying correct host when behind proxy (SERVER_ADDR -> HTTP_HOST).
+    mofified now in index.php to work properly in this build to create effective Console (default port 12325)
+    (HTTP_HOST -> SERVER_NAME)
   
   * significant changes to conf and host file structures
+  
+  * git clone restricted to --depth-1  (shrinks build significantly)
+    should be able to continue with successive pulls but needs to be tested or perhaps reconfigured.
+    
+    Landis Arnold <larnold@nomadic.net> Fri, 22 May 2015 11:19:00 (mountain time)
   
 turnkey-lapp-13.0 (1) turnkey; urgency=low
 
