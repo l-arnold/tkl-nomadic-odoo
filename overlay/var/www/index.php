@@ -27,8 +27,8 @@
         <div id="container-1">
             <ul>
                 <li><a href="#cp"><span>Control Panel</span></a></li>
-                <li>SET HOSTNAME in WEBMIN to Make this Page Operate Correctly</li>
-                <li>information will follow</li>
+                <li>Can open http in openerp.server.conf to isolate Odoo from SSL </li>
+                <li>remove 127.0.0.1 from both xmlrpc_interface = 127.0.0.1 and netrpc_interface = 127.0.0.1</li>
             </ul>
 
             <div id="cp">
