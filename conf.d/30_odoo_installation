@@ -32,7 +32,7 @@ echo "--------------"
 echo " Install Odoo "
 echo "--------------"
 git clone https://github.com/odoo/odoo.git $ODOO_DIR
-
+rm -rf .git
 chown -R openerp:openerp $ODOO_DIR
 mv $ODOO_DIR_TMP/* $ODOO_DIR
 rm -rf $ODOO_DIR_TMP
