@@ -35,28 +35,28 @@
                 <div class="fragment-content">
                     <div>
                         <a href="https://<?php print
-                        $_SERVER{'HOSTNAME'}; ?>:12320"><img
+                        $_SERVER{'SERVER_NAME'}; ?>:12320"><img
                         src="images/shell.png"/>Web Shell</a>
                     </div>
                     <div>
                         <a href="https://<?php print
-                        $_SERVER{'HOSTNAME'}; ?>:12321"><img
+                        $_SERVER{'SERVER_NAME'}; ?>:12321"><img
                         src="images/webmin.png"/>Webmin</a>
                     </div>
                     <div>
                         <a href="https://<?php print
-                        $_SERVER{'HOSTNAME'}; ?>:12322"><img
+                        $_SERVER{'SERVER_NAME'}; ?>:12322"><img
                         src="images/phppgadmin.png"/>PHPPgAdmin</a>
                     </div>
                     <div>
                        <a href="https://<?php print
-                       $_SERVER{'HOSTNAME'}; ?>/web"><img
+                       $_SERVER{'SERVER_NAME'}; ?>/web"><img
                         src="images/odoo.png"/>Odoo Main (https)</a>
                   </div>
                     <div>
                         <a href="http://<?php print
-                        $_SERVER{'HOSTNAME'}; ?>:8069"><img
-                        src="images/odoo.png"/>Odoo Base (http)</a>
+                        $_SERVER{'SERVER_NAME'}; ?>:8069"><img
+                        src="images/odoo.png"/>Odoo Base http by default NOT Open - Test (http)</a>
                     </div>
                     <div></div>
                     <div></div>
