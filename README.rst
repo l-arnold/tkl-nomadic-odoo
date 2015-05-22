@@ -1,6 +1,9 @@
-Odoo Appliance - Turnkey Linux  (beta from L-Arnold based on CSVsol)
+Odoo Appliance - Turnkey Linux  
 =======================
+(beta from L-Arnold based on CSVsol)
+
 `Odoo`_ is a suite of web based open source business apps.
+
 
 It's main apps include an `Open Source CRM`_, `Website Builder`_, `eCommerce`_, `Project Management`_, `Billing and Accounting`_, `Point of Sale`_, `Human Resources`_, Marketing, Manufacturing, Purchase Management, ...  Each application is standalone but you get a full featured `Open Source ERP`_ if you install several apps as they integrate to each others.
 
