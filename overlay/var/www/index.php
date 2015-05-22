@@ -21,39 +21,41 @@
         </script>
     </head>
 
-    <body>
-        <h1>TurnKey Odoo</h1>
+<body>
+    <h1>TurnKey Odoo</h1>
         
         <div id="container-1">
             <ul>
                 <li><a href="#cp"><span>Control Panel</span></a></li>
+                <li>SET HOSTNAME in WEBMIN to Make this Page Operate Correctly</li>
+                <li>information will follow</li>
             </ul>
 
             <div id="cp">
                 <div class="fragment-content">
                     <div>
                         <a href="https://<?php print
-                        $_SERVER{'SERVER_ADDR'}; ?>:12320"><img
+                        $_SERVER{'HOSTNAME'}; ?>:12320"><img
                         src="images/shell.png"/>Web Shell</a>
                     </div>
                     <div>
                         <a href="https://<?php print
-                        $_SERVER{'SERVER_ADDR'}; ?>:12321"><img
+                        $_SERVER{'HOSTNAME'}; ?>:12321"><img
                         src="images/webmin.png"/>Webmin</a>
                     </div>
                     <div>
                         <a href="https://<?php print
-                        $_SERVER{'SERVER_ADDR'}; ?>:12322"><img
+                        $_SERVER{'HOSTNAME'}; ?>:12322"><img
                         src="images/phppgadmin.png"/>PHPPgAdmin</a>
                     </div>
                     <div>
                        <a href="https://<?php print
-                       $_SERVER{'SERVER_ADDR'}; ?>/web"><img
+                       $_SERVER{'HOSTNAME'}; ?>/web"><img
                         src="images/odoo.png"/>Odoo Main (https)</a>
-                     </div>
+                  </div>
                     <div>
                         <a href="http://<?php print
-                        $_SERVER{'SERVER_ADDR'}; ?>:8069"><img
+                        $_SERVER{'HOSTNAME'}; ?>:8069"><img
                         src="images/odoo.png"/>Odoo Base (http)</a>
                     </div>
                     <div></div>
@@ -79,9 +81,9 @@
                         </li>
                     </ul>
 
-                </div>
-            </div>
+              </div>
+          </div>
 
-        </div>
-    </body>
+</div>
+</body>
 </html>
