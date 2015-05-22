@@ -1,4 +1,4 @@
-Odoo Appliance - Turnkey Linux
+Odoo Appliance - Turnkey Linux  (beta from L-Arnold based on CSVsol)
 =======================
 `Odoo`_ is a suite of web based open source business apps.
 
@@ -17,8 +17,11 @@ and on top of that:
 - The *postgres* user is trusted when connecting over local unix sockets
   (convenience).
 - `Odoo`_ instaled branch: **master**.
-- Odoo secured connection http(port 80) auto redirects to https(port 443)
+- Odoo secured connection (http (port 80) auto redirects to https(port 443)).
 - Odoo connection (listening on port 8069 - will set up to open only to localhost).
+  - You may want to Open this and can do so by going to /opt/openerp/odoo/openerp-server.conf
+    removing 127.0.0.1 from "xmlrpc_interface = 127.0.0.1" and "netrpc_interface = 127.0.0.1"
+    This will allow you to separate SSL Configuration from Odoo Configuration.
 - Odoo App Console (listening on port 12325 -).
 - Webmin module for configuring Samba.
 - File server (`Samba`_) configurations:
@@ -67,5 +70,7 @@ Built from initial Git-Clone made by Carlos' Tkl-Odoo at:
 https://github.com/CLVsol/tkl-odoo
 
 Tailored to work with TKLDEV 14 Jessie
-Apache Configuration files scrambled to allow non Ported, Full SSL view of Odoo
+Apache and other Configuration files to allow non Ported, Full SSL view of Odoo
 SSL Updates will be required as in other Turnkeylinux Appliances
+
+Details on Installation of CSR and TLD Certs to follow and can be found on www.turnkeylinux.org
