@@ -46,7 +46,7 @@
                     <div>
                         <a href="https://<?php print
                         $_SERVER{'SERVER_NAME'}; ?>:12322"><img
-                        src="images/phppgadmin.png"/>PHPPgAdmin</a>
+                        src="images/adminer_logo.png"/>Adminer for Postgresql</a>
                     </div>
                     <div>
                        <a href="https://<?php print
@@ -56,7 +56,7 @@
                     <div>
                         <a href="http://<?php print
                         $_SERVER{'SERVER_NAME'}; ?>:8069"><img
-                        src="images/odoo.png"/>Odoo Base http by default NOT Open - Test (http)</a>
+                        src="images/odoo.png"/>Odoo CONFIG Only (http)</a>
                     </div>
                     <div></div>
                     <div></div>
