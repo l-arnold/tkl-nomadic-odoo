@@ -1,9 +1,10 @@
 Odoo:       https://$ipaddr
 Web shell:  https://$ipaddr:12320
 Webmin:     https://$ipaddr:12321
-SMB/CIFS:   \\$ipaddr\Storage (ports 139/445)
 AdminerDBM: https://$ipaddr:12322
+SMB/CIFS:   \\$ipaddr\Storage (ports 139/445)
 SSH/SFTP:   root@$ipaddr (port 22)
-Console:    https://$ipaddr:12325
+Web Console:http://$ipaddr:12325
 
-(can open 8069 to http in odoo config)
+Reboot Once at first Build
+8069 must be opened by rem 127.0.0.1 in Odoo Config
