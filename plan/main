@@ -55,7 +55,7 @@ antiword            # 30  Frequent - Converts MS Word files to text, PS, PDF and
 
 python-setuptools   # 31  Easily download, build, install, upgrade, and uninstall Python packages.
 xfonts-base         # 32  standard fonts for X http://www.turnkeylinux.org/forum/general/20150402/installing-odoo-step-step-tkl
-
-wkhtmltopdf         # 33  Command line utilities to convert html to pdf or image using WebKit // Jessie Alt to http://www.turnkeylinux.org/forum/general/20150402/installing-odoo-step-step-tkl
+xfonts-100dpi       # 32.5  Can run xfonts-75dpi and consider xfonts-terminus
+# wkhtmltopdf         33  (12.2.1 evidently not compat at time of build) Command line utilities to convert html to pdf or image using WebKit // Jessie Alt to http://www.turnkeylinux.org/forum/general/20150402/installing-odoo-step-step-tkl
 python-imaging      # 34  Provides image processing functionality and supports many file formats.
 
