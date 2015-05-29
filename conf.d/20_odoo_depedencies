@@ -8,7 +8,7 @@ cd ..
 
 wget http://downloads.sourceforge.net/wkhtmltopdf/wkhtmltox-0.12.2.1_linux-jessie-amd64.deb -i --force-depends wkhtmltox-*.deb
 dpkg -i wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
-apt-get -y -f install wkhtmltox*.deb
+apt-get -y -f install wkhtmltox*.
 
 cp /usr/local/bin/wkhtmltopdf /usr/bin
 cp /usr/local/bin/wkhtmltoimage /usr/bin
