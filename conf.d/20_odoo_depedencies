@@ -6,14 +6,9 @@ cd gdata-2.0.17
 python setup.py install
 cd ..
 
------------------
-apt-get install xfonts-base
-apt-get install xfonts-100dpi 
 wget http://downloads.sourceforge.net/wkhtmltopdf/wkhtmltox-0.12.2.1_linux-jessie-amd64.deb -i --force-depends wkhtmltox-*.deb
-
 dpkg -i wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
-
-apt-get -y -f install
+apt-get -y -f install wkhtmltox*.deb
 
 cp /usr/local/bin/wkhtmltopdf /usr/bin
 cp /usr/local/bin/wkhtmltoimage /usr/bin
