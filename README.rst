@@ -1,5 +1,7 @@
 Odoo Appliance - Turnkey Linux  
 =======================
+At RC2, available as ISO on https://sourceforge.net/projects/tklnomadicodoo/
+
 (beta from L-Arnold based on CSVsol)
 
 `Odoo`_ is a suite of web based open source business apps.
