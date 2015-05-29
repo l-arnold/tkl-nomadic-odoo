@@ -1,6 +1,8 @@
-tkl-nomadic-ocoo-14.0  (Based on turnkey-lapp) Tested in TKLDev Jessie RC1
+tkl-nomadic-odoo - 14 (RC2)  Implemented wkhtmltox in build.  changed console screens to adminer etc.
 
- *turnkey-lapp not presently showing differences except which is excluded in conf setup of odoo by necessity.
+tkl-nomadic-ocoo-14.0 (RC1)  (Based on turnkey-lapp) Tested in TKLDev Jessie RC1
+
+ *turnkey-lapp not presently showing differences.
 
  * LAPP Appliance massaged into Odoo Appliance
  * Odoo Proxy set to work on ports 80 (redirected to SSL 443) and Odoo Native 8069
