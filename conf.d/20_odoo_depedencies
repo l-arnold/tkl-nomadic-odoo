@@ -1,20 +1,16 @@
 #!/bin/sh -ex
 
-GDATA_VER = 2.0.17
-WKHTMLTOX_VER = 0.12.2.1
-
 cd /opt/openerp
-wget http://gdata-python-client.googlecode.com/files/gdata-${GDATA_VER}.tar.gz
-tar -zxvf gdata-${GDATA_VER}.tar.gz
-chown -R openerp:openerp gdata-${GDATA_VER}
-cd gdata-#{GDATA_VER}
+wget http://gdata-python-client.googlecode.com/files/gdata-2.0.17.tar.gz
+tar -zxvf gdata-2.0.17.tar.gz
+chown -R openerp:openerp gdata-2.0.17
+cd gdata-2.0.17
 python setup.py install
+cd ..
 
-cd /
 
+wget http://downloads.sourceforge.net/wkhtmltopdf/wkhtmltox-0.12.2.1_linux-jessie-amd64.deb 
+dpkg -i wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
 
-wget http://downloads.sourceforge.net/wkhtmltopdf/wkhtmltox-${WKHTMLTOX_VER}_linux-${REL}-${ARCH}.deb 
-dpkg -i wkhtmltox-${WKHTMLTOX_VER}_linux-${REL}-${ARCH}.deb
-rm wkhtmltox-${WKHTMLTOX_VER}_linux-${REL}-${ARCH}.deb
 cp /usr/local/bin/wkhtmltopdf /usr/bin
 cp /usr/local/bin/wkhtmltoimage /usr/bin
