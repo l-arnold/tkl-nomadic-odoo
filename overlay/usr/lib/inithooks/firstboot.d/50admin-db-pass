@@ -5,3 +5,12 @@
 
 [ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
 $INITHOOKS_PATH/bin/odoo-db-pass.py odoo-db-pass  --pass="$ODOO_PASS"
+
+From Tendenci:
+  #!/bin/bash -e
+# set tendenci admin password and email
+
+. /etc/default/inithooks
+
+[ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
+$INITHOOKS_PATH/bin/tendenci.py --pass="$APP_PASS" --email="$APP_EMAIL"
