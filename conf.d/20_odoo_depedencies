@@ -9,9 +9,11 @@ tar -zxvf gdata-${GDATA_VER}.tar.gz
 chown -R openerp:openerp gdata-${GDATA_VER}
 cd gdata-#{GDATA_VER}
 python setup.py install
-cd ..
 
+cd /
 
+mkdir /opt/wkhtmltopdf/wkhtmltox
+mkdir /opt/wkhtmltopdf/wkhtmltox
 wget http://downloads.sourceforge.net/wkhtmltopdf/wkhtmltox-${WKHTMLTOX_VER}_linux-${REL}-${ARCH}.deb 
 dpkg -i wkhtmltox-${WKHTMLTOX_VER}_linux-${REL}-${ARCH}.deb
 
