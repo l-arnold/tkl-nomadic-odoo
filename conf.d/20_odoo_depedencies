@@ -12,10 +12,9 @@ python setup.py install
 
 cd /
 
-mkdir /opt/wkhtmltopdf/wkhtmltox
-mkdir /opt/wkhtmltopdf/wkhtmltox
+
 wget http://downloads.sourceforge.net/wkhtmltopdf/wkhtmltox-${WKHTMLTOX_VER}_linux-${REL}-${ARCH}.deb 
 dpkg -i wkhtmltox-${WKHTMLTOX_VER}_linux-${REL}-${ARCH}.deb
-
+rm wkhtmltox-${WKHTMLTOX_VER}_linux-${REL}-${ARCH}.deb
 cp /usr/local/bin/wkhtmltopdf /usr/bin
 cp /usr/local/bin/wkhtmltoimage /usr/bin
