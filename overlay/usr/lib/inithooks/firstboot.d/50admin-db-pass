@@ -4,4 +4,5 @@
 . /etc/default/inithooks
 
 [ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
-$INITHOOKS_PATH/bin/odoo.py odoo-db-pass  --pass="$ODOO_PASS"
+# $INITHOOKS_PATH/bin/odoo.py odoo-db-pass  --pass="$ODOO_PASS"
+INITHOOKS_PATH/bin/setpass.py odoo-db-pass  --pass="$ODOO_PASS"
