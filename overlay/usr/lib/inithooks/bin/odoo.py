@@ -11,6 +11,6 @@ updateconf() {
     CONF=/opt/openerp/odoo/openerp-server.conf
 
     sed -i "s/#admin_passwd = admin / admin password = ${ODOO_PASS}" $CONF
-    sed -i "s/#db_password = openuser / db_password = ${DB_PASS}" $CONF
+    sed -i "s/#db_password = openuser / db_password = ${OPENERP_PASS}" $CONF
 }
 
