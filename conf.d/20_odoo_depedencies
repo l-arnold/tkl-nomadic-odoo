@@ -3,7 +3,7 @@
 cd /opt/openerp
 wget http://gdata-python-client.googlecode.com/files/gdata-2.0.17.tar.gz
 tar -zxvf gdata-2.0.17.tar.gz
-chown -R openerp: gdata-2.0.17
+chown -R openerp:openerp gdata-2.0.17
 cd gdata-2.0.17
 python setup.py install
 cd ..
