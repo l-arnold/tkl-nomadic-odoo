@@ -1,5 +1,3 @@
-admin_passwd =
-
 #!/bin/bash -e
 # set odoo-db-pass aka ODOO_PASS password
 
