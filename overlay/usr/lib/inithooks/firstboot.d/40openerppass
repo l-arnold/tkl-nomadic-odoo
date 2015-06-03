@@ -1,7 +1,0 @@
-#!/bin/bash -e
-# set openerp user password
-
-. /etc/default/inithooks
-
-[ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
-$INITHOOKS_PATH/bin/setpass.py openerp--pass="$OPENERP_PASS"
