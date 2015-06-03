@@ -57,7 +57,9 @@ MAGENTO_API_DIR=/opt/openerp/oca/openlabs/magento-api
 mkdir $MAGENTO_API_DIR
 git clone https://github.com/openlabs/magento --depth=1 $MAGENTO_API_DIR 
 chown -R openerp:openerp $MAGENTO_API_DIR
+cd $MAGENTO_API_DIR
 python setup.py install
+cd /
 echo " Finished Install Magento API"
 echo " "
 
