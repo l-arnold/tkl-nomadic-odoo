@@ -11,36 +11,42 @@ chown -R openerp:openerp $OCA_SERVER_TOOLS_DIR
 echo "--------------------------"
 echo " Install Odoo Connector "
 CONNECTOR_DIR=/opt/openerp/oca/connector
+mkdir $CONNECTOR_DIR
 $ git clone https://github.com/OCA/connector.git --depth=1 $CONNECTOR_DIR -b 8.0
 chown -R openerp:openerp $CONNECTOR_DIR
 echo " "
 
 echo " Install Connector - Ecommerce"
 CONNECTOR_ECOM_DIR=/opt/openerp/oca/connector-ecommerce
+mkdir #CONNECTOR_ECOM_DIR
 $ git clone https://github.com/OCA/connector-ecommerce.git --depth=1 $CONNECTOR_ECOM_DIR -b 8.0
 chown -R openerp:openerp $CONNECTOR_ECOM_DIR
 echo " "
 
 echo " Install Connector - Magento"
 CONNECTOR_MAGENTO_DIR=/opt/openerp/oca/connector-magento
+mkdir $CONNECTOR_MAGENTO_DIR
 $ git clone https://github.com/OCA/connector-magento.git --depth=1 $CONNECTOR_MAGENTO_DIR -b 8.0
 chown -R openerp:openerp $CONNECTOR_MAGENTO_DIR
 echo " "
 
 echo " Install- Ecommerce GIT 2"
 E_COMMERCE_DIR=/opt/openerp/oca/e-commerce
+mkdir $E_COMMERCE_DIR
 $ git clone https://github.com/OCA/e-commerce.git --depth=1 $E_COMMERCE_DIR -b 8.0
 chown -R openerp:openerp $E_COMMERCE_DIR
 echo " "
 
 echo " Install Product Attributes"
 PRODUCT_ATTRIB_DIR=/opt/openerp/oca/product-attrib
+mkdir $PRODUCT_ATTRIB_DIR
 $ git clone https://github.com/OCA/product-attribute.git --depth=1 $PRODUCT_ATTRIB_DIR -b 8.0
 chown -R openerp:openerp $PRODUCT_ATTRIB_DIR
 echo " "
 
 echo " Install Sale - Workflow"
 SALE_WORKFLOW_DIR=/opt/openerp/oca/sale-workflow
+mkdir $SALE_WORKFLOW_DIR
 $ git clone https://github.com/OCA/sale-workflow.git --depth=1 $SALE_WORKFLOW_DIR -b 8.0
 chown -R openerp:openerp $SALE_WORKFLOW_DIR
 echo " "
