@@ -18,7 +18,7 @@ echo " "
 
 echo " Install Connector - Ecommerce"
 CONNECTOR_ECOM_DIR=/opt/openerp/oca/connector-ecommerce
-mkdir #CONNECTOR_ECOM_DIR
+mkdir $CONNECTOR_ECOM_DIR
 git clone https://github.com/OCA/connector-ecommerce.git --depth=1 $CONNECTOR_ECOM_DIR -b 8.0
 chown -R openerp:openerp $CONNECTOR_ECOM_DIR
 echo " "
