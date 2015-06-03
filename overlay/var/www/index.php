@@ -47,10 +47,15 @@
                         src="images/adminer_logo.png"/>Adminer for Postgresql</a>
                     </div>
                     <div>
-                       <a href="https://<?php print
+                       <a href="http://<?php print
                        $_SERVER{'SERVER_NAME'}; ?>/web"><img
-                        src="images/odoo.png"/>Odoo Main (https)</a>
-                  </div>
+                        src="images/odoo.png"/>Odoo Main (http)</a>
+                    </div>
+                     <div>
+                       <a href="http://<?php print
+                       $_SERVER{'SERVER_NAME'}/docs/; ?>/web"><img
+                        src="images/odoo.png"/>Odoo Docs in Prog (http)</a>
+                    </div>
                  
                     <div></div>
                     <div></div>
