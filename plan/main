@@ -60,3 +60,4 @@ xfonts-100dpi       # 32.5  Can run xfonts-75dpi and consider xfonts-terminus
 
 python-imaging      # 34  Provides image processing functionality and supports many file formats.
 
+magento             # For Connector - Magento 
