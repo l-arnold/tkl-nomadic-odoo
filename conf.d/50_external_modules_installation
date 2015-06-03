@@ -52,3 +52,14 @@ chown -R openerp:openerp $SALE_WORKFLOW_DIR
 echo " "
 echo "--------------------------"
 
+echo " Install Magento API"
+MAGENTO_API_DIR=/opt/openerp/oca/openlabs/magento-api
+mkdir $MAGENTO_API_DIR
+git clone https://github.com/openlabs/magento --depth=1 $MAGENTO_API_DIR 
+chown -R openerp:openerp $MAGENTO_API_DIR
+python setup.py install
+echo " Finished Install Magento API"
+echo " "
+
+echo "--------------------------"
+
