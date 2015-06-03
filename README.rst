@@ -13,21 +13,30 @@ This appliance is based on `LAPP stack`_, including all the standard features in
 and on top of that:
 
 - SSL support out of the box.
+
+- WebShell SSH on   Port:12320
+- Webmin On         Port:12321
+- Adminer DBMgr on  Port: 12322
+- WebConsole:   on  Port: 12325
+  All management is linked from Webconsole as well as cursory documentation.
+
 - PHP, Python and Perl support for Apache2 and PostgreSQL.
 - `Adminer`_ administration frontend for PostgreSQL (listening on
   port 12322 - uses SSL).
-- Webmin modules for configuring Apache2, PHP and PostgreSQL.
+  
+- Webmin modules for configuring Apache2, PHP and PostgreSQL and system details.
 - PostgreSQL listening on localhost (security)
 - PostgreSQL password encryption enabled by default (security).
 - The *postgres* user is trusted when connecting over local unix sockets
   (convenience).
 - `Odoo`_ instaled branch: **master**.
 - Odoo secured connection (http (port 80) auto redirects to https(port 443)).
-- Odoo connection (listening on port 8069 - will set up to open only to localhost).
+
+- Odoo connection (listening on port 8069 -  Set up by default to open only to localhost).
   - You may want to Open this and can do so by going to /opt/openerp/odoo/openerp-server.conf
     removing 127.0.0.1 from "xmlrpc_interface = 127.0.0.1" and "netrpc_interface = 127.0.0.1"
     This will allow you to separate SSL Configuration from Odoo Configuration.
-- Odoo App Console (listening on port 12325 -).
+
 - Webmin module for configuring Samba.
 - File server (`Samba`_) configurations:
    - Preconfigured wordgroup: WORKGROUP
@@ -54,9 +63,9 @@ Credentials *(passwords set at first boot)*
 Credentials *(passwords set by default)*
 ----------------------------------------
 
--  Odoo Master password: **admin**
--  Odoo openuser password: **openuser**
-
+-  Odoo Master password: **admin**  (Change in Odoo Config file and Odoo DB Manager before any Data Base is created)
+-  Odoo openuser password: **openuser**  ( Change in Postgresql inside Webmin then also Odoo Config File)
+  
 .. _Odoo: https://www.odoo.com
 .. _Open Source CRM: https://www.odoo.com/page/crm
 .. _Website Builder: https://www.odoo.com/page/website-builder
@@ -77,5 +86,6 @@ https://github.com/CLVsol/tkl-odoo
 Tailored to work with TKLDEV 14 Jessie
 Apache and other Configuration files to allow non Ported, Full SSL view of Odoo
 SSL Updates will be required as in other Turnkeylinux Appliances
+RC ISO's available under "Files" at  https://sourceforge.net/p/tklnomadicodoo/wiki/Home/
 
 Details on Installation of CSR and TLD Certs to follow and can be found on www.turnkeylinux.org
