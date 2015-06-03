@@ -27,12 +27,10 @@
         <div id="container-1">
             <ul>
                 <li><a href="#cp"><span>Control Panel</span></a></li>
-                <li>Can open http in openerp-server.conf to isolate Odoo from SSL </li>
-                <li>remove 127.0.0.1 from both xmlrpc_interface = 127.0.0.1 and netrpc_interface = 127.0.0.1</li>
             </ul>
 
             <div id="cp">
-                <div class="fragment-content">
+              <div class="fragment-content">
                     <div>
                         <a href="https://<?php print
                         $_SERVER{'SERVER_NAME'}; ?>:12320"><img
@@ -61,8 +59,8 @@
                     <ul>
                         <li>
                          <a href="http://<?php print
-                        $_SERVER{'SERVER_NAME'}; ?>:8069"></a>
-                          (to enable: remove 127.0.0.1 from XMLRPC in odoo-server.conf)
+                        $_SERVER{'SERVER_NAME'}; ?>:8069">
+                          Odoo Port Test 8069 </a>( Enable by remove 127.0.0.1 from XMLRPC odoo-server.conf)
                         </li>
                         <li>
                           <a href="/phpinfo.php">Apache PHP information</a>
