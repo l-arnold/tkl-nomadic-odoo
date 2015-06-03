@@ -53,16 +53,17 @@
                        $_SERVER{'SERVER_NAME'}; ?>/web"><img
                         src="images/odoo.png"/>Odoo Main (https)</a>
                   </div>
-                    <div>
-                        <a href="http://<?php print
-                        $_SERVER{'SERVER_NAME'}; ?>:8069"><img
-                        src="images/odoo.png"/>Odoo CONFIG Only (http)</a>
-                    </div>
+                 
                     <div></div>
                     <div></div>
 
                     <h2>Resources and references</h2>
                     <ul>
+                        <li>
+                         <a href="http://<?php print
+                        $_SERVER{'SERVER_NAME'}; ?>:8069"></a>
+                          (to enable: remove 127.0.0.1 from XMLRPC in odoo-server.conf)
+                        </li>
                         <li>
                           <a href="/phpinfo.php">Apache PHP information</a>
                           (to disable: rm /var/www/phpinfo.php)
