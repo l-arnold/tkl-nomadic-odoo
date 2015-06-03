@@ -4,7 +4,7 @@ Webmin:     https://$ipaddr:12321
 AdminerDBM: https://$ipaddr:12322
 SMB/CIFS:   \\$ipaddr\Storage (ports 139/445)
 SSH/SFTP:   root@$ipaddr (port 22)
-Web Console:http://$ipaddr:12325
+Web Console:https://$ipaddr:12325
 
 Change Admin Pass at first Odoo Install
         https://$ipaddr/web/database/manager
