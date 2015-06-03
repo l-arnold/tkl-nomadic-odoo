@@ -10,8 +10,6 @@ python-pygresql          # PostgreSQL module for Python
 libapache2-mod-perl2     # Integration of perl with the Apache2 web server
 libdbd-pg-perl           # Perl DBI driver for the PostgreSQL database server
 
-python-pip
-
 python-dateutil     # 1   dateutil : provides powerful extensions to the standard datetime module, available in Python 2.3+.
 python-feedparser   # 2   universal Feed Parser for Python
 python-gdata        # 3   Google Data Python client library
