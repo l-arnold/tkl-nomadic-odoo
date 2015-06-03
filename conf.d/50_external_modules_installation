@@ -1,10 +1,9 @@
 #!/bin/sh -ex
 
-OCA_SERVER_TOOLS_DIR=/opt/openerp/oca/oca_server_tools
-
 echo "--------------------------"
 echo " Install OCA Server Tools "
 echo "--------------------------"
+OCA_SERVER_TOOLS_DIR=/opt/openerp/oca/oca_server_tools
 git clone https://github.com/OCA/server-tools.git $OCA_SERVER_TOOLS_DIR --branch 8.0
 chown -R openerp:openerp $OCA_SERVER_TOOLS_DIR
 
