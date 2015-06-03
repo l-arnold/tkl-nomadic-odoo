@@ -6,5 +6,6 @@ SMB/CIFS:   \\$ipaddr\Storage (ports 139/445)
 SSH/SFTP:   root@$ipaddr (port 22)
 Web Console:http://$ipaddr:12325
 
-Reboot Once at first Build
-8069 must be opened by rem 127.0.0.1 in Odoo Config
+Change Admin Pass at first Odoo Install
+        https://$ipaddr/web/database/manager
+Can open 8069 by rem 127.0.0.1 in openerp-server.conf
