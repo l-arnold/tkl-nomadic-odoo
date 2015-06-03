@@ -38,7 +38,7 @@ chown -R openerp:openerp $E_COMMERCE_DIR
 echo " "
 
 echo " Install Product Attributes"
-PRODUCT_ATTRIB_DIR=/opt/openerp/oca/product-attrib
+PRODUCT_ATTRIB_DIR=/opt/openerp/oca/product-attribute
 mkdir $PRODUCT_ATTRIB_DIR
 git clone https://github.com/OCA/product-attribute.git --depth=1 $PRODUCT_ATTRIB_DIR -b 8.0
 chown -R openerp:openerp $PRODUCT_ATTRIB_DIR
