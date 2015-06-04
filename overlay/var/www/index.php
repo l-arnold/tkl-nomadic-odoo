@@ -52,11 +52,11 @@
                         src="images/odoo.png"/>Odoo Main (https)</a>
                     </div>
                     <div>
-                       <a href="https://<?php print
+                       <a href="http://<?php print
                        $_SERVER{'SERVER_NAME'}; ?>/doc"><img
                         src="images/filemanager.png"/>Documentation (https)</a>
                     </div>                 
-                    <div></div>
+                 
                     <div></div>
 
                     <h2>Resources and references</h2>
@@ -64,7 +64,7 @@
                         <li>
                          <a href="http://<?php print
                         $_SERVER{'SERVER_NAME'}; ?>:12325">
-                          WebConsole HTTP 12325 </a> ( Open HTTP if SSL Configuration Needed)
+                          WebConsole (here) HTTP 12325 </a> ( Open HTTP if SSL Configuration Needed)
                         </li>
                         <li>
                          <a href="http://<?php print
