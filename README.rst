@@ -1,16 +1,13 @@
 Odoo Appliance - Turnkey Linux  
 =======================
-At RC2, available as ISO on https://sourceforge.net/projects/tklnomadicodoo/
+At RC1,RC2, RC3, available as ISO on https://sourceforge.net/projects/tklnomadicodoo/
 
-(beta from L-Arnold based on CSVsol)
+`Odoo`_ is a suite of web based open source business apps.  TKL-Nomadic-Odoo is a prebuilt install that integrates the current Odoo Master Channel, and which has been preconfigured with Odoo Community Association Addon Modules - both OCA-Server Tools and the OCA - Magento Connector (Connector framework).
 
-`Odoo`_ is a suite of web based open source business apps.
-
-
+About Odoo.
 It's main apps include an `Open Source CRM`_, `Website Builder`_, `eCommerce`_, `Project Management`_, `Billing and Accounting`_, `Point of Sale`_, `Human Resources`_, Marketing, Manufacturing, Purchase Management, ...  Each application is standalone but you get a full featured `Open Source ERP`_ if you install several apps as they integrate to each others.
 
-This appliance is based on `LAPP stack`_, including all the standard features in `TurnKey Core`_,
-and on top of that:
+This appliance is based on the Turnkeylinux (TKL) `LAPP stack`_, which integrates Linux, Apache Web, and PostgreSQL and includes all the standard features in `TurnKey Core`_, and on top of that:
 
 - SSL support out of the box.
 
@@ -63,8 +60,8 @@ Credentials *(passwords set at first boot)*
 Credentials *(passwords set by default)*
 ----------------------------------------
 
--  Odoo Master password: **admin**  (Change in Odoo Config file and Odoo DB Manager before any Data Base is created)
--  Odoo openuser password: **openuser**  ( Change in Postgresql inside Webmin then also Odoo Config File)
+-  Odoo Master password: **admin**  (Should Change in Odoo Config file and Odoo DB Manager before any Data Base is created)
+-  Odoo openuser password: **openuser**  (Firstboot resets - changes both openuser Postgresql user and Odoo config file)
   
 .. _Odoo: https://www.odoo.com
 .. _Open Source CRM: https://www.odoo.com/page/crm
