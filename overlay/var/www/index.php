@@ -50,13 +50,22 @@
                        <a href="https://<?php print
                        $_SERVER{'SERVER_NAME'}; ?>/web"><img
                         src="images/odoo.png"/>Odoo Main (https)</a>
-                  </div>
-                 
+                    </div>
+                    <div>
+                       <a href="https://<?php print
+                       $_SERVER{'SERVER_NAME'}; ?>/doc"><img
+                        src="images/filemanager.png"/>Documentation (https)</a>
+                    </div>                 
                     <div></div>
                     <div></div>
 
                     <h2>Resources and references</h2>
                     <ul>
+                        <li>
+                         <a href="http://<?php print
+                        $_SERVER{'SERVER_NAME'}; ?>:12325">
+                          WebConsole HTTP 12325 </a> ( Open HTTP if SSL Configuration Needed)
+                        </li>
                         <li>
                          <a href="http://<?php print
                         $_SERVER{'SERVER_NAME'}; ?>:8069">
@@ -71,7 +80,7 @@
                           (to disable: a2dismod status)
                         </li>
                         <li>
-                          <a href="https://github.com/l-arnold/tkl-nomadic-odoo">TurnKey Odoo on GitHub</a>
+                          <a href="https://github.com/l-arnold/tkl-nomadic-odoo">TKL Nomadic Odoo  on GitHub</a>
                           (l-arnold/tkl-nomadic-odoo)
                         </li>
                         <li>
