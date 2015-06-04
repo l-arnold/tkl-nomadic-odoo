@@ -1,3 +1,13 @@
+* As of v10 TKL-Nomadic-Connector  (known also as TKL-Nomadic-Odoo)  Will become RC3
+
+Added Directory Browsing and Docs Link from WebConsole
+
+Made WebConsole route in HTTPS and HTTP
+
+Added full pulls for Magento API (OpenLabs) into ISO
+
+Added full pulls for OCA / Connector into ISO
+
 tkl-nomadic-odoo - 14 (RC2)  Implemented wkhtmltox in build.  changed console screens to adminer etc.
 
 tkl-nomadic-ocoo-14.0 (RC1)  (Based on turnkey-lapp) Tested in TKLDev Jessie RC1
