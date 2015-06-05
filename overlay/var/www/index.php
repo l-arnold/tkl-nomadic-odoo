@@ -67,8 +67,8 @@
                           WebConsole (here) HTTP 12325 </a> 
                           <li>(Open HTTP if SSL Configuration Needed)
                         </li>
-                        <li><a href="http://<?php print
-                        $_SERVER{'SERVER_NAME'}; ?>:12325">WebConsole (here) HTTPS 12324 </a> 
+                        <li><a href="https://<?php print
+                        $_SERVER{'SERVER_NAME'}; ?>:12324">WebConsole (here) HTTPS 12324 </a> 
                         <li>(Open HTTP for SSL Configuration Needed) </li>
                         </li>
                         <li>
