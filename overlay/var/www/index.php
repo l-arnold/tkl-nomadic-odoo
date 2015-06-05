@@ -53,7 +53,7 @@
                     </div>
                     <div>
                        <a href="http://<?php print
-                       $_SERVER{'SERVER_NAME'}; ?>/docs/"><img
+                       $_SERVER{'SERVER_NAME'}; ?>:12324">/docs/"><img
                         src="images/filemanager.png"/>Documentation (https)</a>
                     </div>                 
                  
@@ -68,6 +68,7 @@
                         </li>
                         <li><a href="http://<?php print
                         $_SERVER{'SERVER_NAME'}; ?>:12325">WebConsole (here) HTTPS 12324 </a> ( Open HTTP for SSL Configuration Needed) </li>
+                        </li>
                         <li>
                          <a href="http://<?php print
                         $_SERVER{'SERVER_NAME'}; ?>:8069">
