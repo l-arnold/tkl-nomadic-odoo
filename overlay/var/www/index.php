@@ -59,13 +59,15 @@
                  
                     <div></div>
 
-                    <h2>Resources and references</h2>
+                <h2>Resources and references</h2>
                     <ul>
                         <li>
                          <a href="http://<?php print
                         $_SERVER{'SERVER_NAME'}; ?>:12325">
                           WebConsole (here) HTTP 12325 </a> ( Open HTTP if SSL Configuration Needed)
                         </li>
+                        <li><a href="http://<?php print
+                        $_SERVER{'SERVER_NAME'}; ?>:12325">WebConsole (here) HTTPS 12324 </a> ( Open HTTP for SSL Configuration Needed) </li>
                         <li>
                          <a href="http://<?php print
                         $_SERVER{'SERVER_NAME'}; ?>:8069">
@@ -80,7 +82,7 @@
                           (to disable: a2dismod status)
                         </li>
                         <li>
-                          <a href="https://github.com/l-arnold/tkl-nomadic-odoo">TKL Nomadic Odoo  on GitHub</a>
+                          <a href="https://github.com/l-arnold/tkl-nomadic-odoo">TKL Nomadic Odoo - GitHub</a>
                           (l-arnold/tkl-nomadic-odoo)
                         </li>
                         <li>
