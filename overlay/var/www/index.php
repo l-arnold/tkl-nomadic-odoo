@@ -53,7 +53,7 @@
                     </div>
                     <div>
                        <a href="https://<?php print
-                       $_SERVER{'SERVER_NAME'}; ?>:12324/docs/">"><img
+                       $_SERVER{'SERVER_NAME'}; ?>:12324/docs/"><img
                         src="images/filemanager.png"/>Documentation (https)</a>
                     </div>                 
                  
@@ -64,15 +64,18 @@
                         <li>
                          <a href="http://<?php print
                         $_SERVER{'SERVER_NAME'}; ?>:12325">
-                          WebConsole (here) HTTP 12325 </a> ( Open HTTP if SSL Configuration Needed)
+                          WebConsole (here) HTTP 12325 </a> 
+                          <li>(Open HTTP if SSL Configuration Needed)
                         </li>
                         <li><a href="http://<?php print
-                        $_SERVER{'SERVER_NAME'}; ?>:12325">WebConsole (here) HTTPS 12324 </a> ( Open HTTP for SSL Configuration Needed) </li>
+                        $_SERVER{'SERVER_NAME'}; ?>:12325">WebConsole (here) HTTPS 12324 </a> 
+                        <li>(Open HTTP for SSL Configuration Needed) </li>
                         </li>
                         <li>
                          <a href="http://<?php print
                         $_SERVER{'SERVER_NAME'}; ?>:8069">
-                          Odoo Port Test 8069 </a>( Enable by remove 127.0.0.1 from XMLRPC odoo-server.conf)
+                          Odoo Port Test 8069 </a>
+                         <li>(Enable by remove 127.0.0.1 from XMLRPC odoo-server.conf)
                         </li>
                         <li>
                           <a href="/phpinfo.php">Apache PHP information</a>
