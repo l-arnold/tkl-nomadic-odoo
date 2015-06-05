@@ -52,8 +52,8 @@
                         src="images/odoo.png"/>Odoo Main (https)</a>
                     </div>
                     <div>
-                       <a href="http://<?php print
-                       $_SERVER{'SERVER_NAME'}; ?>:12324">/docs/"><img
+                       <a href="https://<?php print
+                       $_SERVER{'SERVER_NAME'}; ?>:12324/docs/">"><img
                         src="images/filemanager.png"/>Documentation (https)</a>
                     </div>                 
                  
