@@ -58,4 +58,3 @@ a2enmod ssl proxy_http headers rewrite
 a2ensite openerp-ssl.conf
 a2ensite odoo-80.conf
 a2ensite odoo-12325.conf
-a2ensite odoo-12324-ssl.conf
