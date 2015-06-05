@@ -53,7 +53,7 @@
                     </div>
                     <div>
                        <a href="http://<?php print
-                       $_SERVER{'SERVER_NAME'}; ?>/doc"><img
+                       $_SERVER{'SERVER_NAME'}; ?>/docs/"><img
                         src="images/filemanager.png"/>Documentation (https)</a>
                     </div>                 
                  
