@@ -106,7 +106,7 @@ echo " "
 echo "--------------------------"
 
 echo " Install OCA - COMMISSION"
-OCA_COMMISSION_DIR=/opt/openerp/oca/donation
+OCA_COMMISSION_DIR=/opt/openerp/oca/commission
 mkdir $OCA_COMMISSION_DIR
 git clone https://github.com/OCA/commission.git --depth=1 $OCA_COMMISSION_DIR -b 8.0
 chown -R openerp:openerp $OCA_COMMISSION_DIR
