@@ -51,10 +51,4 @@ touch /var/run/openerp-server.pid
 chown openerp /var/run/openerp-server.pid
 chown -R openerp:openerp $ODOO_DIR
 
-echo "------------------------"
-echo " Make SSL work properly "
-echo "------------------------"
-a2enmod ssl proxy_http headers rewrite
-a2ensite openerp-ssl.conf
-a2ensite odoo-80.conf
-a2ensite odoo-12325.conf
+
