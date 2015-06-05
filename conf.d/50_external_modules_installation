@@ -65,3 +65,50 @@ echo " "
 
 echo "--------------------------"
 
+echo " Install OCA Account-Financial-Tools"
+ACCOUNT_FINANCIAL_TOOLS=/opt/openerp/oca/account-financial-tools
+mkdir $ACCOUNT_FINANCIAL_TOOLS
+git clone https://github.com/OCA/account-financial-tools.git --depth=1 $ACCOUNT_FINANCIAL_TOOLS -b 8.0
+chown -R openerp:openerp $ACCOUNT_FINANCIAL_TOOLS
+echo " "
+echo "--------------------------"
+
+echo " Install OCA - Connector Interfaces"
+CONNECTOR_INTERFACES_DIR=/opt/openerp/oca/connector-interfaces
+mkdir $CONNECTOR_INTERFACES_DIR
+git clone https://github.com/OCA/connector-interfaces.git --depth=1 $CONNECTOR_INTERFACES_DIR -b 8.0
+chown -R openerp:openerp $CONNECTOR_INTERFACES_DIR
+echo " "
+echo "--------------------------"
+
+echo " Install OCA - WEB"
+OCA_WEB_DIR=/opt/openerp/oca/web
+mkdir $OCA_WEB_DIR
+git clone https://github.com/OCA/web.git --depth=1 $OCA_WEB_DIR -b 8.0
+chown -R openerp:openerp $OCA_WEB_DIR
+echo " "
+echo "--------------------------"
+
+echo " Install OCA - WEBSITE"
+OCA_WEBSITE_DIR=/opt/openerp/oca/website
+mkdir $OCA_WEBSITE_DIR
+git clone https://github.com/OCA/website.git --depth=1 $OCA_WEBSITE_DIR -b 8.0
+chown -R openerp:openerp $OCA_WEBSITE_DIR
+echo " "
+echo "--------------------------"
+
+echo " Install OCA - DONATION"
+OCA_DONATION_DIR=/opt/openerp/oca/donation
+mkdir $OCA_DONATION_DIR
+git clone https://github.com/OCA/donation.git --depth=1 $OCA_DONATION_DIR -b 8.0
+chown -R openerp:openerp $OCA_DONATION_DIR
+echo " "
+echo "--------------------------"
+
+echo " Install OCA - COMMISSION"
+OCA_COMMISSION_DIR=/opt/openerp/oca/donation
+mkdir $OCA_COMMISSION_DIR
+git clone https://github.com/OCA/commission.git --depth=1 $OCA_COMMISSION_DIR -b 8.0
+chown -R openerp:openerp $OCA_COMMISSION_DIR
+echo " "
+echo "--------------------------"
