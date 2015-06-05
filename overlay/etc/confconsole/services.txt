@@ -7,6 +7,6 @@ SSH/SFTP:   root@$ipaddr (port 22)
 Web Console:https://$ipaddr:12324
 Web Console:http://$ipaddr:12325
 
-Please change Odoo Admin Pass before first Odoo Install
+Security: Change Odoo Admin Pass before first Odoo Install
         https://$ipaddr/web/database/manager
 Can open 8069 by rem 127.0.0.1 in openerp-server.conf
