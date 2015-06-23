@@ -1,8 +1,8 @@
 #!/usr/bin/python
-"""Set Odoo openerp password and email
+"""Set Odoo openuser db password and ADMIN pw
 Option:
     --pass=     unless provided, will ask interactively
-    --email=    unless provided, will ask interactively
+    --adminpw=    unless provided, will ask interactively
 """
 
 import re
@@ -26,40 +26,46 @@ def usage(s=None):
 def main():
     try:
         opts, args = getopt.gnu_getopt(sys.argv[1:], "h",
-                                       ['help', 'pass=', 'email='])
+                                       ['help', 'pass=', 'adminpw='])
     except getopt.GetoptError, e:
         usage(e)
 
     password = ""
-    email = ""
+    adminpw = ""
     for opt, val in opts:
         if opt in ('-h', '--help'):
             usage()
         elif opt == '--pass':
             password = val
-        elif opt == '--email':
-            email = val
+        elif opt == '--adminpw':
+            adminpw = val
 
     if not password:
         d = Dialog('TurnKey Linux - First boot configuration')
         password = d.get_password(
-            "Mahara Password",
-            "Enter new password for the Mahara 'openerp' account.")
+            "Openuser Password",
+            "Enter new password for the Odoo 'openuser' account.")
 
-    if not email:
+    if not adminpw:
         if 'd' not in locals():
             d = Dialog('TurnKey Linux - First boot configuration')
 
-        email = d.get_email(
-            "Mahara Email",
-            "Enter email address for the Mahara 'admin' account.",
-            "admin@example.com")
+        adminpw = d.get_adminpw(
+            "Odoo Admin-password",
+            "Enter password for the odoo 'admin' database manager.",
+            "eg: admin")
 
     sitesalt = ""
-    for line in file("/var/www/mahara/config.php", "r").readlines():
-        m = re.match(r"\$cfg->passwordsaltmain = '(.*)';", line.strip())
+    for line in file("/opt/openerp/odoo/openerp-server.conf", "r").readlines():
+        m = re.match(r"db_password ='(.*)';", line.strip())
         if m:
             sitesalt = m.groups()[0]
+    
+    for line in file("/opt/openerp/odoo/openerp-server.conf", "r").readlines():
+        m = re.match(r"db_passwordd ='(.*)';", line.strip())
+        updateconf() {
+            CONF=/opt/openerp/odoo/openerp-server.conf
+    sed -i "s/#db_password = openuser / db_password = ${OPENERP_PASS}" $CONF
 
     salt = hashlib.sha1(str(random.random())).hexdigest()[:8]
     fullsalt = hashlib.md5(sitesalt + salt).hexdigest()[:16]
@@ -73,10 +79,13 @@ def main():
     p.execute('UPDATE usr SET salt=\'%s\' WHERE username=\'openerp\';' % salt)
     p.execute('UPDATE usr SET password=\'%s\' WHERE username=\'openerp\';' % hash)
     p.execute('UPDATE usr SET passwordchange=0 WHERE username=\'openerp\';')
-    p.execute('UPDATE usr SET email=\'%s\' WHERE username=\'admin\';' % email)
-    p.execute('UPDATE artefact SET title=\'%s\' WHERE artefacttype=\'email\';' % email)
-    p.execute('UPDATE artefact_internal_profile_email SET email=\'%s\' WHERE owner=1;' % email)
 
+for line in file("/opt/openerp/odoo/openerp-server.conf", "r").readlines():
+        m = re.match(r"admin_passwd ='(.*)';", line.strip())
+        updateconf() {
+            CONF=/opt/openerp/odoo/openerp-server.conf
+
+            sed -i "s/#admin_passwd = admin / admin password = ${ODOO_PASS}" $CONF  
 
 if __name__ == "__main__":
     main()
