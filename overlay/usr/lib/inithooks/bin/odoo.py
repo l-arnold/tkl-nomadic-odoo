@@ -1,5 +1,5 @@
 #!/usr/bin/python
-"""Set Mahara admin password and email
+"""Set Odoo openerp password and email
 Option:
     --pass=     unless provided, will ask interactively
     --email=    unless provided, will ask interactively
@@ -44,7 +44,7 @@ def main():
         d = Dialog('TurnKey Linux - First boot configuration')
         password = d.get_password(
             "Mahara Password",
-            "Enter new password for the Mahara 'admin' account.")
+            "Enter new password for the Mahara 'openerp' account.")
 
     if not email:
         if 'd' not in locals():
@@ -70,9 +70,9 @@ def main():
     hash = alg + hash[len(alg)+len(fullsalt):]
 
     p = PostgreSQL(database='mahara')
-    p.execute('UPDATE usr SET salt=\'%s\' WHERE username=\'admin\';' % salt)
-    p.execute('UPDATE usr SET password=\'%s\' WHERE username=\'admin\';' % hash)
-    p.execute('UPDATE usr SET passwordchange=0 WHERE username=\'admin\';')
+    p.execute('UPDATE usr SET salt=\'%s\' WHERE username=\'openerp\';' % salt)
+    p.execute('UPDATE usr SET password=\'%s\' WHERE username=\'openerp\';' % hash)
+    p.execute('UPDATE usr SET passwordchange=0 WHERE username=\'openerp\';')
     p.execute('UPDATE usr SET email=\'%s\' WHERE username=\'admin\';' % email)
     p.execute('UPDATE artefact SET title=\'%s\' WHERE artefacttype=\'email\';' % email)
     p.execute('UPDATE artefact_internal_profile_email SET email=\'%s\' WHERE owner=1;' % email)
