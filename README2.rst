@@ -51,7 +51,7 @@ Credentials *(passwords set by default)*
 
 -  Odoo Master password: **admin** (change in openerp_server.conf)
 -  Odoo openuser password: **openuser** (changed at firstboot)
-- `Odoo`_ instaled branch: **master**.
+- `Odoo`_ instaled branch: **8.0**.
 
 .. _Odoo: https://www.odoo.com
 .. _Open Source CRM: https://www.odoo.com/page/crm
