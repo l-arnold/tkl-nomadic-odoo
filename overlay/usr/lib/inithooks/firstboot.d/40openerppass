@@ -4,4 +4,4 @@
 . /etc/default/inithooks
 
 [ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
-$INITHOOKS_PATH/bin/odoo.py openerp--pass="$OPENERP_PASS"
+$INITHOOKS_PATH/bin/odoo.py openuser--pass="$OPENERP_PASS"
