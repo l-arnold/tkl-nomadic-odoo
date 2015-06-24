@@ -31,7 +31,7 @@ chown -R openerp:openerp $OPENERP_DIR
 echo "--------------"
 echo " Install Odoo "
 echo "--------------"
-git clone https://github.com/odoo/odoo.git ---branch 8.0   $ODOO_DIR 
+git clone https://github.com/odoo/odoo.git --branch 8.0   $ODOO_DIR 
 echo " could have - rm -rf .git"
 chown -R openerp:openerp $ODOO_DIR
 mv $ODOO_DIR_TMP/* $ODOO_DIR
