@@ -1,8 +1,3 @@
-40Openerppass
-/overlay/usr/lib/inithooks/firstboot.d/40openerppass
-
-
-
 #!/bin/bash -e
 # set openerp user password
 
