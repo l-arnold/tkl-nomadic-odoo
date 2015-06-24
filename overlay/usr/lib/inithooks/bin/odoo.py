@@ -54,37 +54,17 @@ def main():
             "Odoo Admin-password",
             "Enter password for the odoo 'admin' database manager.",
             "eg: admin")
-
-    sitesalt = ""
-    for line in file("/opt/openerp/odoo/openerp-server.conf", "r").readlines():
-        m = re.match(r"db_password ='(.*)';", line.strip())
-        if m:
-            sitesalt = m.groups()[0]
     
     for line in file("/opt/openerp/odoo/openerp-server.conf", "r").readlines():
         m = re.match(r"db_passwordd ='(.*)';", line.strip())
         updateconf() {
             CONF=/opt/openerp/odoo/openerp-server.conf
-    sed -i "s/#db_password = openuser / db_password = ${OPENERP_PASS}" $CONF
+            sed -i "s/#db_password = openuser / db_password = ${OPENERP_PASS}" $CONF
 
-    salt = hashlib.sha1(str(random.random())).hexdigest()[:8]
-    fullsalt = hashlib.md5(sitesalt + salt).hexdigest()[:16]
-
-    alg = "$6$"
-    hash = hashlib.sha1(salt + password).hexdigest()
-    hash = crypt.crypt(hash, alg + fullsalt)
-    hash = alg + hash[len(alg)+len(fullsalt):]
-
-    p = PostgreSQL(database='mahara')
-    p.execute('UPDATE usr SET salt=\'%s\' WHERE username=\'openerp\';' % salt)
-    p.execute('UPDATE usr SET password=\'%s\' WHERE username=\'openerp\';' % hash)
-    p.execute('UPDATE usr SET passwordchange=0 WHERE username=\'openerp\';')
-
-for line in file("/opt/openerp/odoo/openerp-server.conf", "r").readlines():
+    for line in file("/opt/openerp/odoo/openerp-server.conf", "r").readlines():
         m = re.match(r"admin_passwd ='(.*)';", line.strip())
         updateconf() {
             CONF=/opt/openerp/odoo/openerp-server.conf
-
             sed -i "s/#admin_passwd = admin / admin password = ${ODOO_PASS}" $CONF  
 
 if __name__ == "__main__":
