@@ -26,7 +26,7 @@ This appliance is based on the Turnkeylinux (TKL) `LAPP stack`_, which integrate
 - PostgreSQL password encryption enabled by default (security).
 - The *postgres* user is trusted when connecting over local unix sockets
   (convenience).
-- `Odoo`_ instaled branch: **master**.
+- `Odoo`_ instaled branch: **8.0**.
 - Odoo secured connection (http (port 80) auto redirects to https(port 443)).
 
 - Odoo connection (listening on port 8069 -  Set up by default to open only to localhost).
@@ -60,7 +60,7 @@ Credentials *(passwords set at first boot)*
 Credentials *(passwords set by default)*
 ----------------------------------------
 
--  Odoo Master password: **admin**  (Should Change in Odoo Config file and Odoo DB Manager before any Data Base is created)
+-  Odoo Master password: **admin**  (Change in Odoo Config file and Odoo DB Manager before any Data Base is created)
 -  Odoo openuser password: **openuser**  (Firstboot resets - changes both openuser Postgresql user and Odoo config file)
   
 .. _Odoo: https://www.odoo.com
