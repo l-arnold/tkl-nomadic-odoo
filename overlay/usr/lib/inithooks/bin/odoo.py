@@ -2,7 +2,7 @@
 
 """Set Odoo openuser db password and ADMIN pw
 Option:
-    --pass=     unless provided, will ask interactively
+    --dbpass=     unless provided, will ask interactively
     --adminpw=    unless provided, will ask interactively
 """
 
@@ -27,23 +27,23 @@ def usage(s=None):
 def main():
     try:
         opts, args = getopt.gnu_getopt(sys.argv[1:], "h",
-                                       ['help', 'pass=', 'adminpw='])
+                                       ['help', 'dbpass=', 'adminpw='])
     except getopt.GetoptError, e:
         usage(e)
 
-    password = ""
+    dbpass = ""
     adminpw = ""
     for opt, val in opts:
         if opt in ('-h', '--help'):
             usage()
-        elif opt == '--pass':
-            password = val
+        elif opt == '--dbpass':
+            dbpass = val
         elif opt == '--adminpw':
             adminpw = val
 
-    if not password:
+    if not dbpass:
         d = Dialog('TurnKey Linux - First boot configuration')
-        password = d.get_password(
+        dbpass = d.get_password(
             "Openuser Password",
             "Enter new password for the Odoo 'openuser' account.")
 
@@ -57,7 +57,7 @@ def main():
             "eg: admin")
     
     for line in file("/opt/openerp/odoo/openerp-server.conf", "r").readlines():
-        m = re.match(r"db_passwordd ='(.*)';", line.strip())
+        m = re.match(r"db_password ='(.*)';", line.strip())
         updateconf() {
             CONF=/opt/openerp/odoo/openerp-server.conf
             sed -i "s/#db_password = openuser / db_password = ${ODOO_DB_PASS}" $CONF
