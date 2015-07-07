@@ -1,5 +1,5 @@
 #!/bin/bash -e		
--# set odoo db password
+# set odoo db password
  
  [ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
  $INITHOOKS_PATH/bin/odoo.py odoo-db-pass  --pass="$ODOO_DB_PASS"		 
