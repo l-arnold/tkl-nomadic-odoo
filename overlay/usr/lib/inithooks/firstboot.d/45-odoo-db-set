@@ -1,5 +1,7 @@
 #!/bin/bash -e		
 # set odoo db password
+
+ . /etc/default/inithooks
  
  [ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
- $INITHOOKS_PATH/bin/odoo.py odoo-db-pass  --pass="$ODOO_DB_PASS"		 
+ $INITHOOKS_PATH/bin/setpass.py  --pass="$APP_PASS"		 
