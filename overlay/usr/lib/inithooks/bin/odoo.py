@@ -1,4 +1,5 @@
 #!/usr/bin/python
+
 """Set Odoo openuser db password and ADMIN pw
 Option:
     --pass=     unless provided, will ask interactively
@@ -59,7 +60,7 @@ def main():
         m = re.match(r"db_passwordd ='(.*)';", line.strip())
         updateconf() {
             CONF=/opt/openerp/odoo/openerp-server.conf
-            sed -i "s/#db_password = openuser / db_password = ${OPENERP_PASS}" $CONF
+            sed -i "s/#db_password = openuser / db_password = ${ODOO_DB_PASS}" $CONF
 
     for line in file("/opt/openerp/odoo/openerp-server.conf", "r").readlines():
         m = re.match(r"admin_passwd ='(.*)';", line.strip())
