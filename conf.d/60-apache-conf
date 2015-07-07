@@ -1,3 +1,5 @@
+#!/bin/sh -ex
+
 -echo "------------------------"		
 -echo " Make SSL work properly "		
 -echo "------------------------"		
