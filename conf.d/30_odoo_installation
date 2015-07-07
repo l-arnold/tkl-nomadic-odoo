@@ -51,13 +51,13 @@ touch /var/run/openerp-server.pid
 chown openerp /var/run/openerp-server.pid
 chown -R openerp:openerp $ODOO_DIR
 
-echo "------------------------"
-echo " Moved to 60-apache.conf and make executable"
-echo " Make SSL work properly "
-echo "------------------------"
-echo " a2enmod ssl proxy_http headers rewrite"
-echo " a2ensite openerp-ssl.conf"
-echo " a2ensite odoo-80.conf"
-echo " a2ensite odoo-12325.conf"
-echo "odoo-12325.conf also creates port 12324 for SSL"
+echo "------------------------"		
+echo " Make SSL work properly "		
+echo "------------------------"		
+a2enmod ssl proxy_http headers rewrite		
+a2ensite openerp-ssl.conf		
+a2ensite odoo-80.conf		
+a2ensite odoo-12325.conf		
+echo "odoo-12325.conf also creates port 12324 for SSL"		
+echo "Port 12324 for SSL"
 echo "------------------------"
