@@ -43,7 +43,7 @@ def main():
 
     if not dbpass:
         d = Dialog('TurnKey Linux - First boot configuration')
-        dbpass = d.get_password(
+        dbpass = d.get_dbpass(
             "Openuser Password",
             "Enter new password for the Odoo 'openuser' account.")
 
@@ -60,13 +60,13 @@ def main():
         m = re.match(r"db_password ='(.*)';", line.strip())
         updateconf() {
             CONF=/opt/openerp/odoo/openerp-server.conf
-            sed -i "s/#db_password = openuser / db_password = ${ODOO_DB_PASS}" $CONF
+            sed -i "s/#db_password =*[db_password = ${ODOO_DB_PASS}" $CONF
 
     for line in file("/opt/openerp/odoo/openerp-server.conf", "r").readlines():
         m = re.match(r"admin_passwd ='(.*)';", line.strip())
         updateconf() {
             CONF=/opt/openerp/odoo/openerp-server.conf
-            sed -i "s/#admin_passwd = admin / admin password = ${ODOO_PASS}" $CONF  
+            sed -i "s/#admin_passwd = admin*[admin password = ${ODOO_PASS}" $CONF  
 
 if __name__ == "__main__":
     main()
