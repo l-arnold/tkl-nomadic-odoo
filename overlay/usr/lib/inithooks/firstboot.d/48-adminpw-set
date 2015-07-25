@@ -5,3 +5,12 @@
  
  [ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
 $INITHOOKS_PATH/bin/odoo.py --pass="$ODOO_PASS"
+
+
+Mahara Below
+SITESALT=$(mcookie)$(mcookie)
+sed -i "s|passwordsaltmain.*|passwordsaltmain = '$SITESALT';|" $CONF
+
+PASSWORD=$(mcookie)
+sed -i "s|dbpass.*|dbpass = '$PASSWORD';|" $CONF
+$INITHOOKS_PATH/bin/pgsqlconf.py --user=mahara --pass="$PASSWORD"
