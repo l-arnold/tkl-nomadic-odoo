@@ -1,8 +1,7 @@
 #!/usr/bin/python
 
-"""Set Odoo openuser db password and ADMIN pw
+"""Set Odoo  ADMIN pw
 Option:
-    --dbpass=     unless provided, will ask interactively
     --adminpw=    unless provided, will ask interactively
 """
 
@@ -15,7 +14,6 @@ import random
 import hashlib
 
 from dialog_wrapper import Dialog
-from pgsqlconf import PostgreSQL
 
 def usage(s=None):
     if s:
@@ -27,25 +25,17 @@ def usage(s=None):
 def main():
     try:
         opts, args = getopt.gnu_getopt(sys.argv[1:], "h",
-                                       ['help', 'dbpass=', 'adminpw='])
+                                       ['help', 'adminpw='])
     except getopt.GetoptError, e:
         usage(e)
 
-    dbpass = ""
     adminpw = ""
     for opt, val in opts:
         if opt in ('-h', '--help'):
             usage()
-        elif opt == '--dbpass':
-            dbpass = val
         elif opt == '--adminpw':
             adminpw = val
 
-    if not dbpass:
-        d = Dialog('TurnKey Linux - First boot configuration')
-        dbpass = d.get_dbpass(
-            "Openuser Password",
-            "Enter new password for the Odoo 'openuser' account.")
 
     if not adminpw:
         if 'd' not in locals():
@@ -55,12 +45,7 @@ def main():
             "Odoo Admin-password",
             "Enter password for the odoo 'admin' database manager.",
             "eg: admin")
-    
-    for line in file("/opt/openerp/odoo/openerp-server.conf", "r").readlines():
-        m = re.match(r"db_password ='(.*)';", line.strip())
-        updateconf() {
-            CONF=/opt/openerp/odoo/openerp-server.conf
-            sed -i "s/#db_password =*|db_password = ${ODOO_DB_PASS}" $CONF
+
 
     for line in file("/opt/openerp/odoo/openerp-server.conf", "r").readlines():
         m = re.match(r"admin_passwd ='(.*)';", line.strip())
