@@ -2,15 +2,9 @@
 # set Odoo Admin password
 
  . /etc/default/inithooks
+ CONF=/opt/openerp/odoo/openerp-server.conf
  
- [ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
+[ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
+ODOO_PASS=$(mcookie)
+sed -i "s|admin_passwd.*|admin_passwd = '$ODOO_PASS';|" $CONF
 $INITHOOKS_PATH/bin/odoo.py --pass="$ODOO_PASS"
-
-
-Mahara Below
-SITESALT=$(mcookie)$(mcookie)
-sed -i "s|passwordsaltmain.*|passwordsaltmain = '$SITESALT';|" $CONF
-
-PASSWORD=$(mcookie)
-sed -i "s|dbpass.*|dbpass = '$PASSWORD';|" $CONF
-$INITHOOKS_PATH/bin/pgsqlconf.py --user=mahara --pass="$PASSWORD"
