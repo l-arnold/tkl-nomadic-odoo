@@ -6,5 +6,5 @@
  
 [ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
 ODOO_PASS=$(mcookie)
-sed -i "s|admin_passwd.*|admin_passwd = $ODOO_PASS|" $CONF
+sed -i "s|admin_passwd.*|admin_passwd = '$ODOO_PASS';|" $CONF
 $INITHOOKS_PATH/bin/odoo.py --pass="$ODOO_PASS"
