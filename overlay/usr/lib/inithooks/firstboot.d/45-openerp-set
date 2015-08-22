@@ -1,7 +1,14 @@
-#!/bin/bash -e		
-# set openerp password
+#!/bin/bash -e
+# regenerate odoo site salt and pgsql password
 
- . /etc/default/inithooks
- 
-[ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
-$INITHOOKS_PATH/bin/setpass.py openerp --pass="$OPENERP_PASS"
+. /etc/default/inithooks
+
+CONF=/opt/openerp/odoo/openerp-server.conf
+
+# PASSWORD=$(mcookie)
+# SITESALT=$(mcookie)$(mcookie)
+# sed -i "s|db_password =.*|db_password = '$SITESALT';|" $CONF
+$INITHOOKS_PATH/bin/openuser.py --user=openuser --pass="$SITESALT"
+
+PASSWORD=$(mcookie)
+sed -i "s|db_password.*|db_password = $PASSWORD|" $CONF
