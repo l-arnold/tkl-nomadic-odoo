@@ -90,7 +90,7 @@ def main():
         usage(e)
 
     username="openuser"
-    password=""
+   # password=""
 
     for opt, val in opts:
         if opt in ('-h', '--help'):
@@ -110,10 +110,6 @@ def main():
 
     # set password
     p.execute("alter user %s with encrypted password E\'%s\';" % (username, escape_chars(password)))
-    
-     CONF=/opt/openerp/odoo/openerp-server.conf
-
-        sed -i "s|db_password.*|db_password = '$password';|" $CONF
 
 if __name__ == "__main__":
     main()
