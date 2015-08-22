@@ -2,7 +2,7 @@
 
 """Set Odoo  ADMIN pw
 Option:
-    --ADMINPW=    unless provided, will ask interactively
+    --adminpw=    unless provided, will ask interactively
 """
 
 import re
@@ -25,27 +25,33 @@ def usage(s=None):
 def main():
     try:
         opts, args = getopt.gnu_getopt(sys.argv[1:], "h",
-                                       ['help', 'ADMINPW='])
+                                       ['help', 'adminpw='])
     except getopt.GetoptError, e:
         usage(e)
 
-    ADMINPW = ""
+    adminpw = ""
     for opt, val in opts:
         if opt in ('-h', '--help'):
             usage()
-        elif opt == '--ADMINPW':
-            ADMINPW = val
+        elif opt == '--adminpw':
+            adminpw = val
 
 
-    if not ADMINPW:
+    if not adminpw:
         if 'd' not in locals():
             d = Dialog('TurnKey Linux - First boot configuration')
 
-        adminpw = d.get_ADMINPW(
+        adminpw = d.get_adminpw(
             "Odoo Admin-password",
-            "Enter password for the Odoo 'admin' database manager.",
+            "Enter password for the odoo 'admin' database manager.",
             "eg: admin")
 
+
+    for line in file("/opt/openerp/odoo/openerp-server.conf", "r").readlines():
+        m = re.match(r"admin_passwd ='(.*)';", line.strip())
+        updateconf() {
+            CONF=/opt/openerp/odoo/openerp-server.conf
+            sed -i "s/#admin_passwd =*|admin password = ${ODOO_PASS}" $CONF  
 
 if __name__ == "__main__":
     main()
