@@ -3,5 +3,8 @@
 
 . /etc/default/inithooks
 
-DB_PASS=$(mcookie)
-$INITHOOKS_PATH/bin/openuser.py --user=openuser --pass="$DB_PASS"
+DBO_PASS=$(mcookie)
+SITESALT=$(mcookie)$(mcookie)
+
+$INITHOOKS_PATH/bin/pgsqlconf.py --user=openuser --pass="$DBO_PASS"
+sed -i "s|db_password =.*|db_password = '$DBO_PASS';|" $CONF		
