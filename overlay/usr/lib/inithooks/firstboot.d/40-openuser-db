@@ -3,6 +3,8 @@
 
 . /etc/default/inithooks
 
+CONF=/opt/openerp/odoo/openerp-server.conf
+
 DB_PASS=$(mcookie)
 
 $INITHOOKS_PATH/bin/pgsqlconf.py --user=openuser --pass="$DB_PASS"
