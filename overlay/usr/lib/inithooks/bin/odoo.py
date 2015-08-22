@@ -47,11 +47,5 @@ def main():
             "eg: admin")
 
 
-    for line in file("/opt/openerp/odoo/openerp-server.conf", "r").readlines():
-        m = re.match(r"admin_passwd ='(.*)';", line.strip())
-        updateconf() {
-            CONF=/opt/openerp/odoo/openerp-server.conf
-            sed -i "s/#admin_passwd =*|admin_passwd = ${adminpw}" $CONF  
-
 if __name__ == "__main__":
     main()
