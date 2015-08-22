@@ -9,5 +9,5 @@ CONF=/opt/openerp/odoo/openerp-server.conf
 ADMINPW="admin"
 $INITHOOKS_PATH/bin/odoo.py --pass="ADMINPW"
 
-sed -i "s|admin_passwd.*|admin_passwd = ${ADMINPW}" $CONF  
+sed -i "s|admin_passwd.*|admin_passwd = '${ADMINPW}';|" $CONF  
 
