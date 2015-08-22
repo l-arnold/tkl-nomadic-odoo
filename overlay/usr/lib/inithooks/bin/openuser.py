@@ -90,7 +90,7 @@ def main():
         usage(e)
 
     username="openuser"
-   # password=""
+    password=""
 
     for opt, val in opts:
         if opt in ('-h', '--help'):
