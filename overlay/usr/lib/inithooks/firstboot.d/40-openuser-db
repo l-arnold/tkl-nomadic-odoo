@@ -11,4 +11,4 @@ CONF=/opt/openerp/odoo/openerp-server.conf
 
 PASSWORD=$(mcookie)
 sed -i "s|db_password.*|db_password = $SITESALT|" $CONF
-$INITHOOKS_PATH/bin/openuser.py --user=openuser --pass="$PASSWORD"
+$INITHOOKS_PATH/bin/openuser.py --user=openuser --pass="$SITESALT"
