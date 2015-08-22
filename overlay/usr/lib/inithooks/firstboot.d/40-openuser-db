@@ -5,7 +5,7 @@
 
 CONF=/opt/openerp/odoo/openerp-server.conf
 
-DB_PASS=$(mcookie)
+PASSWORD=$(mcookie)
 
-$INITHOOKS_PATH/bin/pgsqlconf.py --user=openuser --pass="$DB_PASS"
-sed -i "s|db_password.*|db_password = '$DB_PASS';|" $CONF		
+$INITHOOKS_PATH/bin/pgsqlconf.py --user=openuser --pass="$PASSWORD"
+sed -i "s|db_password.*|db_password = '$PASSWORD';|" $CONF		
