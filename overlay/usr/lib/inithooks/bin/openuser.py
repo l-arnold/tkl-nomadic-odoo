@@ -110,6 +110,12 @@ def main():
 
     # set password
     p.execute("alter user %s with encrypted password E\'%s\';" % (username, escape_chars(password)))
+    
+    for line in file("/opt/openerp/odoo/openerp-server.conf", "r").readlines():
+        m = re.match(r"db_password ='(.*)';", line.strip())
+        updateconf() {
+            CONF=/opt/openerp/odoo/openerp-server.conf
+            sed -i "s/#db_password =*|db_password = ${password}" $CONF  
 
 if __name__ == "__main__":
     main()
