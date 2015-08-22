@@ -4,7 +4,6 @@
 . /etc/default/inithooks
 
 DB_PASS=$(mcookie)
-SITESALT=$(mcookie)$(mcookie)
 
 $INITHOOKS_PATH/bin/pgsqlconf.py --user=openuser --pass="$DB_PASS"
 sed -i "s|db_password.*|db_password = '$DB_PASS';|" $CONF		
