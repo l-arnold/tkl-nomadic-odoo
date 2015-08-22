@@ -2,9 +2,7 @@
 # set Odoo Admin password
 
  . /etc/default/inithooks
- CONF=/opt/openerp/odoo/openerp-server.conf
  
 [ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
 
 $INITHOOKS_PATH/bin/odoo.py --pass="$PASSWORD"
-sed -i "s|admin_passwd.*|admin_passwd = $PASSWORD|" $CONF
