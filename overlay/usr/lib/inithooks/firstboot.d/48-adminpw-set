@@ -4,10 +4,14 @@
  . /etc/default/inithooks
 CONF=/opt/openerp/odoo/openerp-server.conf
 
-[ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
+ADMINPW="admin2015"
 
-ADMINPW="admin"
-$INITHOOKS_PATH/bin/odoo.py --pass="ADMINPW"
+CONF=/opt/openerp/odoo/openerp-server.conf
+[ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
 
 sed -i "s|admin_passwd.*|admin_passwd = '${ADMINPW}';|" $CONF  
 
+CONF=/opt/openerp/odoo-tmp/openerp-server-man.conf
+[ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
+
+sed -i "s|admin_passwd.*|admin_passwd = '${ADMINPW}';|" $CONF  
