@@ -5,9 +5,9 @@
  
 [ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
 
-ADMINPW=""""
+ADMINPW=""
 $INITHOOKS_PATH/bin/odoo.py --pass="ADMINPW"
 
 CONF=/opt/openerp/odoo/openerp-server.conf
-sed -i "s/#admin_passwd =*|admin_passwd = ${ADMINPW}" $CONF  
+sed -i "s|admin_passwd.*|admin_passwd = ${ADMINPW}" $CONF  
 
