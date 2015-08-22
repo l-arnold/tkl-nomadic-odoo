@@ -6,6 +6,5 @@
  
 [ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
 
-PASSWORD = 'tkladmin'
 $INITHOOKS_PATH/bin/odoo.py --pass="$PASSWORD"
 sed -i "s|admin_passwd.*|admin_passwd = $PASSWORD|" $CONF
