@@ -51,7 +51,7 @@ def main():
         m = re.match(r"admin_passwd ='(.*)';", line.strip())
         updateconf() {
             CONF=/opt/openerp/odoo/openerp-server.conf
-            sed -i "s/#admin_passwd =*|admin password = ${ODOO_PASS}" $CONF  
+            sed -i "s/#admin_passwd =*|admin password = ${adminpw}" $CONF  
 
 if __name__ == "__main__":
     main()
