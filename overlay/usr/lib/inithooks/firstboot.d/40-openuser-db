@@ -3,5 +3,5 @@
 
 . /etc/default/inithooks
 
-PASSWORD=$(mcookie)
-$INITHOOKS_PATH/bin/openuser.py --user=openuser --pass="$PASSWORD"
+DB_PASS=$(mcookie)
+$INITHOOKS_PATH/bin/openuser.py --user=openuser --pass="$DB_PASS"
