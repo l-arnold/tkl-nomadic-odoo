@@ -5,6 +5,7 @@
  CONF=/opt/openerp/odoo/openerp-server.conf
  
 [ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
+
 ODOO_PASS="admin"
-sed -i "s|admin_passwd.*|admin_passwd = $ODOO_PASS|" $CONF
 $INITHOOKS_PATH/bin/odoo.py --pass="$ODOO_PASS"
+sed -i "s|admin_passwd.*|admin_passwd = $ODOO_PASS|" $CONF
