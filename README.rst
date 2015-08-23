@@ -14,7 +14,9 @@ This appliance is based on the Turnkeylinux (TKL) `LAPP stack`_, which integrate
 - WebShell SSH on   Port:12320
 - Webmin On         Port:12321
 - Adminer DBMgr on  Port: 12322
-- WebConsole:   on  Port: 12325
+- HTTPS: WebConsole:Port: 12324
+- HTTP WebConsole:  Port: 12325
+
   All management is linked from Webconsole as well as cursory documentation.
 
 - PHP, Python and Perl support for Apache2 and PostgreSQL.
