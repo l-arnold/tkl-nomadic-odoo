@@ -1,6 +1,6 @@
 #!/bin/sh -ex
 
-echo "skip OPENERP_PASS=openerp"
+OPENERP_PASS=openerp
 OPENERP_DIR=/opt/openerp
 ODOO_DIR=/opt/openerp/odoo
 ODOO_DIR_TMP=/opt/openerp/odoo_tmp
@@ -11,7 +11,7 @@ echo "------------------------"
 /etc/init.d/postgresql start
 su -c - postgres "createuser openuser --no-superuser --createdb --no-createrole" 
 cat > /tmp/openuser_changepass.sql <<"EOF"
-echo "skip ALTER USER openuser WITH PASSWORD 'openuser';"
+ALTER USER openuser WITH PASSWORD 'openuser';
 EOF
 su -c - postgres "psql template1 -U postgres -f /tmp/openuser_changepass.sql"
 /etc/init.d/postgresql stop
@@ -20,7 +20,7 @@ echo "-------------------------"
 echo " Add system user openerp "
 echo "-------------------------"
 echo | adduser --disabled-password openerp
-echo "skip usermod -p $(echo $OPENERP_PASS | openssl passwd -1 -stdin) openerp"
+usermod -p $(echo $OPENERP_PASS | openssl passwd -1 -stdin) openerp
 
 echo "--------------------------"
 echo " Create openerp directory "
