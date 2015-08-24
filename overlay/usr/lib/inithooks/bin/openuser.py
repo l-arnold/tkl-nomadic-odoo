@@ -110,6 +110,8 @@ def main():
 
     # set password
     p.execute("alter user %s with encrypted password E\'%s\';" % (username, escape_chars(password)))
+    DB_PASS= escape_chars(password)
+    sed -i "s|db_password.*|db_password = DB_PASS|" $CONF
 
 if __name__ == "__main__":
     main()
