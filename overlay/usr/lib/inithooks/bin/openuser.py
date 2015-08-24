@@ -97,8 +97,8 @@ def main():
             usage()
         elif opt in ('-u', '--user'):
             username = val
-        elif opt in ('-p', '--pass'):
-            password = val
+#        elif opt in ('-p', '--pass'):
+#           password = val
 
     if not password:
         d = Dialog('TurnKey Linux - First boot configuration')
