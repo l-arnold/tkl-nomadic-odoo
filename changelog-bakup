@@ -1,8 +1,37 @@
-turnkey-odoo-14.0 (0.0.0.1) turnkey; urgency=low
+* As of v10 TKL-Nomadic-Connector  (known also as TKL-Nomadic-Odoo)  Will become RC3
 
-  * Note: Temp change log entry to get this building.
+  Added Directory Browsing and Docs Link from WebConsole
 
-  -- Ken Robinson <ken@robinsonshome.net>  Wed, 26 Aug 2015 19:46:05 -0400
+  Made WebConsole route in HTTPS and HTTP
+
+  Added full pulls for Magento API (OpenLabs) into ISO
+
+  Added full pulls for OCA / Connector into ISO
+  
+  Reintegrate InitFirstBoot for openuser account (postgresql user and odoo-server.conf setting) (TEST)
+
+tkl-nomadic-odoo - 14 (RC2)  Implemented wkhtmltox in build.  changed console screens to adminer etc.
+
+tkl-nomadic-ocoo-14.0 (RC1)  (Based on turnkey-lapp) Tested in TKLDev Jessie RC1
+
+ *turnkey-lapp not presently showing differences.
+ 
+     Landis Arnold <larnold@nomadic.net> Fri, 4 June 2015 12:56:00 (mountain time)
+
+ * LAPP Appliance massaged into Odoo Appliance
+ * Odoo Proxy set to work on ports 80 (redirected to SSL 443) and Odoo Native 8069
+
+  * Changed Turnkey web control panel to use SERVER_NAME
+    #  (original change)  displaying correct host when behind proxy (SERVER_ADDR -> HTTP_HOST).
+    mofified now in index.php to work properly in this build to create effective Console (default port 12325)
+    (HTTP_HOST -> SERVER_NAME)
+  
+  * significant changes to conf and host file structures
+  
+  * git clone restricted to --depth-1  (shrinks build significantly)
+    should be able to continue with successive pulls but needs to be tested or perhaps reconfigured.
+    
+    Landis Arnold <larnold@nomadic.net> Fri, 22 May 2015 11:19:00 (mountain time)
   
 turnkey-lapp-13.0 (1) turnkey; urgency=low
 
