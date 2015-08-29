@@ -14,7 +14,6 @@ SERVICE_USER=openerp
 OPENERP_PASS=openerp
 OPENERP_DIR=/opt/openerp
 ODOO_DIR=/opt/openerp/odoo
-ODOO_DIR_TMP=/opt/openerp/odoo_tmp
 
 
 # Create database and database role for odoo
@@ -62,14 +61,23 @@ usermod -L $SERVICE_USER
 
 # Install Odoo
 # 
-git clone https://github.com/odoo/odoo.git --branch 8.0 --depth=1  $ODOO_DIR 
 
-# May want to do the following to save some space
-# rm -rf .git to remove
+# Since we have config files in the overlay, this creates the install dir
+#   Because this already exists, git-clone will yell at us. So clone to temp
+#   then we can move the files back to where we want them and not over write
+#   out config files we have updated
 
+git clone https://github.com/odoo/odoo.git --branch 8.0 --depth=1  /tmp/odoo_temp
+
+# We could remove the git repo, would make updates harder.
+# rm -rt  /tmp/odoo_temp/.git
+
+# Move the files, but don't change existing ones 
+mv -n -t $ODOO_DIR /tmp/odoo_temp/*
+rm -rf /tmp/odoo_tmp
+
+# Give ownership to openerp user
 chown -R openerp:openerp $ODOO_DIR
-mv $ODOO_DIR_TMP/* $ODOO_DIR
-rm -rf $ODOO_DIR_TMP
 # 
 
 
