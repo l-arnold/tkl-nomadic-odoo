@@ -1,17 +1,18 @@
 #!/bin/sh -ex
 
-# Install Odoo - Start of 30_odoo_installation 
+#
+# START - Install Odoo - 30_odoo_installation 
 #
  
-
+# Set variables
 OPENERP_PASS=openerp
 OPENERP_DIR=/opt/openerp
 ODOO_DIR=/opt/openerp/odoo
 ODOO_DIR_TMP=/opt/openerp/odoo_tmp
 
-# "------------------------"
-# " Create a role openuser "
-# "------------------------"
+
+# Create a role openuser
+# 
 /etc/init.d/postgresql start
 su -c - postgres "createuser openuser --no-superuser --createdb --no-createrole" 
 cat > /tmp/openuser_changepass.sql <<"EOF"
@@ -19,31 +20,34 @@ ALTER USER openuser WITH PASSWORD 'openuser';
 EOF
 su -c - postgres "psql template1 -U postgres -f /tmp/openuser_changepass.sql"
 /etc/init.d/postgresql stop
+# 
 
-# "-------------------------"
-# " Add system user openerp "
-# "-------------------------"
+# Add system user openerp
+# 
 echo | adduser --disabled-password openerp
 usermod -p $(echo $OPENERP_PASS | openssl passwd -1 -stdin) openerp
 
-# "--------------------------"
-# " Create openerp directory "
-# "--------------------------"
+
+# Create openerp directory
+# 
 #mkdir $OPENERP_DIR
 chown -R openerp:openerp $OPENERP_DIR
+# 
 
-# "--------------"
-# " Install Odoo "
-# "--------------"
+
+# Install Odoo
+# 
 git clone https://github.com/odoo/odoo.git --branch 8.0 --depth=1  $ODOO_DIR 
 echo " could have - rm -rf .git"
 chown -R openerp:openerp $ODOO_DIR
 mv $ODOO_DIR_TMP/* $ODOO_DIR
 rm -rf $ODOO_DIR_TMP
+# 
 
-# "----------------------------"
-# "  Install Odoo as a service "
-# "----------------------------"
+
+# Install Odoo as a service
+# 
+
 chmod 666 /opt/openerp/openerp.init 
 chmod +x /opt/openerp/openerp.init
 cd /etc/init.d
@@ -54,15 +58,19 @@ chown openerp /var/log/openerp-server.log
 touch /var/run/openerp-server.pid
 chown openerp /var/run/openerp-server.pid
 chown -R openerp:openerp $ODOO_DIR
+# 
 
-# "------------------------"		
-# " Make SSL work properly "		
-# "------------------------"		
+
+# Perform apache config		
+# Enable needed modules
+# 
 a2enmod ssl proxy_http headers rewrite		
+
+# Enable sites
 a2ensite openerp-ssl.conf		
 a2ensite odoo-80.conf		
 a2ensite odoo-12325.conf		
 
-#  "odoo-12325.conf also creates port 12324 for SSL"		
-# "Port 12324 for SSL"
-# "------------------------"
+# odoo-12325.conf also creates port 12324 for SSL		
+# Port 12324 for SSL
+
