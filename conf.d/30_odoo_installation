@@ -5,40 +5,68 @@
 #
  
 # Set variables
+
+DB_NAME=openerp
+DB_USER=openerp
+DB_PASS=$(mcookie)
+SERVICE_USER=openerp
+
 OPENERP_PASS=openerp
 OPENERP_DIR=/opt/openerp
 ODOO_DIR=/opt/openerp/odoo
 ODOO_DIR_TMP=/opt/openerp/odoo_tmp
 
 
-# Create a role openuser
+# Create database and database user for odoo
 # 
+
+# Start postgresql server
 /etc/init.d/postgresql start
-su -c - postgres "createuser openuser --no-superuser --createdb --no-createrole" 
-cat > /tmp/openuser_changepass.sql <<"EOF"
-ALTER USER openuser WITH PASSWORD 'openuser';
+
+# Create db user
+su postgres -c "createuser --no-superuser --createdb --no-createrole $DB_USER"
+
+# Create database
+su postgres -c "createdb --owner $DB_USER -EUTF8 $DB_NAME"
+
+# Set db user password
+su postgres -c "psql postgres" << EOF
+alter user $DB_USER with encrypted password '$DB_PASS';
 EOF
-su -c - postgres "psql template1 -U postgres -f /tmp/openuser_changepass.sql"
+
+# Stop postgresql server
 /etc/init.d/postgresql stop
 # 
 
-# Add system user openerp
-# 
-echo | adduser --disabled-password openerp
-usermod -p $(echo $OPENERP_PASS | openssl passwd -1 -stdin) openerp
 
 
-# Create openerp directory
-# 
-#mkdir $OPENERP_DIR
-chown -R openerp:openerp $OPENERP_DIR
-# 
+# Add service account user
+#
+
+# Add user without home dir
+useradd -M $SERVICE_USER 
+
+# Set no shell
+usermod -s /bin/false $SERVICE_USER
+
+# Disable user
+usermod -L $SERVICE_USER 
+
+# Not sure what this line is doing, looks like setting password? 
+# should not need a password for service account. Leaving this 
+# in case there is a reason I don't understand
+ 
+# usermod -p $(echo $OPENERP_PASS | openssl passwd -1 -stdin) openerp
+#
 
 
 # Install Odoo
 # 
 git clone https://github.com/odoo/odoo.git --branch 8.0 --depth=1  $ODOO_DIR 
-echo " could have - rm -rf .git"
+
+# May want to do the following to save some space
+# rm -rf .git to remove
+
 chown -R openerp:openerp $ODOO_DIR
 mv $ODOO_DIR_TMP/* $ODOO_DIR
 rm -rf $ODOO_DIR_TMP
