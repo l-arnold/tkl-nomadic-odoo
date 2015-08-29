@@ -1,7 +1,7 @@
 #!/bin/sh -ex
 
 # 
-# Install odoo deps - Start of 20_odoo_depedencies 
+# Install odoo deps - Start of 10_depedencies 
 #  
  
 # Install gdata 2.0.17
@@ -22,5 +22,5 @@ cp /usr/local/bin/wkhtmltopdf /usr/bin
 cp /usr/local/bin/wkhtmltoimage /usr/bin
 
 # 
-# Install odoo deps - End of 20_odoo_depedencies
+# Install odoo deps - End of 10_depedencies
 # 

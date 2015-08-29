@@ -1,7 +1,7 @@
 #!/bin/sh -ex
 
 #
-# START - Install Odoo External Modules - 50_external_modules_installation
+# START - Install Odoo External Modules - 50_external_modules
 # 
 
 
@@ -129,6 +129,6 @@ chown -R openerp:openerp $OCA_COMMISSION_DIR
 # 
 
 # 
-# END - Install Odoo External Modules - 50_external_modules_installation
+# END - Install Odoo External Modules - 50_external_modules
 #
 
