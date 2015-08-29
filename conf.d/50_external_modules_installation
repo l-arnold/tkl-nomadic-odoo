@@ -1,58 +1,74 @@
 #!/bin/sh -ex
 
-echo "--------------------------"
-echo " Install OCA Server Tools "
-echo "--------------------------"
+#
+# START - Install Odoo External Modules - 50_external_modules_installation
+# 
+
+
+# Install OCA Server Tools
+# 
+
 OCA_SERVER_TOOLS_DIR=/opt/openerp/oca/oca_server_tools
 git clone https://github.com/OCA/server-tools.git --depth=1 $OCA_SERVER_TOOLS_DIR --branch 8.0  
 chown -R openerp:openerp $OCA_SERVER_TOOLS_DIR
+# 
 
-
-echo "--------------------------"
-echo " Install Odoo Connector "
+# Install Odoo Connector
+# 
 CONNECTOR_DIR=/opt/openerp/oca/connector
 mkdir $CONNECTOR_DIR
 git clone https://github.com/OCA/connector.git --depth=1 $CONNECTOR_DIR -b 8.0
 chown -R openerp:openerp $CONNECTOR_DIR
-echo " "
+# 
 
-echo " Install Connector - Ecommerce"
+
+# Install Connector - Ecommerce
+# 
 CONNECTOR_ECOM_DIR=/opt/openerp/oca/connector-ecommerce
 mkdir $CONNECTOR_ECOM_DIR
 git clone https://github.com/OCA/connector-ecommerce.git --depth=1 $CONNECTOR_ECOM_DIR -b 8.0
 chown -R openerp:openerp $CONNECTOR_ECOM_DIR
-echo " "
+# 
+ 
 
-echo " Install Connector - Magento"
+# Install Connector - Magento
+# 
 CONNECTOR_MAGENTO_DIR=/opt/openerp/oca/connector-magento
 mkdir $CONNECTOR_MAGENTO_DIR
 git clone https://github.com/OCA/connector-magento.git --depth=1 $CONNECTOR_MAGENTO_DIR -b 8.0
 chown -R openerp:openerp $CONNECTOR_MAGENTO_DIR
-echo " "
+# 
 
-echo " Install- Ecommerce GIT 2"
+
+# Install- Ecommerce GIT 2
+# 
 E_COMMERCE_DIR=/opt/openerp/oca/e-commerce
 mkdir $E_COMMERCE_DIR
 git clone https://github.com/OCA/e-commerce.git --depth=1 $E_COMMERCE_DIR -b 8.0
 chown -R openerp:openerp $E_COMMERCE_DIR
-echo " "
+# 
 
-echo " Install Product Attributes"
+
+# Install Product Attributes
+# 
 PRODUCT_ATTRIBUTE_DIR=/opt/openerp/oca/product-attribute
 mkdir $PRODUCT_ATTRIBUTE_DIR
 git clone https://github.com/OCA/product-attribute.git --depth=1 $PRODUCT_ATTRIBUTE_DIR -b 8.0
 chown -R openerp:openerp $PRODUCT_ATTRIBUTE_DIR
-echo " "
+# 
 
-echo " Install Sale - Workflow"
+
+# Install Sale - Workflow
+# 
 SALE_WORKFLOW_DIR=/opt/openerp/oca/sale-workflow
 mkdir $SALE_WORKFLOW_DIR
 git clone https://github.com/OCA/sale-workflow.git --depth=1 $SALE_WORKFLOW_DIR -b 8.0
 chown -R openerp:openerp $SALE_WORKFLOW_DIR
-echo " "
-echo "--------------------------"
+# 
 
-echo " Install Magento API"
+
+# Install Magento API
+# 
 MAGENTO_API_DIR=/opt/openerp/oca/openlabs-magento
 mkdir $MAGENTO_API_DIR
 git clone https://github.com/openlabs/magento --depth=1 $MAGENTO_API_DIR 
@@ -60,55 +76,59 @@ chown -R openerp:openerp $MAGENTO_API_DIR
 cd $MAGENTO_API_DIR
 python setup.py install
 cd /
-echo " Finished Install Magento API"
-echo " "
+# 
 
-echo "--------------------------"
 
-echo " Install OCA Account-Financial-Tools"
+# Install OCA Account-Financial-Tools
+#
 ACCOUNT_FINANCIAL_TOOLS=/opt/openerp/oca/account-financial-tools
 mkdir $ACCOUNT_FINANCIAL_TOOLS
 git clone https://github.com/OCA/account-financial-tools.git --depth=1 $ACCOUNT_FINANCIAL_TOOLS -b 8.0
 chown -R openerp:openerp $ACCOUNT_FINANCIAL_TOOLS
-echo " "
-echo "--------------------------"
+# 
 
-echo " Install OCA - Connector Interfaces"
+
+# Install OCA - Connector Interfaces
 CONNECTOR_INTERFACES_DIR=/opt/openerp/oca/connector-interfaces
 mkdir $CONNECTOR_INTERFACES_DIR
 git clone https://github.com/OCA/connector-interfaces.git --depth=1 $CONNECTOR_INTERFACES_DIR -b 8.0
 chown -R openerp:openerp $CONNECTOR_INTERFACES_DIR
-echo " "
-echo "--------------------------"
+# 
 
-echo " Install OCA - WEB"
+
+# Install OCA - WEB
 OCA_WEB_DIR=/opt/openerp/oca/web
 mkdir $OCA_WEB_DIR
 git clone https://github.com/OCA/web.git --depth=1 $OCA_WEB_DIR -b 8.0
 chown -R openerp:openerp $OCA_WEB_DIR
-echo " "
-echo "--------------------------"
+# 
 
-echo " Install OCA - WEBSITE"
+
+# Install OCA - WEBSITE
 OCA_WEBSITE_DIR=/opt/openerp/oca/website
 mkdir $OCA_WEBSITE_DIR
 git clone https://github.com/OCA/website.git --depth=1 $OCA_WEBSITE_DIR -b 8.0
 chown -R openerp:openerp $OCA_WEBSITE_DIR
-echo " "
-echo "--------------------------"
+# 
 
-echo " Install OCA - DONATION"
+
+# Install OCA - DONATION
 OCA_DONATION_DIR=/opt/openerp/oca/donation
 mkdir $OCA_DONATION_DIR
 git clone https://github.com/OCA/donation.git --depth=1 $OCA_DONATION_DIR -b 8.0
 chown -R openerp:openerp $OCA_DONATION_DIR
-echo " "
-echo "--------------------------"
+# 
 
-echo " Install OCA - COMMISSION"
+ 
+# Install OCA - COMMISSION
+# 
 OCA_COMMISSION_DIR=/opt/openerp/oca/commission
 mkdir $OCA_COMMISSION_DIR
 git clone https://github.com/OCA/commission.git --depth=1 $OCA_COMMISSION_DIR -b 8.0
 chown -R openerp:openerp $OCA_COMMISSION_DIR
-echo " "
-echo "--------------------------"
+# 
+
+# 
+# END - Install Odoo External Modules - 50_external_modules_installation
+#
+
