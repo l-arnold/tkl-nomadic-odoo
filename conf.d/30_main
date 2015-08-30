@@ -7,14 +7,14 @@
 # Set variables
 
 DB_NAME=openerp
-DB_USER=openerp
+DB_USER=openuser
 DB_PASS=$(mcookie)
 SERVICE_USER=openerp
 
 OPENERP_PASS=openerp
 OPENERP_DIR=/opt/openerp
-ODOO_DIR=/opt/openerp/odoo
-
+ODOO_DIR=$OPENERP_DIR/odoo
+SERVER_CONF=$ODOO_DIR/openerp-server.conf
 
 # Create database and database role for odoo
 # 
@@ -32,6 +32,9 @@ su postgres -c "createdb --owner $DB_USER -EUTF8 $DB_NAME"
 su postgres -c "psql postgres" << EOF
 alter user $DB_USER with encrypted password '$DB_PASS';
 EOF
+
+# Set password in config file
+sed -i "s|db_password =.*|db_password = $DB_PASS|" $SERVER_CONF
 
 # Stop postgresql server
 /etc/init.d/postgresql stop
