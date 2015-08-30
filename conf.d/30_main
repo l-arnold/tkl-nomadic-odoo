@@ -5,13 +5,18 @@
 #
  
 # Set variables
-
+# 
 DB_NAME=openerp
 DB_USER=openuser
+
 DB_PASS=$(mcookie)
+
+# We will use a random password for now. Set it during inithook
+ODOO_ADMIN_PASSWORD=$(mcookie)
+
+# User name that Odoo will run under
 SERVICE_USER=openerp
 
-OPENERP_PASS=openerp
 OPENERP_DIR=/opt/openerp
 ODOO_DIR=$OPENERP_DIR/odoo
 SERVER_CONF=$ODOO_DIR/openerp-server.conf
@@ -48,18 +53,11 @@ sed -i "s|db_password =.*|db_password = $DB_PASS|" $SERVER_CONF
 # Add user without home dir
 useradd -M $SERVICE_USER 
 
-# Set no shell
-usermod -s /bin/false $SERVICE_USER
+# Set shell
+usermod -s /bin/bash $SERVICE_USER
 
 # Disable user
 usermod -L $SERVICE_USER 
-
-# Not sure what this line is doing, looks like setting password? 
-# should not need a password for service account. Leaving this 
-# in case there is a reason I don't understand
- 
-# usermod -p $(echo $OPENERP_PASS | openssl passwd -1 -stdin) openerp
-#
 
 
 # Install Odoo
@@ -78,6 +76,9 @@ git clone https://github.com/odoo/odoo.git --branch 8.0 --depth=1  /tmp/odoo_tem
 # Move the files, but don't change existing ones 
 mv -n -t $ODOO_DIR /tmp/odoo_temp/*
 rm -rf /tmp/odoo_tmp
+
+# Set admin password to random value for now
+sed -i "s|admin_passwd =.*|admin_passwd = $ODOO_ADMIN_PASSWORD|" $SERVER_CONF
 
 # Give ownership to openerp user
 chown -R openerp:openerp $ODOO_DIR

@@ -1,8 +1,8 @@
 #!/usr/bin/python
 
-"""Set Odoo  ADMIN pw
+"""Set Odoo Admin Password
 Option:
-    --adminpw=    unless provided, will ask interactively
+    --pass=    unless provided, will ask interactively
 """
 
 import re
@@ -14,6 +14,7 @@ import random
 import hashlib
 
 from dialog_wrapper import Dialog
+from executil import system
 
 def usage(s=None):
     if s:
@@ -25,28 +26,26 @@ def usage(s=None):
 def main():
     try:
         opts, args = getopt.gnu_getopt(sys.argv[1:], "h",
-                                       ['help', 'adminpw='])
+                                       ['help', 'pass='])
     except getopt.GetoptError, e:
         usage(e)
 
-    adminpw = ""
+    password = ""
     for opt, val in opts:
         if opt in ('-h', '--help'):
             usage()
-        elif opt == '--adminpw':
-            adminpw = val
+        elif opt == '--pass':
+            password = val
 
 
-    if not adminpw:
-        if 'd' not in locals():
-            d = Dialog('TurnKey Linux - First boot configuration')
+    if not password:
+        d = Dialog('TurnKey Linux - First boot configuration')
+        password = d.get_password(
+            "Odoo Database Managment Screen Password",
+            "Enter new database management screen password. This is used for Odoo database functions.")
 
-        adminpw = d.get_adminpw(
-            "Odoo Admin-password",
-            "Enter password for the odoo 'admin' database manager.",
-            "eg: admin")
-
-
+    config = "/opt/openerp/odoo/openerp-server.conf"
+    system("sed -i \"s|admin_passwd =.*|admin_passwd = \"%s\"|\" %s" % (password, config))
 
 if __name__ == "__main__":
     main()
