@@ -1,7 +1,7 @@
-turnkey-odoo-14.0 (0.1) turnkey; urgency=low
+turnkey-odoo-14.0 (1) turnkey; urgency=low
 
   * Put release notes here
 
   * Based on turnkey v14 LAPP
 
-  -- Landis Arnold <larnold@nomadic.net>  Thu, 27 Aug 2015 22:55:07 -0400
+ -- Landis Arnold <larnold@nomadic.net>  Thu, 27 Aug 2015 22:55:07 -0400
