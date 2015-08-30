@@ -1,12 +1,8 @@
-Odoo:       https://$ipaddr
-Web shell:  https://$ipaddr:12320
-Webmin:     https://$ipaddr:12321
-AdminerDBM: https://$ipaddr:12322
-SMB/CIFS:   \\$ipaddr\Storage (ports 139/445)
-SSH/SFTP:   root@$ipaddr (port 22)
-Web Console:https://$ipaddr:12324
-Web Console:http://$ipaddr:12325
-
-Security: Change Odoo Admin Pass before first Odoo Install
-        https://$ipaddr/web/database/manager
-Can open 8069 by rem 127.0.0.1 in openerp-server.conf
+Odoo:         https://$ipaddr
+Web shell:    https://$ipaddr:12320
+Webmin:       https://$ipaddr:12321
+Adminer   :   https://$ipaddr:12322
+Web Console:  https://$ipaddr:12324
+Odoo DB Mgt:  https://$ipaddr/web/database/manager
+SMB/CIFS:     \\$ipaddr\Storage 
+SSH/SFTP:     root@$ipaddr (port 22)
