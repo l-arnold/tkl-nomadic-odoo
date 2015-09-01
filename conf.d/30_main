@@ -84,6 +84,9 @@ sed -i "s|admin_passwd =.*|admin_passwd = $ODOO_ADMIN_PASSWORD|" $SERVER_CONF
 chown -R openerp:openerp $ODOO_DIR
 # 
 
+# Create lib
+mkdir /var/lib/odoo
+chown -R openerp:openerp /var/lib/odoo 
 
 # Install Odoo as a service
 # 
