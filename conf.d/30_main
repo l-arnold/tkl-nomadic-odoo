@@ -6,7 +6,7 @@
  
 # Set variables
 # 
-DB_NAME=openerp
+#DB_NAME=openerp
 DB_USER=openuser
 
 DB_PASS=$(mcookie)
@@ -31,7 +31,7 @@ SERVER_CONF=$ODOO_DIR/openerp-server.conf
 su postgres -c "createuser --no-superuser --createdb --no-createrole $DB_USER"
 
 # Create database
-su postgres -c "createdb --owner $DB_USER -EUTF8 $DB_NAME"
+#su postgres -c "createdb --owner $DB_USER -EUTF8 $DB_NAME"
 
 # Set db user password
 su postgres -c "psql postgres" << EOF
