@@ -6,9 +6,7 @@
  
 # Set variables
 # 
-#DB_NAME=openerp
 DB_USER=openuser
-
 DB_PASS=$(mcookie)
 
 # We will use a random password for now. Set it during inithook
@@ -21,17 +19,14 @@ OPENERP_DIR=/opt/openerp
 ODOO_DIR=$OPENERP_DIR/odoo
 SERVER_CONF=$ODOO_DIR/openerp-server.conf
 
-# Create database and database role for odoo
+# Create database role for odoo
 # 
 
 # Start postgresql server
 /etc/init.d/postgresql start
 
 # Create db user
-su postgres -c "createuser --no-superuser --createdb --no-createrole $DB_USER"
-
-# Create database
-#su postgres -c "createdb --owner $DB_USER -EUTF8 $DB_NAME"
+su postgres -c "createuser --superuser --createdb --no-createrole $DB_USER"
 
 # Set db user password
 su postgres -c "psql postgres" << EOF
