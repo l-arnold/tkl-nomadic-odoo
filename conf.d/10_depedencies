@@ -5,6 +5,7 @@
 #  
  
 # Install gdata 2.0.17
+# Should use ver= as below for gdata
 # 
 cd /opt/openerp
 wget http://gdata-python-client.googlecode.com/files/gdata-2.0.17.tar.gz
@@ -16,8 +17,8 @@ cd ..
 
 # Intall wkhtmltox 0.12.2.1 - Used for HTML to PDF for reports 
 #
-ARCH=amd64
-REL=wheezy
+# ARCH=amd64
+# REL=jessie
 VER=0.12.2.1
 wget http://download.gna.org/project/wkhtmltopdf/${VER}/wkhtmltox-${VER}_linux-${REL}-${ARCH}.deb
 dpkg -i wkhtmltox-*.deb
