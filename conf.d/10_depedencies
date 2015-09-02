@@ -16,8 +16,14 @@ cd ..
 
 # Intall wkhtmltox 0.12.2.1 - Used for HTML to PDF for reports 
 #
-wget http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
-dpkg -i wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
+ARCH=amd64
+REL=wheezy
+VER=0.12.2.1
+wget http://download.gna.org/project/wkhtmltopdf/${VER}/wkhtmltox-${VER}_linux-${REL}-${ARCH}.deb
+dpkg -i wkhtmltox-*.deb
+
+# wget http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
+# dpkg -i wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
 cp /usr/local/bin/wkhtmltopdf /usr/bin
 cp /usr/local/bin/wkhtmltoimage /usr/bin
 
