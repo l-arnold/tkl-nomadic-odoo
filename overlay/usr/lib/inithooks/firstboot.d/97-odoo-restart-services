@@ -1,0 +1,19 @@
+#!/bin/bash -e
+# Restart services 
+
+. /etc/default/inithooks
+
+# Stop the services
+echo "Restarting services"
+echo "Stopping apache, openerp and postgres"
+systemctl stop apache2.service
+systemctl stop openerp-server.service
+systemctl stop postgresql.service
+
+# Start them back
+echo "Starting postgres, openerp and apache"
+systemctl start postgresql.service
+systemctl start openerp-server.service
+systemctl start apache2.service
+
+
