@@ -22,7 +22,7 @@
     </head>
 
 <body>
-    <h1>TurnKey Odoo</h1>
+<h1>TurnKey Odoo</h1>
         
         <div id="container-1">
             <ul>
@@ -61,37 +61,27 @@
 
                 <h2>Resources and references</h2>
                     <ul>
-                    <li>
-                     <a href="http://<?php print
-                    $_SERVER{'SERVER_NAME'}; ?>:12325">
-                      WebConsole (here) HTTP 12325 </a> 
-                      <li>(Open HTTP if SSL Configuration Needed)
-                    </li>
-                    <li><a href="https://<?php print
-                    $_SERVER{'SERVER_NAME'}; ?>:12324">WebConsole (here) HTTPS 12324 </a> 
-                    <li>(Consistent with 12320, 12321, 12322 in default build) 
-                    </li>
                         <li>
-                         <a href="http://<?php print
-                        $_SERVER{'SERVER_NAME'}; ?>:8069">
-                          Odoo Port Test 8069 </a>
-                         <li>(Enable by remove 127.0.0.1 from XMLRPC odoo-server.conf)
+                         	<a href="http://<?php print
+                        	$_SERVER{'SERVER_NAME'}; ?>:12325">
+                          	WebConsole (here) HTTP 12325 </a>(WebConsole - Open HTTP)
                         </li>
                         <li>
-                          <a href="/phpinfo.php">Apache PHP information</a>
-                          (to disable: rm /var/www/phpinfo.php)
+				<a href="https://<?php print
+                        	$_SERVER{'SERVER_NAME'}; ?>:12324">WebConsole - HTTPS 12324 </a>(also Ports 12320, 12321, 12322) 
                         </li>
                         <li>
-                          <a href="/server-status">Apache server status</a>
-                          (to disable: a2dismod status)
+                        	<a href="/phpinfo.php">Apache PHP information</a>
+                       	(to disable: "rm /var/www/phpinfo.php")
                         </li>
                         <li>
-                          <a href="https://github.com/l-arnold/tkl-nomadic-odoo">TKL Nomadic Odoo - GitHub</a>
-                          (l-arnold/tkl-nomadic-odoo)
+                        	<a href="https://github.com/l-arnold/tkl-nomadic-odoo">TKL Nomadic Odoo - GitHub</a>(l-arnold/tkl-nomadic-odoo)
                         </li>
                         <li>
-                          <a href="https://github.com/odoo">Odoo on GitHub</a>
-                          (formerly OpenERP)
+                        	<a href="https://github.com/odoo">Odoo on GitHub</a>(Odoo Source code)
+                        </li>
+                        <li>
+                        	<a href="/server-status">Apache server status</a>(to disable in shell "a2dismod status")
                         </li>
                     </ul>
 
