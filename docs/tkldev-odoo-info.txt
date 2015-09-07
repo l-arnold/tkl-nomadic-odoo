@@ -1,1 +1,31 @@
-Starting Point for in build Doc
+The Turnkey Odoo Appliance has several "user customizable" features to it.
+
+WebConsole:
+The Webconsole runs on Ports 12324 (https) and 12325 (http)
+It is avaialable in within /etc/apache2/sites-available
+  to enable it, log in to the Shell (webshell) and type (followed by a return)
+  * a2ensite odoo-12325.conf
+ To disable Webconsole, easiest is to go, via Webmin to "file manager"  
+  Proceed to /etc/apache2/sites-enabled
+  thend delete the "pointer file"
+  odoo-12325.conf
+  
+Odoo
+
+In general Odoo is self starting and self running.  However, there may be times where you want to disable the Odoo Server and service.  To do so with the most ease, log in to the Shell (webshell)
+  from root prompt
+    cd /opt/openerp
+  then type
+      /bin/bash openerp.init stop
+        (followed by return)
+        
+Work can then be done on the Server, including "git pull" on various directories, manual file updating and other work.
+
+We recomend Restarting your server at present to bring everything back up and online.
+
+  The following 4 Lines Should be added but need to be confirmed (not working at present but ideally would go in at line 21 above.)
+#    You can start it by typing
+#      /bin/bash openerp.init start
+#    You can "restart" it while it is running by typing
+#      /bin/bash openerp.init restart
+  
