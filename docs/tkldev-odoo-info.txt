@@ -10,8 +10,7 @@ It is avaialable in within /etc/apache2/sites-available
   thend delete the "pointer file"
   odoo-12325.conf
   
-Odoo
-
+Odoo:
 In general Odoo is self starting and self running.  However, there may be times where you want to disable the Odoo Server and service.  To do so with the most ease, log in to the Shell (webshell)
   from root prompt
     cd /opt/openerp
@@ -29,3 +28,8 @@ We recomend Restarting your server at present to bring everything back up and on
 #    You can "restart" it while it is running by typing
 #      /bin/bash openerp.init restart
   
+Postfix and Odoo:
+Proper working of Odoo together requires the following basic configuration changes, should the default Postfix server be 
+used as the functional email gateway for Odoo.
+
+(add information here)
