@@ -22,11 +22,17 @@ Work can then be done on the Server, including "git pull" on various directories
 
 We recomend Restarting your server at present to bring everything back up and online.
 
-  The following 4 Lines Should be added but need to be confirmed (not working at present but ideally would go in at line 21 above.)
-#    You can start it by typing
-#      /bin/bash openerp.init start
-#    You can "restart" it while it is running by typing
-#      /bin/bash openerp.init restart
+The following Bounce will Bring your Server into "update" or "git pull" mode.
+systemctl stop apache2.service
+systemctl stop openerp-server.service
+systemctl stop postgresql.service
+
+Do your system updates here.  Git Pull's can be done in Odoo Program and AddOns folders.
+Then bring everything else back up online.
+
+systemctl startpostgresql.service
+/bin/bash openerp.init start -d (database-name or all) -u (database-name or all)
+systemctl start apache2.service
   
 Postfix and Odoo:
 Proper working of Odoo together requires the following basic configuration changes, should the default Postfix server be 
