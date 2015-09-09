@@ -1,0 +1,36 @@
+The Turnkey Odoo Appliance has several "user customizable" features to it.
+
+WebConsole:
+The Webconsole runs on Ports 12324 (https) and 12325 (http)
+It is avaialable in within /etc/apache2/sites-available
+  to enable it, log in to the Shell (webshell) and type (followed by a return)
+  * a2ensite odoo-12325.conf
+ To disable Webconsole, easiest is to go, via Webmin to "file manager"  
+  Proceed to /etc/apache2/sites-enabled
+  thend delete the "pointer file"
+  odoo-12325.conf
+  
+Odoo:
+In general Odoo is self starting and self running.  However, there may be times where you want to disable the Odoo Server and service.  To do so with the most ease, log in to the Shell (webshell)
+
+We recomend Restarting your server at present to bring everything back up and online.
+
+The following Bounce will Bring your Server into "update" or "git pull" mode.
+  systemctl stop apache2.service
+  systemctl stop openerp-server.service
+  systemctl stop postgresql.service
+
+Do your system updates here.  Git Pull's can be done in Odoo Program and AddOns folders.
+Then bring everything else back up online.
+
+  systemctl startpostgresql.service
+  /bin/bash openerp.init start -d (database-name or all) -u (database-name or all)
+    (or alternatively if jusst restarting and having not updated any files)
+      systemctl start openerp-server.service
+  systemctl start apache2.service
+  
+Postfix and Odoo:
+Proper working of Odoo together requires the following basic configuration changes, should the default Postfix server be 
+used as the functional email gateway for Odoo.
+
+(add information here)

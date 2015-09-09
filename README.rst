@@ -1,6 +1,6 @@
 Odoo Appliance - Turnkey Linux  
 =======================
-At RC1,RC2, RC3, available as ISO on https://sourceforge.net/projects/tklnomadicodoo/
+At beta v 01 (see release here and available as ISO on https://sourceforge.net/projects/tklnomadicodoo/  )
 
 `Odoo`_ is a suite of web based open source business apps.  TKL-Nomadic-Odoo is a prebuilt install that integrates the current Odoo 8.0 Branch, and which has been preconfigured with Odoo Community Association Addon Modules - both OCA-Server Tools and the OCA - Magento Connector (Connector framework).
 
