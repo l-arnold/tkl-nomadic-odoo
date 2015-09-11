@@ -70,10 +70,11 @@ chown -R openerp:openerp /var/lib/odoo
 
 update-rc.d openerp-server defaults
 
--cd /opt/openerp		
--ln -s openerp.init /etc/init.d/openerp-server
-touch openerp.init
-chown openerp openerp.init
+# Symlinks attemps commented 73-77 and 85-92
+# cd /opt/openerp		
+# ln -s openerp.init /etc/init.d/openerp-server
+# touch openerp.init
+# chown openerp openerp.init
 
 touch /var/log/openerp-server.log
 chown openerp /var/log/openerp-server.log
@@ -82,13 +83,13 @@ chown openerp /var/run/openerp-server.pid
 chown -R openerp:openerp $ODOO_DIR
 
 # make softlink for openerp.server.conf
-cd $OPENERP_DIR/odoo
-ln -s openerp-server.conf /etc/odoo/openerp-server.conf
-touch openerp-server.conf
-chown openerp openerp-server.conf
-cd /etc/odoo
-touch openerp-server.conf
-chown openerp openerp-server.conf
+# cd $OPENERP_DIR/odoo
+# ln -s openerp-server.conf /etc/odoo/openerp-server.conf
+# touch openerp-server.conf
+# chown openerp openerp-server.conf
+# cd /etc/odoo
+# touch openerp-server.conf
+# chown openerp openerp-server.conf
 
 # Perform apache config		
 # Enable needed modules
