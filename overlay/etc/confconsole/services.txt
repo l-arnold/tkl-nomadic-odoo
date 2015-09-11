@@ -3,5 +3,7 @@ Web shell:    https://$ipaddr:12320
 Webmin:       https://$ipaddr:12321
 Adminer   :   https://$ipaddr:12322
 Web Console:  https://$ipaddr:12324
+
 Odoo DB Mgt:  https://$ipaddr/web/database/manager
+SSH/SFTP:     root@$ipaddr (port 22)
 
