@@ -108,7 +108,7 @@ a2enmod ssl proxy_http headers rewrite
 a2ensite openerp-ssl.conf		
 a2ensite odoo-80.conf		
 # WebConsole is disabled but available by typing the following line in shell
-# a2ensite odoo-12325.conf		
+a2ensite odoo-12325.conf		
 
 # odoo-12325.conf also creates port 12324 for SSL		
 # Port 12324 for SSL

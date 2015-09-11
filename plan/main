@@ -1,6 +1,5 @@
 #include <turnkey/base>
 #include <turnkey/lapp>
-#include <turnkey/samba>
 
 postgresql-contrib       # additional facilities for PostgreSQL
 

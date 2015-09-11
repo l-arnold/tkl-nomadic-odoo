@@ -14,8 +14,8 @@ This appliance is based on the Turnkeylinux (TKL) `LAPP stack`_, which integrate
 - WebShell SSH on   Port:12320
 - Webmin On         Port:12321
 - Adminer DBMgr on  Port: 12322
-- HTTPS: WebConsole:Port: 12324
-- HTTP WebConsole:  Port: 12325
+- Optional HTTPS: WebConsole:Port: 12324
+- Optional HTTP WebConsole:  Port: 12325
 
   All management is linked from Webconsole as well as cursory documentation.
 
@@ -36,35 +36,21 @@ This appliance is based on the Turnkeylinux (TKL) `LAPP stack`_, which integrate
     removing 127.0.0.1 from "xmlrpc_interface = 127.0.0.1" and "netrpc_interface = 127.0.0.1"
     This will allow you to separate SSL Configuration from Odoo Configuration.
 
-- Webmin module for configuring Samba.
-- File server (`Samba`_) configurations:
-   - Preconfigured wordgroup: WORKGROUP
-   - Preconfigured netbios name: FILESERVER
-   - Configured Samba and UNIX users/groups synchronization (CLI and
-     Webmin).
-   - Configured root as administrative samba user.
-   - Configured shares:
-      - Users home directory.
-      - Public storage.
-      - CD-ROM with automount and umount hooks (/media/cdrom).
-- Default storage: */srv/storage*
-- Accessing file server via samba on the command line::
-    smbclient //1.0.0.61/storage -Uroot
-    mount -t cifs //1.0.0.61/storage /mnt -o username=root,password=PASSWORD
 
 Credentials *(passwords set at first boot)*
 -------------------------------------------
 
--  Webmin, Webshell, SSH, Samba: username **root**
+-  Webmin, Webshell, SSH: username **root**
 -  PostgreSQL, phpPgAdmin: username **postgres**
--  Odoo: username **openerp**
+-  Odoo PostgreSQL: username **openuser**  
+-  Odoo Master Database password: **admin_passwd**  
 
 Credentials *(passwords set by default)*
 ----------------------------------------
+- None
 
--  Odoo Master password: **admin**  (Change in Odoo Config file and Odoo DB Manager before any Data Base is created)
--  Odoo openuser password: **openuser**  (Firstboot resets - changes both openuser Postgresql user and Odoo config file)
-  
+Links
+-----
 .. _Odoo: https://www.odoo.com
 .. _Open Source CRM: https://www.odoo.com/page/crm
 .. _Website Builder: https://www.odoo.com/page/website-builder
@@ -77,7 +63,6 @@ Credentials *(passwords set by default)*
 .. _LAPP stack: http://www.turnkeylinux.org/lapp
 .. _PHPPgAdmin: http://phppgadmin.sourceforge.net/
 .. _TurnKey Core: http://www.turnkeylinux.org/core
-.. _Samba: http://www.samba.org/samba/what_is_samba.html
 
 Built from initial Git-Clone made by Carlos' Tkl-Odoo at:
 https://github.com/CLVsol/tkl-odoo
