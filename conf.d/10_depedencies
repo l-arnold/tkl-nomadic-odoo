@@ -8,6 +8,7 @@
 # Should use ver= as below for gdata
 # 
 VER=2.0.17
+mkdir -p /opt/openerp
 cd /opt/openerp
 wget http://gdata-python-client.googlecode.com/files/gdata-${VER}.tar.gz
 tar -zxvf gdata-${VER}.tar.gz
