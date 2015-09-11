@@ -58,4 +58,4 @@ You may also want to RESTART your Apache WebServer.
 
 You can do all that within Webmin and there are other ways in WebShell as well.
 
-Idally you now have a Full Cert applied to your Odoo Installation as well as the corrolarry WebConsole which is effectively just a shortcut page to get to the different parts of your full Turnkey Odoo Server.
+Ideally you now have a Full Cert applied to your Odoo Installation as well as the corrolarry WebConsole which is effectively just a shortcut page to get to the different parts of your full Turnkey Odoo Server.
