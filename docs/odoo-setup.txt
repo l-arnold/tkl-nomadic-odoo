@@ -2,7 +2,7 @@ Setting Up Odoo
 
 Odoo is a massive system that will take care to setup in the way you prefer best.  Version 8, upon which the Turnkey App is built is vastly more stable than previous versions.
 
-We also have endeavored to add the functional span of modules you will generall want to use.  This includes the Odoo SA Base module builds.  Additionally it includes several of the OCA (Odoo Community Association) module builds.
+We also have endeavored to add the functional span of modules you will generally want to use.  This includes the Odoo SA Base module builds.  Additionally it includes several of the OCA (Odoo Community Association) module builds.
 
 At first boot, you will be presented with the Odoo Database Manager.  You will want to 
 1: Provide your "Odoo Admin Password" in field one (different than the default that is filled in).  This password you specified at in the last stages of your system startup (the third password entered)
