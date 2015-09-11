@@ -1,4 +1,19 @@
-* As of v10 TKL-Nomadic-Connector  (known also as TKL-Nomadic-Odoo)  Will become RC3
+9-10-15  Closing in on the package.
+  Updated Documentations
+  
+  Overhauled build process
+  
+  Made both Database Passwords be set at firstboot (one randomly)
+  
+  Tested TKLBAM
+  
+  Explored Postfix Integration
+  
+  Removed Samba
+  
+  Several other issues addressed (see issues on this repostory)
+
+* As of v10 TKL-Nomadic-Connector  (known also as TKL-Nomadic-Odoo)  Will become RC3  (Should be dated by ISO Build)
 
   Added Directory Browsing and Docs Link from WebConsole
 
