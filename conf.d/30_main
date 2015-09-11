@@ -98,15 +98,6 @@ chown openerp /var/run/openerp-server.pid
 chown -R openerp:openerp $ODOO_DIR
 # 
 
-# make softlink for openerp.server.conf
-cd /etc/odoo
-ln -s $OPENERP_DIR/odoo/openerp-server.conf openerp-server.conf
-touch openerp-server.conf
-chown openerp openerp-server.conf
-cd $OPENERP_DIR/odoo/openerp-server.conf
-touch openerp-server.conf
-chown openerp openerp-server.conf
-
 # Perform apache config		
 # Enable needed modules
 # 
