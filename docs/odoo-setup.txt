@@ -29,6 +29,7 @@ User Details
   Log out, then Log back in.  
   Go again to Users.
   You will find now "associated user" displayed for ADMIN.  Click on that user and update Details as you see fit.
+  ASSIGN a NEW EMAIL ADDRESS like admin@our.oddoserver.com .  This email address will be shown when you "send messages" from the ADMIN USER login.  Do it soon so you don't wonder why you are getting messages from admin@example.com  (the default email assigned to ADMIN.
   
   While it is recomended you do not have ADMIN be a real person, if you are wanting to get support from ODOO SA and qualify for the 2 User support package, it can be worth modifying ADMIN into your "real self".  
   
@@ -38,7 +39,10 @@ General Settings:
   You will need your EMAIL SERVER to accept SMTP mail from your TKL-ODOO Ip address
   You will need to specify account details in both Incoming and Outgoing servers.  (That being said, at startup, you can send OUTGOING Mail via LOCALHOST with the POSTFIX Mail Server which is part of the TURNKEY-ODOO App.)  We recomend however moving to a MX Serving Mail Server.
   
+  Without "Incoming" routing setup via MX Provisioning on your DNS Setup, any emails you send out will be "un respondable".  That means, do not send messages except for internal system tests until you have full found that the system is sending AND reciving messages well.  
+  If you find messages are not going to some Domains, it is time to visit Odoo.com to research why.  It will likely have to do with your DNS setup and how your headers are transmitting.  Such issues are beyond our curent expertise but we can and likely will join the conversation.
+  
 Postfix:  
   We have endeavored to use the POSTFIX Server for both incoming and outgoing mail.  We will document what we know and also move he discussion to the Wiki and forum for this APP.  Could be a good solution, though it may also put too much load on your system in terms of Resouces (ram and processing).
 
-    
+This Writer's (Landis Arnold) current recomendation for a email provider who can effectively deliver "catchall" domain email is ZMaiLCloud.com  (www.zmailcloud.com).  If you would like help with provisioning you can contact me Landis Arnold (larnold@nomadic.net, or contact me at my website at www.nomadic.net).
