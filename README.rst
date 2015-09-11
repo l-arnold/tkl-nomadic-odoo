@@ -42,13 +42,15 @@ Credentials *(passwords set at first boot)*
 
 -  Webmin, Webshell, SSH: username **root**
 -  PostgreSQL, phpPgAdmin: username **postgres**
+-  Odoo PostgreSQL: username **openuser**  
+-  Odoo Master Database password: **admin_passwd**  
 
 Credentials *(passwords set by default)*
 ----------------------------------------
+- None
 
--  Odoo Master password: **admin**  (Change in Odoo Config file and Odoo DB Manager before any Data Base is created)
--  Odoo openuser password: **openuser**  (Firstboot resets - changes both openuser Postgresql user and Odoo config file)
-  
+Links
+-----
 .. _Odoo: https://www.odoo.com
 .. _Open Source CRM: https://www.odoo.com/page/crm
 .. _Website Builder: https://www.odoo.com/page/website-builder
