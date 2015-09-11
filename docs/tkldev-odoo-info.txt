@@ -3,8 +3,11 @@ The Turnkey Odoo Appliance has several "user customizable" features to it.
 WebConsole:
 The Webconsole runs on Ports 12324 (https) and 12325 (http)
 It is avaialable in within /etc/apache2/sites-available
-  to enable it, log in to the Shell (webshell) and type (followed by a return)
-  * a2ensite odoo-12325.conf
+  If it is disabled at start time, you can enable it by following these steps:
+  Log in to the Shell (webshell) with your root user credentials and password (ip-domain:12320)
+  and type (followed by a return)  a2ensite odoo-12325.conf
+  -> a2ensite odoo-12325.conf
+  
  To disable Webconsole, easiest is to go, via Webmin to "file manager"  
   Proceed to /etc/apache2/sites-enabled
   thend delete the "pointer file"
@@ -30,7 +33,15 @@ Then bring everything else back up online.
   systemctl start apache2.service
   
 Postfix and Odoo:
-Proper working of Odoo together requires the following basic configuration changes, should the default Postfix server be 
-used as the functional email gateway for Odoo.
+By default, the TKL-Odoo Appliance (and Odoo the Program) can "send" mail via the built in Postfix Mail "server".  Configuring Postfix to properly "recieve" mail for the Odoo Site we have not yet worked out, and by most reads, is not the recomended setup for implementing Odoo.
 
-(add information here)
+A separate document will be (or is) attached to this folder that outlines normal steps for setting up incoming and outgoing mail features in Odoo.  This is an important task in your system setup and should not be ignored.
+
+We will aslo attached the information "leading towards" a Postfix implementation.  It is our intention to also set up the GitHub - Wiki for this Turnkey App which can be updated on an ongoing basis with new information.
+
+TKLBAM:  (Turnkey Backup and Migration)
+It is encouraged that TKLBAM be used to regularly backup your Turnkey Odoo Application.  Setup is very simple and is often initiated at first boot.  Further information on setting up a Turnkey Account, the easiest way to implement TKLBAM .
+
+Full TKLBAM backups, as of this writing will backup the full Odoo Codebase and Database environment, as well as any other parts of the system that may be used in your server.  Restores are quite easy and will take your system to its last "backup" working state assuming everything was in good order.  You are encouraged to setup your "restored" Odoo System with the same passwords as your backed up system to assure smooth and simple installation.  Updates to those passwords can be applied, generally, in the Command Console (webshell or ssh) by typing "turnkey-init", though doing so is rarely required.  You may want to do so in accordance to securing policy rationale or other reasons.
+
+Odoo Administration:
