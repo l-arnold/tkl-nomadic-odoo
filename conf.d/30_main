@@ -77,9 +77,7 @@ update-rc.d openerp-server defaults
 # chown openerp openerp.init
 
 # Change Ownership Landis
-touch /etc/odoo/openerp-server.conf
 chown openerp /etc/odoo/openerp-server.conf
-touch /etc/init.d/openerp-server
 chown openerp /etc/init.d/openerp-server
 
 touch /var/log/openerp-server.log
