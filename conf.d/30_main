@@ -99,7 +99,10 @@ chown -R openerp:openerp $ODOO_DIR
 # 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 5135a5f... # make softlink + owner for openerp.server.conf
 
 >>>>>>> parent of 5135a5f... # make softlink + owner for openerp.server.conf
 # Perform apache config		
