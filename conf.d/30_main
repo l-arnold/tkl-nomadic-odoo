@@ -98,6 +98,10 @@ chown openerp /var/run/openerp-server.pid
 chown -R openerp:openerp $ODOO_DIR
 # 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 5135a5f... # make softlink + owner for openerp.server.conf
 # Perform apache config		
 # Enable needed modules
 # 
