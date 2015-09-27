@@ -1,11 +1,8 @@
 #!/bin/sh -ex
 
-#
-# START - Install Odoo - 30_main
+# Set variables
 #
  
-# Set variables
-# 
 DB_USER=openerp
 DB_PASS=$(mcookie)
 
@@ -19,9 +16,10 @@ OPENERP_DIR=/opt/openerp
 ODOO_DIR=$OPENERP_DIR/odoo
 CONF=/etc/odoo/openerp-server.conf
 
-# Create database role for odoo
-# 
 
+# Create database role for odoo
+# *******************************************
+ 
 # Start postgresql server
 /etc/init.d/postgresql start
 
@@ -39,23 +37,10 @@ sed -i "s|db_password =.*|db_password = $DB_PASS|" $CONF
 # Stop postgresql server
 /etc/init.d/postgresql stop
 
-# Add service account user
-#
 
-# Add user without home dir
-useradd -M $SERVICE_USER 
-
-# Set shell
-usermod -s /bin/bash $SERVICE_USER
-
-# Disable user
-usermod -L $SERVICE_USER 
-
-
-# Install Odoo
-# 
-
-git clone https://github.com/odoo/odoo.git --branch 8.0 --depth=1 $ODOO_DIR
+# Install Odoo from GIT repo
+# *******************************************
+git clone http://github.com/odoo/odoo.git --branch 8.0 --depth=1 $ODOO_DIR
 
 # Set admin password to random value for now
 sed -i "s|admin_passwd =.*|admin_passwd = $ODOO_ADMIN_PASSWORD|" $CONF
@@ -64,32 +49,45 @@ sed -i "s|admin_passwd =.*|admin_passwd = $ODOO_ADMIN_PASSWORD|" $CONF
 mkdir /var/lib/odoo
 chown -R openerp:openerp /var/lib/odoo 
 
-# Install Odoo as a service
-# 
 
+
+
+# Install Odoo as a service
+# *******************************************
+
+# Add service user and disable it
+useradd -c "Odoo Service Account" -d "$OPENERP_DIR" -r -s "/bin/bash" $SERVICE_USER
+usermod -L $SERVICE_USER
+
+# Add service to startup
 update-rc.d openerp-server defaults
 
-# Change Ownership Landis
+# Change ownership for Odoo config file
 chown openerp /etc/odoo/openerp-server.conf
-chown openerp /etc/init.d/openerp-server
 
+# Create log file
 touch /var/log/openerp-server.log
-chown openerp /var/log/openerp-server.log
+chown $SERVICE_USER /var/log/openerp-server.log
+
+# Create PID file
 touch /var/run/openerp-server.pid
-chown openerp /var/run/openerp-server.pid
-chown -R openerp:openerp $ODOO_DIR
+chown $SERVICE_USER /var/run/openerp-server.pid
+
+# Set Odoo app directory owner
+chown -R $SERVICE_USER:$SERVICE_USER $ODOO_DIR
+
+
+
+
 
 # Perform apache config		
+#
+
 # Enable needed modules
-# 
 a2enmod ssl proxy_http headers rewrite		
 
 # Enable sites
 a2ensite openerp-ssl.conf		
 a2ensite odoo-80.conf		
-# WebConsole is disabled but available by typing the following line in shell
-# a2ensite odoo-12325.conf		
 
-# odoo-12325.conf also creates port 12324 for SSL		
-# Port 12324 for SSL
-
+#git config --global --unset http.proxy
