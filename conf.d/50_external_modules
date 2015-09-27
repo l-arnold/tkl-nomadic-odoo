@@ -74,7 +74,8 @@ chown -R openerp:openerp $SALE_WORKFLOW_DIR
 
 
 # Install Magento API
-# Python API for Magento
+# Python API for Magento-Coonnectors
+# Does not get installed in Addons path
 
 MAGENTO_API_DIR=/opt/openerp/oca/openlabs-magento
 mkdir $MAGENTO_API_DIR
