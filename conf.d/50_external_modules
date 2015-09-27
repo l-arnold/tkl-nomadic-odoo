@@ -4,7 +4,6 @@
 # START - Install Odoo External Modules - 50_external_modules
 # 
 
-
 # Install OCA Server Tools
 # Tools for Odoo Administrators to improve some technical features on Odoo.
 
@@ -12,6 +11,15 @@ OCA_SERVER_TOOLS_DIR=/opt/openerp/oca/oca_server_tools
 git clone https://github.com/OCA/server-tools.git --depth=1 $OCA_SERVER_TOOLS_DIR --branch 8.0  
 chown -R openerp:openerp $OCA_SERVER_TOOLS_DIR
 # 
+# Install Odoo Geospaial
+# Odoo generic connector framework (jobs queue, asynchronous tasks, channels)
+
+GEOSPATIAL_DIR=/opt/openerp/oca/geospatial
+mkdir $GEOSPAIAL_DIR
+git clone https://github.com/OCA/geospaial.git --depth=1 $GEOSPATIAL_DIR -b 8.0
+chown -R openerp:openerp $GEOSPATIAL_DIR
+# 
+
 
 # Install Odoo Connector
 # Odoo generic connector framework (jobs queue, asynchronous tasks, channels)
@@ -41,6 +49,16 @@ mkdir $CONNECTOR_MAGENTO_DIR
 git clone https://github.com/OCA/connector-magento.git --depth=1 $CONNECTOR_MAGENTO_DIR -b 8.0
 chown -R openerp:openerp $CONNECTOR_MAGENTO_DIR
 # 
+
+#
+# Install OCA - connector-woocommerce
+# Addons concerning odoo's social ERP features and messaging in generalConnect Odoo with Prestashop
+
+OCA_WOOCOMMERCE_DIR=/opt/openerp/oca/connector-woocommerce
+mkdir $OCA_WOOCOMMERCE_DIR
+git clone https://github.com/OCA/connector-woocommerce.git --depth=1 $OCA_WOOCOMMERCE_DIR -b 8.0
+chown -R openerp:openerp $OCA_WOOCOMMERCE_DIR
+#
 
 
 # Install- Ecommerce GIT 2
@@ -86,17 +104,6 @@ python setup.py install
 cd /
 # 
 
-
-# Install OCA Account-Financial-Tools
-#Odoo Accountant Financial Tools and Utils
-
-ACCOUNT_FINANCIAL_TOOLS=/opt/openerp/oca/account-financial-tools
-mkdir $ACCOUNT_FINANCIAL_TOOLS
-git clone https://github.com/OCA/account-financial-tools.git --depth=1 $ACCOUNT_FINANCIAL_TOOLS -b 8.0
-chown -R openerp:openerp $ACCOUNT_FINANCIAL_TOOLS
-# 
-
-
 # Install OCA - Connector Interfaces
 # Odoo Generic Connector for ODBC, .CSV, etc
 
@@ -126,6 +133,23 @@ git clone https://github.com/OCA/website.git --depth=1 $OCA_WEBSITE_DIR -b 8.0
 chown -R openerp:openerp $OCA_WEBSITE_DIR
 # 
 
+# Install OCA - CRM
+# Odoo CRM, Mail & Newsletter advanced features
+
+OCA_CRM_DIR=/opt/openerp/oca/crm
+mkdir $OCA_CRM_DIR
+git clone https://github.com/OCA/crm.git --depth=1 $OCA_CRM_DIR -b 8.0
+chown -R openerp:openerp $OCA_CRM_DIR
+# 
+
+# Install OCA - RMA
+# Odoo for Return Of Material (RMA)
+
+OCA_RMA_DIR=/opt/openerp/oca/rma
+mkdir $OCA_RMA_DIR
+git clone https://github.com/OCA/rma.git --depth=1 $OCA_RMA_DIR -b 8.0
+chown -R openerp:openerp $OCA_RMA_DIR
+#
 
 # Install OCA - DONATION
 # This project develops Odoo modules for advanced management of donations.
@@ -144,7 +168,14 @@ OCA_COMMISSION_DIR=/opt/openerp/oca/commission
 mkdir $OCA_COMMISSION_DIR
 git clone https://github.com/OCA/commission.git --depth=1 $OCA_COMMISSION_DIR -b 8.0
 chown -R openerp:openerp $OCA_COMMISSION_DIR
-# 
+#
+
+# This repository provides addons for the management of multi company instances as well as inter company communication.
+
+OCA_PARTNERCONTACT_DIR=/opt/openerp/oca/partner-contact
+mkdir $OCA_PARTNERCONTACT_DIR
+git clone https://github.com/OCA/partner-contact.git --depth=1 $OCA_PARTNERCONTACT_DIR -b 8.0
+chown -R openerp:openerp $OCA_PARTNERCONTACT_DIR
 
 # Install OCA - Multi Company
 # This repository provides addons for the management of multi company instances as well as inter company communication.
@@ -154,7 +185,131 @@ mkdir $OCA_MULTICOMPANY_DIR
 git clone https://github.com/OCA/multi-company.git --depth=1 $OCA_MULTICOMPANY_DIR -b 8.0
 chown -R openerp:openerp $OCA_MULTICOMPANY_DIR
 # 
+# Install OCA - Department
+#This project aims to add Department context information to Odoo Models.
 
+OCA_DEPARTMENT_DIR=/opt/openerp/oca/department
+mkdir $OCA_DEPARTMENT_DIR
+git clone https://github.com/OCA/department.git --depth=1 $OCA_DEPARTMENT_DIR -b 8.0
+chown -R openerp:openerp $OCA_DEPARTMENT_DIR
+
+#
+
+# Install OCA - Knowledge
+# Odoo Document & Knowledge Management http://www.odoo-community.org/project/22
+
+OCA_KNOWLEDGE_DIR=/opt/openerp/oca/knowledge
+mkdir $OCA_KNOWLEDGE_DIR
+git clone https://github.com/OCA/knowledge.git --depth=1 $OCA_KNOWLEDGE_DIR -b 8.0
+chown -R openerp:openerp $OCA_KNOWLEDGE_DIR
+
+#
+# Install OCA - Social
+# Addons concerning odoo's social ERP features and messaging in general
+
+OCA_SOCIAL_DIR=/opt/openerp/oca/social
+mkdir $OCA_SOCIAL_DIR
+git clone https://github.com/OCA/social.git --depth=1 $OCA_SOCIAL_DIR -b 8.0
+chown -R openerp:openerp $OCA_SOCIAL_DIR
+#
+
+# Install OCA - POS
+# Odoo Point of sale Addons http://odoo-community.org/project/59
+
+OCA_POS_DIR=/opt/openerp/oca/pos
+mkdir $OCA_POS_DIR
+git clone https://github.com/OCA/pos.git --depth=1 $OCA_POS_DIR -b 8.0
+chown -R openerp:openerp $OCA_POS_DIR
+
+# Install OCA - EVENT
+# Event Management addons
+
+OCA_EVENT_DIR=/opt/openerp/oca/event
+mkdir $OCA_EVENT_DIR
+git clone https://github.com/OCA/event.git --depth=1 $OCA_EVENT_DIR -b 8.0
+chown -R openerp:openerp $OCA_EVENT_DIR
+
+# Install OCA - vertical-community
+# Odoo for Communities Verticalization
+
+OCA_VERTICAL_COMMUNITY_DIR=/opt/openerp/oca/vertical-community
+mkdir $OCA_VERTICAL_COMMUNITY_DIR
+git clone https://github.com/OCA/vertical-community.git --depth=1 $OCA_VERTICAL_COMMUNITY_DIR -b 8.0
+chown -R openerp:openerp $OCA_VERTICAL_COMMUNITY_DIR
+#
+
+# Install OCA - vertical-association
+# Odoo addons for membership related tasks
+
+OCA_VERTICAL_ASSOCIATION_DIR=/opt/openerp/oca/vertical-association
+mkdir $OCA_VERTICAL_ASSOCIATION_DIR
+git clone https://github.com/OCA/vertical-association.git --depth=1 $OCA_VERTICAL_ASSOCIATION_DIR -b 8.0
+chown -R openerp:openerp $OCA_VERTICAL_ASSOCIATION_DIR
+#
+
+# Install OCA - vertical-construction
+# OThis repository groups all OCA modules for construction companies.
+
+OCA_VERTICAL_CONSTRUCTION_DIR=/opt/openerp/oca/vertical-construction
+mkdir $OCA_VERTICAL_CONSTRUCTION_DIR
+git clone https://github.com/OCA/vertical-construction.git --depth=1 $OCA_VERTICAL_CONSTRUCTION_DIR -b 8.0
+chown -R openerp:openerp $OCA_VERTICAL_CONSTRUCTION_DIR
+#
+
+# Install OCA Account-Financial-Tools
+#Odoo Accountant Financial Tools and Utils
+
+ACCOUNT_FINANCIAL_TOOLS=/opt/openerp/oca/account-financial-tools
+mkdir $ACCOUNT_FINANCIAL_TOOLS
+git clone https://github.com/OCA/account-financial-tools.git --depth=1 $ACCOUNT_FINANCIAL_TOOLS -b 8.0
+chown -R openerp:openerp $ACCOUNT_FINANCIAL_TOOLS
+
+# 
+
+# Install OCA Account-Financial-Reporting
+#Odoo Accountant Financial Tools and Utils
+
+ACCOUNT_FINANCIAL_TOOLS=/opt/openerp/oca/account-financial-tools
+mkdir $ACCOUNT_FINANCIAL_TOOLS
+git clone https://github.com/OCA/account-financial-tools.git --depth=1 $ACCOUNT_FINANCIAL_TOOLS -b 8.0
+chown -R openerp:openerp $ACCOUNT_FINANCIAL_TOOLS
+# 
+
+#
+# Install OCA - Sale - Reporting
+# This project aim to deal with modules related to manage sale report. You'll find modules that implement various report related to sales in general.
+
+OCA_SALEREPORTING_DIR=/opt/openerp/oca/sale-reporting
+mkdir $OCA_SALEREPORTING_DIR
+git clone https://github.com/OCA/sale-reporting.git --depth=1 $OCA_SALEREPORTING_DIR -b 8.0
+chown -R openerp:openerp $OCA_SALEREPORTING_DIR
+
+#
+# Install OCA Account-Fiscal-Rule
+# Odoo Taxes & Fiscal Rules Management
+
+ACCOUNT_FISCAL_RULE=/opt/openerp/oca/account-fiscal-rule
+mkdir $ACCOUNT_FISCAL_RULE
+git clone https://github.com/OCA/account-fiscal-rule.git --depth=1 $ACCOUNT_FISCAL_RULE -b 8.0
+chown -R openerp:openerp $ACCOUNT_FISCAL_RULE
+
+#
+# Install OCA Account-Invoicing
+# Odoo Invoicing Extension Addons
+
+ACCOUNT_INVOICING=/opt/openerp/oca/account-invoicing
+mkdir $ACCOUNT_INVOICING
+git clone https://github.com/OCA/account-invoicing.git --depth=1 $ACCOUNT_INVOICING -b 8.0
+chown -R openerp:openerp $ACCOUNT_INVOICING
+
+#
+# Install OCA Account-Payment
+# Financial reports for Odoo http://community.odoo.com
+
+ACCOUNT_FINANCIAL_REPORTING=/opt/openerp/oca/account-financial-reporting
+mkdir $ACCOUNT_FINANCIAL_REPORTING
+git clone https://github.com/OCA/account-financial-reporting.git --depth=1 $ACCOUNT_FINANCIAL_REPORTING -b 8.0
+chown -R openerp:openerp $ACCOUNT_FINANCIAL_REPORTING
 # 
 # END - Install Odoo External Modules - 50_external_modules
 #
