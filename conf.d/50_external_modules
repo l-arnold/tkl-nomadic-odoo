@@ -6,7 +6,7 @@
 
 
 # Install OCA Server Tools
-# 
+# Tools for Odoo Administrators to improve some technical features on Odoo.
 
 OCA_SERVER_TOOLS_DIR=/opt/openerp/oca/oca_server_tools
 git clone https://github.com/OCA/server-tools.git --depth=1 $OCA_SERVER_TOOLS_DIR --branch 8.0  
@@ -14,7 +14,8 @@ chown -R openerp:openerp $OCA_SERVER_TOOLS_DIR
 # 
 
 # Install Odoo Connector
-# 
+# Odoo generic connector framework (jobs queue, asynchronous tasks, channels)
+
 CONNECTOR_DIR=/opt/openerp/oca/connector
 mkdir $CONNECTOR_DIR
 git clone https://github.com/OCA/connector.git --depth=1 $CONNECTOR_DIR -b 8.0
@@ -23,7 +24,8 @@ chown -R openerp:openerp $CONNECTOR_DIR
 
 
 # Install Connector - Ecommerce
-# 
+# Generic module used on Odoo for E-Commerce industry
+
 CONNECTOR_ECOM_DIR=/opt/openerp/oca/connector-ecommerce
 mkdir $CONNECTOR_ECOM_DIR
 git clone https://github.com/OCA/connector-ecommerce.git --depth=1 $CONNECTOR_ECOM_DIR -b 8.0
@@ -32,7 +34,8 @@ chown -R openerp:openerp $CONNECTOR_ECOM_DIR
  
 
 # Install Connector - Magento
-# 
+# Connect Odoo with Magento http://odoo-magento-connector.com/
+
 CONNECTOR_MAGENTO_DIR=/opt/openerp/oca/connector-magento
 mkdir $CONNECTOR_MAGENTO_DIR
 git clone https://github.com/OCA/connector-magento.git --depth=1 $CONNECTOR_MAGENTO_DIR -b 8.0
@@ -41,7 +44,8 @@ chown -R openerp:openerp $CONNECTOR_MAGENTO_DIR
 
 
 # Install- Ecommerce GIT 2
-# 
+# Odoo E-Commerce server automation addons
+
 E_COMMERCE_DIR=/opt/openerp/oca/e-commerce
 mkdir $E_COMMERCE_DIR
 git clone https://github.com/OCA/e-commerce.git --depth=1 $E_COMMERCE_DIR -b 8.0
@@ -50,7 +54,8 @@ chown -R openerp:openerp $E_COMMERCE_DIR
 
 
 # Install Product Attributes
-# 
+# Odoo Product Attribute
+
 PRODUCT_ATTRIBUTE_DIR=/opt/openerp/oca/product-attribute
 mkdir $PRODUCT_ATTRIBUTE_DIR
 git clone https://github.com/OCA/product-attribute.git --depth=1 $PRODUCT_ATTRIBUTE_DIR -b 8.0
@@ -59,7 +64,8 @@ chown -R openerp:openerp $PRODUCT_ATTRIBUTE_DIR
 
 
 # Install Sale - Workflow
-# 
+# Odoo Sales, Workflow and Organization
+
 SALE_WORKFLOW_DIR=/opt/openerp/oca/sale-workflow
 mkdir $SALE_WORKFLOW_DIR
 git clone https://github.com/OCA/sale-workflow.git --depth=1 $SALE_WORKFLOW_DIR -b 8.0
@@ -68,7 +74,8 @@ chown -R openerp:openerp $SALE_WORKFLOW_DIR
 
 
 # Install Magento API
-# 
+# Python API for Magento
+
 MAGENTO_API_DIR=/opt/openerp/oca/openlabs-magento
 mkdir $MAGENTO_API_DIR
 git clone https://github.com/openlabs/magento --depth=1 $MAGENTO_API_DIR 
@@ -80,7 +87,8 @@ cd /
 
 
 # Install OCA Account-Financial-Tools
-#
+#Odoo Accountant Financial Tools and Utils
+
 ACCOUNT_FINANCIAL_TOOLS=/opt/openerp/oca/account-financial-tools
 mkdir $ACCOUNT_FINANCIAL_TOOLS
 git clone https://github.com/OCA/account-financial-tools.git --depth=1 $ACCOUNT_FINANCIAL_TOOLS -b 8.0
@@ -89,6 +97,8 @@ chown -R openerp:openerp $ACCOUNT_FINANCIAL_TOOLS
 
 
 # Install OCA - Connector Interfaces
+# Odoo Generic Connector for ODBC, .CSV, etc
+
 CONNECTOR_INTERFACES_DIR=/opt/openerp/oca/connector-interfaces
 mkdir $CONNECTOR_INTERFACES_DIR
 git clone https://github.com/OCA/connector-interfaces.git --depth=1 $CONNECTOR_INTERFACES_DIR -b 8.0
@@ -97,6 +107,8 @@ chown -R openerp:openerp $CONNECTOR_INTERFACES_DIR
 
 
 # Install OCA - WEB
+# Odoo web client UI related addons
+
 OCA_WEB_DIR=/opt/openerp/oca/web
 mkdir $OCA_WEB_DIR
 git clone https://github.com/OCA/web.git --depth=1 $OCA_WEB_DIR -b 8.0
@@ -105,6 +117,8 @@ chown -R openerp:openerp $OCA_WEB_DIR
 
 
 # Install OCA - WEBSITE
+#Odoo website and website_sale builder Addons
+
 OCA_WEBSITE_DIR=/opt/openerp/oca/website
 mkdir $OCA_WEBSITE_DIR
 git clone https://github.com/OCA/website.git --depth=1 $OCA_WEBSITE_DIR -b 8.0
@@ -113,6 +127,8 @@ chown -R openerp:openerp $OCA_WEBSITE_DIR
 
 
 # Install OCA - DONATION
+# This project develops Odoo modules for advanced management of donations.
+
 OCA_DONATION_DIR=/opt/openerp/oca/donation
 mkdir $OCA_DONATION_DIR
 git clone https://github.com/OCA/donation.git --depth=1 $OCA_DONATION_DIR -b 8.0
@@ -121,7 +137,8 @@ chown -R openerp:openerp $OCA_DONATION_DIR
 
  
 # Install OCA - COMMISSION
-# 
+# Odoo Commission Management
+
 OCA_COMMISSION_DIR=/opt/openerp/oca/commission
 mkdir $OCA_COMMISSION_DIR
 git clone https://github.com/OCA/commission.git --depth=1 $OCA_COMMISSION_DIR -b 8.0
