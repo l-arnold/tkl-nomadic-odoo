@@ -145,6 +145,15 @@ git clone https://github.com/OCA/commission.git --depth=1 $OCA_COMMISSION_DIR -b
 chown -R openerp:openerp $OCA_COMMISSION_DIR
 # 
 
+# Install OCA - Multi Company
+# This repository provides addons for the management of multi company instances as well as inter company communication.
+
+OCA_MULTICOMPANY_DIR=/opt/openerp/oca/multi-company
+mkdir $OCA_MULTICOMPANY_DIR
+git clone https://github.com/OCA/multi-company.git --depth=1 $OCA_MULTICOMPANY_DIR -b 8.0
+chown -R openerp:openerp $OCA_MULTICOMPANY_DIR
+# 
+
 # 
 # END - Install Odoo External Modules - 50_external_modules
 #
