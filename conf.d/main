@@ -63,7 +63,7 @@ usermod -L $SERVICE_USER
 update-rc.d openerp-server defaults
 
 # Change ownership for Odoo config file
-chown openerp /etc/odoo/openerp-server.conf
+chown $SERVICE_USER /etc/odoo/openerp-server.conf
 
 # Create log file
 touch /var/log/openerp-server.log
@@ -90,4 +90,3 @@ a2enmod ssl proxy_http headers rewrite
 a2ensite openerp-ssl.conf		
 a2ensite odoo-80.conf		
 
-#git config --global --unset http.proxy
