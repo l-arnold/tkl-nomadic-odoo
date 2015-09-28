@@ -15,8 +15,8 @@ chown -R openerp:openerp $OCA_SERVER_TOOLS_DIR
 # Odoo generic connector framework (jobs queue, asynchronous tasks, channels)
 
 GEOSPATIAL_DIR=/opt/openerp/oca/geospatial
-mkdir $GEOSPAIAL_DIR
-git clone https://github.com/OCA/geospaial.git --depth=1 $GEOSPATIAL_DIR -b 8.0
+mkdir $GEOSPATIAL_DIR
+git clone https://github.com/OCA/geospatial.git --depth=1 $GEOSPATIAL_DIR -b 8.0
 chown -R openerp:openerp $GEOSPATIAL_DIR
 # 
 
@@ -69,7 +69,6 @@ mkdir $E_COMMERCE_DIR
 git clone https://github.com/OCA/e-commerce.git --depth=1 $E_COMMERCE_DIR -b 8.0
 chown -R openerp:openerp $E_COMMERCE_DIR
 # 
-
 
 # Install Product Attributes
 # Odoo Product Attribute
@@ -160,7 +159,6 @@ git clone https://github.com/OCA/donation.git --depth=1 $OCA_DONATION_DIR -b 8.0
 chown -R openerp:openerp $OCA_DONATION_DIR
 # 
 
- 
 # Install OCA - COMMISSION
 # Odoo Commission Management
 
@@ -172,28 +170,28 @@ chown -R openerp:openerp $OCA_COMMISSION_DIR
 # Install OCA - Partner Contact
 # Odoo Partner and Contact related addons
 
-OCA_PARTNERCONTACT_DIR=/opt/openerp/oca/partner-contact
-mkdir $OCA_PARTNERCONTACT_DIR
-git clone https://github.com/OCA/partner-contact.git --depth=1 $OCA_PARTNERCONTACT_DIR -b 8.0
-chown -R openerp:openerp $OCA_PARTNERCONTACT_DIR
+OCA_PARTNER_CONTACT_DIR=/opt/openerp/oca/partner-contact
+mkdir $OCA_PARTNER_CONTACT_DIR
+git clone https://github.com/OCA/partner-contact.git --depth=1 $OCA_PARTNER_CONTACT_DIR -b 8.0
+chown -R openerp:openerp $OCA_PARTNER_CONTACT_DIR
 #
 
 #
 # Install OCA - Margin Analysis
 # Odoo Financial Controlling (margin, costs, ...)
 
-OCA_MARGINANALYSIS_DIR=/opt/openerp/oca/margin-analysis
-mkdir $OCA_MARGINANALYSIS_DIR
-git clone https://github.com/OCA/margin-analysis.git --depth=1 $OCA_MARGINANALYSIS_DIR -b 8.0
-chown -R openerp:openerp $OCA_MARGINANALYSIS_DIR
+OCA_MARGI_NANALYSIS_DIR=/opt/openerp/oca/margin-analysis
+mkdir $OCA_MARGIN_ANALYSIS_DIR
+git clone https://github.com/OCA/margin-analysis.git --depth=1 $OCA_MARGIN_ANALYSIS_DIR -b 8.0
+chown -R openerp:openerp $OCA_MARGIN_ANALYSIS_DIR
 
 # Install OCA - Multi Company
 # This repository provides addons for the management of multi company instances as well as inter company communication.
 
-OCA_MULTICOMPANY_DIR=/opt/openerp/oca/multi-company
-mkdir $OCA_MULTICOMPANY_DIR
-git clone https://github.com/OCA/multi-company.git --depth=1 $OCA_MULTICOMPANY_DIR -b 8.0
-chown -R openerp:openerp $OCA_MULTICOMPANY_DIR
+OCA_MULTI_COMPANY_DIR=/opt/openerp/oca/multi-company
+mkdir $OCA_MULTI_COMPANY_DIR
+git clone https://github.com/OCA/multi-company.git --depth=1 $OCA_MULTI_COMPANY_DIR -b 8.0
+chown -R openerp:openerp $OCA_MULTI_COMPANY_DIR
 # 
 # Install OCA - Department
 #This project aims to add Department context information to Odoo Models.
@@ -276,20 +274,20 @@ chown -R openerp:openerp $OCA_VERTICAL_CONSTRUCTION_DIR
 # Install OCA Account-Financial-Tools
 #Odoo Accountant Financial Tools and Utils
 
-ACCOUNT_FINANCIAL_TOOLS=/opt/openerp/oca/account-financial-tools
-mkdir $ACCOUNT_FINANCIAL_TOOLS
-git clone https://github.com/OCA/account-financial-tools.git --depth=1 $ACCOUNT_FINANCIAL_TOOLS -b 8.0
-chown -R openerp:openerp $ACCOUNT_FINANCIAL_TOOLS
+OCA_ACCOUNT_FINANCIAL_TOOLS=/opt/openerp/oca/account-financial-tools
+mkdir $OCA_ACCOUNT_FINANCIAL_TOOLS
+git clone https://github.com/OCA/account-financial-tools.git --depth=1 $OCA_ACCOUNT_FINANCIAL_TOOLS -b 8.0
+chown -R openerp:openerp $OCA_ACCOUNT_FINANCIAL_TOOLS
 
 # 
 
 # Install OCA Account-Financial-Reporting
 #Odoo Accountant Financial Tools and Utils
 
-ACCOUNT_FINANCIAL_TOOLS=/opt/openerp/oca/account-financial-tools
-mkdir $ACCOUNT_FINANCIAL_TOOLS
-git clone https://github.com/OCA/account-financial-tools.git --depth=1 $ACCOUNT_FINANCIAL_TOOLS -b 8.0
-chown -R openerp:openerp $ACCOUNT_FINANCIAL_TOOLS
+OCA_ACCOUNT_FINANCIAL_REPORTING=/opt/openerp/oca/account-financial-reporting
+mkdir $OCA_ACCOUNT_FINANCIAL_REPORTING
+git clone https://github.com/OCA/account-financial-reporting.git --depth=1 $OCA_ACCOUNT_FINANCIAL_REPORTING -b 8.0
+chown -R openerp:openerp $OCA_ACCOUNT_FINANCIAL_REPORTING
 # 
 
 #
@@ -306,37 +304,37 @@ chown -R openerp:openerp $ACCOUNT_FINANCIAL_TOOLS
 # Install OCA - Sale - Reporting
 # This project aim to deal with modules related to manage sale report. You'll find modules that implement various report related to sales in general.
 
-OCA_SALEREPORTING_DIR=/opt/openerp/oca/sale-reporting
-mkdir $OCA_SALEREPORTING_DIR
-git clone https://github.com/OCA/sale-reporting.git --depth=1 $OCA_SALEREPORTING_DIR -b 8.0
-chown -R openerp:openerp $OCA_SALEREPORTING_DIR
+OCA_SALE_REPORTING_DIR=/opt/openerp/oca/sale-reporting
+mkdir $OCA_SALE_REPORTING_DIR
+git clone https://github.com/OCA/sale-reporting.git --depth=1 $OCA_SALE_REPORTING_DIR -b 8.0
+chown -R openerp:openerp $OCA_SALE_REPORTING_DIR
 
 #
 # Install OCA Account-Fiscal-Rule
 # Odoo Taxes & Fiscal Rules Management
 
-ACCOUNT_FISCAL_RULE=/opt/openerp/oca/account-fiscal-rule
-mkdir $ACCOUNT_FISCAL_RULE
-git clone https://github.com/OCA/account-fiscal-rule.git --depth=1 $ACCOUNT_FISCAL_RULE -b 8.0
-chown -R openerp:openerp $ACCOUNT_FISCAL_RULE
+OCA_ACCOUNT_FISCAL_RULE=/opt/openerp/oca/account-fiscal-rule
+mkdir $OCA_ACCOUNT_FISCAL_RULE
+git clone https://github.com/OCA/account-fiscal-rule.git --depth=1 $OCA_ACCOUNT_FISCAL_RULE -b 8.0
+chown -R openerp:openerp OCA_$ACCOUNT_FISCAL_RULE
 
 #
 # Install OCA Account-Invoicing
 # Odoo Invoicing Extension Addons
 
-ACCOUNT_INVOICING=/opt/openerp/oca/account-invoicing
-mkdir $ACCOUNT_INVOICING
-git clone https://github.com/OCA/account-invoicing.git --depth=1 $ACCOUNT_INVOICING -b 8.0
-chown -R openerp:openerp $ACCOUNT_INVOICING
+OCA_ACCOUNT_INVOICING=/opt/openerp/oca/account-invoicing
+mkdir $OCA_ACCOUNT_INVOICING
+git clone https://github.com/OCA/account-invoicing.git --depth=1 $OCA_ACCOUNT_INVOICING -b 8.0
+chown -R openerp:openerp $OCA_ACCOUNT_INVOICING
 
 #
 # Install OCA Account-Payment
 # Financial reports for Odoo http://community.odoo.com
 
-ACCOUNT_FINANCIAL_REPORTING=/opt/openerp/oca/account-financial-reporting
-mkdir $ACCOUNT_FINANCIAL_REPORTING
-git clone https://github.com/OCA/account-financial-reporting.git --depth=1 $ACCOUNT_FINANCIAL_REPORTING -b 8.0
-chown -R openerp:openerp $ACCOUNT_FINANCIAL_REPORTING
+OCA_ACCOUNT_FINANCIAL_REPORTING=/opt/openerp/oca/account-financial-reporting
+mkdir $OCA_ACCOUNT_FINANCIAL_REPORTING
+git clone https://github.com/OCA/account-financial-reporting.git --depth=1 $OCA_ACCOUNT_FINANCIAL_REPORTING -b 8.0
+chown -R openerp:openerp $OCA_ACCOUNT_FINANCIAL_REPORTING
 # 
 # Install OCA Community Data Files
 # This project is a collection of OpenERP modules containing various data files that are too big to fit the official addons or the other Community projects.
