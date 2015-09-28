@@ -313,10 +313,10 @@ chown -R openerp:openerp $OCA_SALE_REPORTING_DIR
 # Install OCA Account-Fiscal-Rule
 # Odoo Taxes & Fiscal Rules Management
 
-OCA_ACCOUNT_FISCAL_RULE=/opt/openerp/oca/account-fiscal-rule
-mkdir $OCA_ACCOUNT_FISCAL_RULE
-git clone https://github.com/OCA/account-fiscal-rule.git --depth=1 $OCA_ACCOUNT_FISCAL_RULE -b 8.0
-chown -R openerp:openerp OCA_$ACCOUNT_FISCAL_RULE
+# OCA_ACCOUNT_FISCAL_RULE=/opt/openerp/oca/account-fiscal-rule
+# mkdir $OCA_ACCOUNT_FISCAL_RULE
+# git clone https://github.com/OCA/account-fiscal-rule.git --depth=1 $OCA_ACCOUNT_FISCAL_RULE -b 8.0
+# chown -R openerp:openerp OCA_$ACCOUNT_FISCAL_RULE
 
 #
 # Install OCA Account-Invoicing
