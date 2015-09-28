@@ -293,6 +293,16 @@ chown -R openerp:openerp $ACCOUNT_FINANCIAL_TOOLS
 # 
 
 #
+# Install OCA - Sale - Comments
+# Adds comments on sales orders. The comments can be edited directly on the sales orders or loaded from templates. 
+# Dissappeared as I was working on this section
+
+# #=/opt/openerp/oca/sale-comments
+# mkdir $OCA_SALE_COMMENTS_DIR
+# git clone https://github.com/OCA/sale-comments.git --depth=1 $OCA_SALE_COMMENTS_DIR -b 8.0
+# chown -R openerp:openerp $OCA_SALE_COMMENTS_DIR
+
+#
 # Install OCA - Sale - Reporting
 # This project aim to deal with modules related to manage sale report. You'll find modules that implement various report related to sales in general.
 
