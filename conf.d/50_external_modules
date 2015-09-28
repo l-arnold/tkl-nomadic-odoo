@@ -169,13 +169,23 @@ mkdir $OCA_COMMISSION_DIR
 git clone https://github.com/OCA/commission.git --depth=1 $OCA_COMMISSION_DIR -b 8.0
 chown -R openerp:openerp $OCA_COMMISSION_DIR
 #
-
-# This repository provides addons for the management of multi company instances as well as inter company communication.
+# Install OCA - Partner Contact
+# Odoo Partner and Contact related addons
 
 OCA_PARTNERCONTACT_DIR=/opt/openerp/oca/partner-contact
 mkdir $OCA_PARTNERCONTACT_DIR
 git clone https://github.com/OCA/partner-contact.git --depth=1 $OCA_PARTNERCONTACT_DIR -b 8.0
 chown -R openerp:openerp $OCA_PARTNERCONTACT_DIR
+#
+
+#
+# Install OCA - Margin Analysis
+# Odoo Financial Controlling (margin, costs, ...)
+
+OCA_MARGINANALYSIS_DIR=/opt/openerp/oca/margin-analysis
+mkdir $OCA_MARGINANALYSIS_DIR
+git clone https://github.com/OCA/margin-analysis.git --depth=1 $OCA_MARGINANALYSIS_DIR -b 8.0
+chown -R openerp:openerp $OCA_MARGINANALYSIS_DIR
 
 # Install OCA - Multi Company
 # This repository provides addons for the management of multi company instances as well as inter company communication.
@@ -192,7 +202,14 @@ OCA_DEPARTMENT_DIR=/opt/openerp/oca/department
 mkdir $OCA_DEPARTMENT_DIR
 git clone https://github.com/OCA/department.git --depth=1 $OCA_DEPARTMENT_DIR -b 8.0
 chown -R openerp:openerp $OCA_DEPARTMENT_DIR
+#
+# Install OCA - Manufacture
+# Odoo modules related to Manufacturing
 
+OCA_MANUFACTURE_DIR=/opt/openerp/oca/manufacture
+mkdir $OCA_MANUFACTURE_DIR
+git clone https://github.com/OCA/manufacture.git --depth=1 $OCA_MANUFACTURE_DIR -b 8.0
+chown -R openerp:openerp $OCA_MANUFACTURE_DIR
 #
 
 # Install OCA - Knowledge
@@ -311,6 +328,13 @@ mkdir $ACCOUNT_FINANCIAL_REPORTING
 git clone https://github.com/OCA/account-financial-reporting.git --depth=1 $ACCOUNT_FINANCIAL_REPORTING -b 8.0
 chown -R openerp:openerp $ACCOUNT_FINANCIAL_REPORTING
 # 
+# Install OCA Community Data Files
+# This project is a collection of OpenERP modules containing various data files that are too big to fit the official addons or the other Community projects.
+
+OCA_COMMUNITY_DATA_FILES_DIR=/opt/openerp/oca/community-data-files
+git clone https://github.com/OCA/community-data-files.git --depth=1 $OCA_OCA_COMMUNITY_DATA_FILES_DIR --branch 8.0  
+chown -R openerp:openerp $OCA_OCA_COMMUNITY_DATA_FILES_DIR
+
 # END - Install Odoo External Modules - 50_external_modules
 #
 
