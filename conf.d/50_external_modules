@@ -313,10 +313,10 @@ chown -R openerp:openerp $OCA_SALE_REPORTING_DIR
 # Install OCA Account-Fiscal-Rule
 # Odoo Taxes & Fiscal Rules Management
 
-# OCA_ACCOUNT_FISCAL_RULE=/opt/openerp/oca/account-fiscal-rule
-# mkdir $OCA_ACCOUNT_FISCAL_RULE
-# git clone https://github.com/OCA/account-fiscal-rule.git --depth=1 $OCA_ACCOUNT_FISCAL_RULE -b 8.0
-# chown -R openerp:openerp OCA_$ACCOUNT_FISCAL_RULE
+# OCA_ACCOUNT_FISCAL_RULE_DIR=/opt/openerp/oca/account-fiscal-rule
+# mkdir $OCA_ACCOUNT_FISCAL_RULE_DIR
+# git clone https://github.com/OCA/account-fiscal-rule.git --depth=1 $OCA_ACCOUNT_FISCAL_RULE_DIR -b 8.0
+# chown -R openerp:openerp OCA_$ACCOUNT_FISCAL_RULE_DIR
 
 #
 # Install OCA Account-Invoicing
@@ -331,17 +331,17 @@ chown -R openerp:openerp $OCA_ACCOUNT_INVOICING
 # Install OCA Account-Payment
 # Financial reports for Odoo http://community.odoo.com
 
-OCA_ACCOUNT_FINANCIAL_REPORTING=/opt/openerp/oca/account-financial-reporting
-mkdir $OCA_ACCOUNT_FINANCIAL_REPORTING
-git clone https://github.com/OCA/account-financial-reporting.git --depth=1 $OCA_ACCOUNT_FINANCIAL_REPORTING -b 8.0
-chown -R openerp:openerp $OCA_ACCOUNT_FINANCIAL_REPORTING
+# OCA_ACCOUNT_FINANCIAL_REPORTING=/opt/openerp/oca/account-financial-reporting
+# mkdir $OCA_ACCOUNT_FINANCIAL_REPORTING
+# git clone https://github.com/OCA/account-financial-reporting.git --depth=1 $OCA_ACCOUNT_FINANCIAL_REPORTING -b 8.0
+# chown -R openerp:openerp $OCA_ACCOUNT_FINANCIAL_REPORTING
 # 
 # Install OCA Community Data Files
 # This project is a collection of OpenERP modules containing various data files that are too big to fit the official addons or the other Community projects.
 
 OCA_COMMUNITY_DATA_FILES_DIR=/opt/openerp/oca/community-data-files
-git clone https://github.com/OCA/community-data-files.git --depth=1 $OCA_OCA_COMMUNITY_DATA_FILES_DIR --branch 8.0  
-chown -R openerp:openerp $OCA_OCA_COMMUNITY_DATA_FILES_DIR
+git clone https://github.com/OCA/community-data-files.git --depth=1 $OCA_COMMUNITY_DATA_FILES_DIR --branch 8.0  
+chown -R openerp:openerp $OCA_COMMUNITY_DATA_FILES_DIR
 
 # END - Install Odoo External Modules - 50_external_modules
 #
