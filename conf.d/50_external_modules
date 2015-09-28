@@ -178,9 +178,9 @@ chown -R openerp:openerp $OCA_PARTNER_CONTACT_DIR
 
 #
 # Install OCA - Margin Analysis
-# Odoo Financial Controlling (margin, costs, ...)
+# Odoo Financial Controlling (margin, costs)
 
-OCA_MARGI_NANALYSIS_DIR=/opt/openerp/oca/margin-analysis
+OCA_MARGIN_ANALYSIS_DIR=/opt/openerp/oca/margin-analysis
 mkdir $OCA_MARGIN_ANALYSIS_DIR
 git clone https://github.com/OCA/margin-analysis.git --depth=1 $OCA_MARGIN_ANALYSIS_DIR -b 8.0
 chown -R openerp:openerp $OCA_MARGIN_ANALYSIS_DIR
