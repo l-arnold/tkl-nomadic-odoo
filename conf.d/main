@@ -38,6 +38,30 @@ sed -i "s|db_password =.*|db_password = $DB_PASS|" $CONF
 /etc/init.d/postgresql stop
 
 
+# Intall wkhtmltox from Odoo - Used for HTML to PDF for reports 
+# *************************************************************
+#    We need the upstream version, taken from URL:
+#    https://www.odoo.com/documentation/8.0/setup/install.html
+# ---------------------------------------------------------------------------
+# Danager
+#  To print PDF reports, you must install wkhtmltopdf yourself: the version of 
+#  wkhtmltopdf available in debian repositories does not support headers and 
+#  footers so it can not be installed automatically. The recommended version is 
+#  0.12.1 and is available on the wkhtmltopdf download page, in the archive 
+#  section. As there is no official release for Debian Jessie, you can find 
+#  ours on http://nightly.odoo.com/extra/.
+# ---------------------------------------------------------------------------
+#
+cd /tmp
+[ "$FAB_HTTP_PROXY" ] && export HTTP_PROXY=$FAB_HTTP_PROXY
+wget http://nightly.odoo.com/extra/wkhtmltox-0.12.1.2_linux-jessie-amd64.deb
+unset HTTP_PROXY
+dpkg -i wkhtmltox-*.deb
+ln -s /usr/local/bin/wkhtmltopdf /usr/bin/wkhtmltopdf
+ln -s /usr/local/bin/wkhtmltoimage /usr/bin/wkhtmltoimage
+
+
+
 # Install Odoo from GIT repo
 # *******************************************
 git clone http://github.com/odoo/odoo.git --branch 8.0 --depth=1 $ODOO_DIR
