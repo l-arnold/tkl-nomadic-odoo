@@ -2,8 +2,8 @@
 
 ### BEGIN INIT INFO
 # Provides:		openerp-server
-# Required-Start:	$remote_fs $syslog
-# Required-Stop:	$remote_fs $syslog
+# Required-Start:	$remote_fs $syslog postgresql apache2
+# Required-Stop:	$remote_fs $syslog postgresql apache2
 # Should-Start:		$network
 # Should-Stop:		$network
 # Default-Start:	2 3 4 5
