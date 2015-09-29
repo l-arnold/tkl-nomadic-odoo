@@ -51,7 +51,7 @@ case "${1}" in
 		start-stop-daemon --stop --quiet --pidfile /var/run/${NAME}.pid \
 			--oknodo
 
-		sleep 1
+		sleep 5
 
 		start-stop-daemon --start --quiet --pidfile /var/run/${NAME}.pid \
 			--chuid ${USER} --background --make-pidfile \
