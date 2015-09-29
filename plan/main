@@ -35,5 +35,8 @@ python-werkzeug     # collection of utilities for WSGI applications
 python-xlwt         # module for reading/writing Microsoft Excel spreadsheet files
 python-yaml         # 
 
+wkhtmltopdf         # Command line utilities to convert html to pdf or image using WebKit 
+python-gdata        # Google Data Python client library
+
 
 
