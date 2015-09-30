@@ -1,0 +1,253 @@
+[options]
+
+#-----------------------------------------------------------------------------
+#  Odoo Server Config File - TurnKey Linux
+#  ( /etc/odoo/openerp-server.conf )
+#
+#    Great pain has been taken to organize this file, and include comments for 
+#    each. As with all open source software this file is a work in progress. If
+#    you see something that is wrong or needs to be updated, submit and issue
+#    on TurnKey's GIT Hub issue tracker! Or better yet, fork the repo with this
+#    file and submit a pull request!
+#
+#-----------------------------------------------------------------------------
+# Index:
+#   Database Settings
+#   Logs Settings
+#   Service Settings
+#   Email Settings
+#   Server Options
+#   Tuning Adjustments
+#-----------------------------------------------------------------------------
+
+
+
+#HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+# Database Settings
+#HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+
+#-----------------------------------------------------------------------------
+# Specify the database host (default localhost).
+#-----------------------------------------------------------------------------
+db_host = 127.0.0.1
+
+#-----------------------------------------------------------------------------
+# Specify the database port (default None).
+#-----------------------------------------------------------------------------
+db_port = 5432
+
+#-----------------------------------------------------------------------------
+# Specify the database user name (default None).
+#-----------------------------------------------------------------------------
+db_user = openerp
+
+#-----------------------------------------------------------------------------
+# Specify the database password for db_user (default None) 
+#-----------------------------------------------------------------------------
+db_password = openerp
+
+#-----------------------------------------------------------------------------
+# Specify the database name.
+#-----------------------------------------------------------------------------
+db_name = False
+
+#-----------------------------------------------------------------------------
+# DataError: new encoding (UTF8) is incompatible with the encoding of the 
+# template database (SQL_ASCII) HINT: Use the same encoding as in the template 
+# database, or use template0 as template.
+#-----------------------------------------------------------------------------
+db_template = template0
+
+#-----------------------------------------------------------------------------
+# Master Database password
+# This is set at first boot, and can be set from within Odoo
+#-----------------------------------------------------------------------------
+admin_passwd = admin
+
+
+#-----------------------------------------------------------------------------
+# DB Settings needing comment
+#-----------------------------------------------------------------------------
+db_maxconn = 64
+list_db = True
+pg_path = None
+dbfilter = .*
+
+
+#HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+# Logs Settings
+#HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+
+#-----------------------------------------------------------------------------
+# The file where the server log will be stored (default False).
+#-----------------------------------------------------------------------------
+logfile = /var/log/openerp-server.log
+
+#-----------------------------------------------------------------------------
+# Log level
+# 'CRITICAL', 'ERROR', 'WARNING', 'INFO', 'DEBUG', 'DEBUG_RPC', 'NOTSET'
+#-----------------------------------------------------------------------------
+log-level = 'WARNING'
+
+#-----------------------------------------------------------------------------
+# Enable the debugging mode (default False).
+#-----------------------------------------------------------------------------
+verbose = False 
+
+#-----------------------------------------------------------------------------
+# Enable debug mode (default False).
+#-----------------------------------------------------------------------------
+debug_mode = False
+
+#-----------------------------------------------------------------------------
+# Log Options needing comments
+#-----------------------------------------------------------------------------
+syslog = False
+logrotate = True
+log_handler = ['["[\':INFO\']"]']
+
+
+
+
+#HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+# Service Settings
+#HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+
+#-----------------------------------------------------------------------------
+# The IP address on which the server will bind.
+# If empty, it will bind on all interfaces (default empty).
+#-----------------------------------------------------------------------------
+interface = localhost
+
+#-----------------------------------------------------------------------------
+# The TCP port on which the server will listen (default 8069).
+#-----------------------------------------------------------------------------
+port = 8069
+
+#-----------------------------------------------------------------------------
+# Launch server over https instead of http (default False).
+#-----------------------------------------------------------------------------
+secure = False
+
+#-----------------------------------------------------------------------------
+# Set to True if you are deploying your App behind a proxy
+# e.g. Apache using mod_proxy. --proxy_mode added, using Werkzeug ProxyFix class
+#-----------------------------------------------------------------------------
+proxy_mode = True
+
+#-----------------------------------------------------------------------------
+# Specify the addons_path folders ordered by priority  
+# addons_path=/first/path/,/second/path/
+#-----------------------------------------------------------------------------
+addons_path = /opt/openerp/odoo/addons
+
+#-----------------------------------------------------------------------------
+# The file where the server pid will be stored (default False).
+#-----------------------------------------------------------------------------
+pidfile = False
+
+#-----------------------------------------------------------------------------
+# Specify the price accuracy
+#-----------------------------------------------------------------------------
+#price_accuracy = 
+
+
+#-----------------------------------------------------------------------------
+# Service Settings needing comment
+#-----------------------------------------------------------------------------
+timezone = False
+
+login_message = False
+
+secure_cert_file = server.cert
+secure_pkey_file = server.pkey
+
+xmlrpcs = True
+xmlrpcs_interface = 127.0.0.1
+xmlrpcs_port = 8071
+
+xmlrpc = True
+xmlrpc_interface = 127.0.0.1
+xmlrpc_port = 8069
+
+netrpc = False
+netrpc_interface = 127.0.0.1
+netrpc_port = 8070
+
+static_http_enable = False
+static_http_document_root = None
+static_http_url_prefix = None
+
+reportgz = False
+
+import_partial = 
+
+unaccent = False
+
+csv_internal_sep = ,
+
+translate_modules = ['all']
+
+server_wide_modules = None
+
+test_enable = False
+test_file = False
+test_report_directory = False
+test_commit = False
+
+demo = {}
+without_demo = False
+
+
+
+#HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+# Email Settings
+#HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+
+#-----------------------------------------------------------------------------
+# Specify the SMTP server for sending email (default localhost).
+#-----------------------------------------------------------------------------
+smtp_server = localhost
+
+#-----------------------------------------------------------------------------
+# Specify the SMTP user for sending email (default False).
+#-----------------------------------------------------------------------------
+smtp_user = False
+
+#-----------------------------------------------------------------------------
+# Specify the SMTP password for sending email (default False).
+#-----------------------------------------------------------------------------
+smtp_password = False
+
+smtp_ssl = False
+
+email_from = False
+
+smtp_port = 25
+
+
+
+
+
+
+
+#HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+# Tuning Options
+#HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+
+workers = 0
+max_cron_threads = 2
+
+limit_time_cpu = 60
+limit_time_real = 120
+limit_memory_soft = 671088640
+limit_memory_hard = 805306368
+limit_request = 8192
+
+osv_memory_count_limit = False
+osv_memory_age_limit = 1.0
+
+
+
+
+
