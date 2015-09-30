@@ -64,29 +64,7 @@ ln -s /usr/local/bin/wkhtmltoimage /usr/bin/wkhtmltoimage
 
 # Install Odoo from GIT repo
 #
-# Use some magic to cache the GIT repo. First build will take some
-# time, but all other builds will move much faster
-# ****************************************************************
-GIT_CD=`pwd`
-GIT_REPO_NAME=odoo
-GIT_REPO_URL=https://github.com/odoo/odoo.git
-GIT_REPO_OPT='--branch 8.0 --depth=1'
-
-GIT_CACHE_BASE=/var/cache/tkldev-git-cache
-GIT_REPO_CACHE=$GIT_CACHE_BASE/$GIT_REPO_NAME.git
-
-[ ! -d $GIT_CACHE_BASE ] && mkdir $GIT_CACHE_BASE
-if [ -d $GIT_REPO_CACHE ]; then
-    cd $GIT_REPO_CACHE
-    git remote update
-else
-    git clone --mirror $GIT_REPO_URL $GIT_REPO_CACHE
-fi
-
-git clone $GIT_REPO_OPT file://$GIT_REPO_CACHE $ODOO_DIR
-cd $ODOO_DIR
-git remote set-url origin $GIT_REPO_URL
-cd $GIT_CD
+git clone https://github.com/odoo/odoo.git --branch 8.0 --depth=1 $ODOO_DIR
 
 
 # Set admin password to random value for now
