@@ -38,6 +38,6 @@ python-yaml
 wkhtmltopdf         /* Command line utilities to convert html to pdf or image using WebKit  */
 python-gdata        /* Google Data Python client library */
 
-xfonts-base         # Needed for upstream wkhtmltox package
-xfonts-75dpi        # Needed for upstream wkhtmltox package
+xfonts-base         /* Needed for upstream wkhtmltox package */
+xfonts-75dpi        /* Needed for upstream wkhtmltox package */
 
