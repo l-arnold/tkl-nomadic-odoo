@@ -74,10 +74,6 @@ touch /var/run/openerp-server.pid
 # Set Odoo app directory owner
 chown -R $SERVICE_USER:$SERVICE_USER $OPENERP_DIR
 
-
-
-
-
 # Perform apache config		
 #
 
@@ -85,6 +81,4 @@ chown -R $SERVICE_USER:$SERVICE_USER $OPENERP_DIR
 a2enmod ssl proxy_http headers rewrite		
 
 # Enable sites
-a2ensite openerp-ssl.conf		
-a2ensite odoo-80.conf		
-
+a2ensite odoo.conf
