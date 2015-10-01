@@ -1,7 +1,20 @@
-turnkey-odoo-14.0 (1) turnkey; urgency=low
+turnkey-laravel-14.0 (1) turnkey; urgency=low
 
-  * Put release notes here
+  * Initial release of appliance based of LAPP v14.0
 
-  * Based on turnkey v14 LAPP
+  * Includes the basic source (GIT) install off Odoo (8.0)
 
- -- Landis Arnold <larnold@nomadic.net>  Thu, 27 Aug 2015 22:55:07 -0400
+  * Based on the team work of the following community members 
+    Landis Arnold (@l-arnold)
+    Ken Robinson (@DocCyblade)
+    Jeremy Davis (@JedMeister)
+
+    Original build sources
+    https://github.com/l-arnold/tkl-nomadic-odoo
+    https://github.com/DocCyblade/tkl-odoo
+
+  * Note: Please refer to turnkey-lapp's changelog for changes common to all
+    lapp, and please refer to turnkey-core's changelog for changes common to all
+    appliances. 
+
+ -- Ken Robinson <ken@robinsonshome.net>  Thu, 1 Oct 2015 04:00:00 -0500
