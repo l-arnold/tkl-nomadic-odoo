@@ -78,7 +78,8 @@ chown -R $SERVICE_USER:$SERVICE_USER $OPENERP_DIR
 #
 
 # Enable needed modules
-a2enmod ssl proxy_http headers rewrite		
+a2enmod proxy_http headers rewrite		
 
-# Enable sites
+# Configure sites
+a2dissite 000-default
 a2ensite odoo.conf
