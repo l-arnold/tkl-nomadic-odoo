@@ -17,6 +17,11 @@ ODOO_DIR=$OPENERP_DIR/odoo
 CONF=/etc/odoo/openerp-server.conf
 
 
+# Install deps that can't be installed via package using pip
+# *******************************************
+pip install psycogreen
+
+
 # Create database role for odoo
 # *******************************************
  
