@@ -29,7 +29,7 @@ case "${1}" in
 		echo -n "Starting ${DESC}: "
                 echo "`date` - Starting ${DESC}: " >> ${DAEMON_LOGFILE}
                 start-stop-daemon --start --quiet --pidfile /var/run/${NAME}.pid \
-                        --chuid ${USER} --background --no-close --make-pidfile \
+                        --chuid ${USER} --background --no-close \
                         --exec ${DAEMON} -- --config=${CONFIG} >> ${DAEMON_LOGFILE} 2>&1
 
 		echo "${NAME}."
@@ -51,11 +51,11 @@ case "${1}" in
                 start-stop-daemon --stop --quiet --pidfile /var/run/${NAME}.pid \
                         --oknodo
 
-		sleep 5
+		sleep 15
 
                 echo "`date` - Starting ${DESC}: " >> ${DAEMON_LOGFILE}
                 start-stop-daemon --start --quiet --pidfile /var/run/${NAME}.pid \
-                        --chuid ${USER} --background --no-close --make-pidfile \
+                        --chuid ${USER} --background --no-close \
                         --exec ${DAEMON} -- --config=${CONFIG}  >> ${DAEMON_LOGFILE} 2>&1
 
 		echo "${NAME}."
