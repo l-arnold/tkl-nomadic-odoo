@@ -8,8 +8,8 @@
 # Should-Stop:		$network
 # Default-Start:	2 3 4 5
 # Default-Stop:		0 1 6
-# Short-Description:	Enterprise Resource Management software
-# Description:		Open ERP is a complete ERP and CRM software.
+# Short-Description:	Open Enterprise Resource Management software
+# Description:		Odoo is a complete ERP and CRM software.
 ### END INIT INFO
 
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
@@ -17,7 +17,7 @@ DAEMON=/opt/openerp/odoo/openerp-server
 NAME=openerp-server
 DESC=openerp-server
 CONFIG=/etc/odoo/openerp-server.conf
-LOGFILE=/var/log/openerp-server.log
+DAEMON_LOGFILE=/var/log/odoo/openerp-server-startup.log
 USER=openerp
 
 test -x ${DAEMON} || exit 0
@@ -27,11 +27,10 @@ set -e
 case "${1}" in
 	start)
 		echo -n "Starting ${DESC}: "
-
-		start-stop-daemon --start --quiet --pidfile /var/run/${NAME}.pid \
-			--chuid ${USER} --background --make-pidfile \
-			--exec ${DAEMON} -- --config=${CONFIG} \
-			    --logfile=${LOGFILE}
+                echo "`date` - Starting ${DESC}: " >> ${DAEMON_LOGFILE}
+                start-stop-daemon --start --quiet --pidfile /var/run/${NAME}.pid \
+                        --chuid ${USER} --background --no-close --make-pidfile \
+                        --exec ${DAEMON} -- --config=${CONFIG} >> ${DAEMON_LOGFILE} 2>&1
 
 		echo "${NAME}."
 		;;
@@ -41,22 +40,23 @@ case "${1}" in
 
 		start-stop-daemon --stop --quiet --pidfile /var/run/${NAME}.pid \
 			--oknodo
-
+		echo "`date` - Stopping ${DESC}: " >> ${DAEMON_LOGFILE}
 		echo "${NAME}."
 		;;
 
 	restart|force-reload)
 		echo -n "Restarting ${DESC}: "
-
-		start-stop-daemon --stop --quiet --pidfile /var/run/${NAME}.pid \
-			--oknodo
+                echo "`date` - Restarting ${DESC}: " >> ${DAEMON_LOGFILE}
+                echo "`date` - Stopping ${DESC}: " >> ${DAEMON_LOGFILE}
+                start-stop-daemon --stop --quiet --pidfile /var/run/${NAME}.pid \
+                        --oknodo
 
 		sleep 5
 
-		start-stop-daemon --start --quiet --pidfile /var/run/${NAME}.pid \
-			--chuid ${USER} --background --make-pidfile \
-			--exec ${DAEMON} -- --config=${CONFIG} \
-			    --logfile=${LOGFILE}
+                echo "`date` - Starting ${DESC}: " >> ${DAEMON_LOGFILE}
+                start-stop-daemon --start --quiet --pidfile /var/run/${NAME}.pid \
+                        --chuid ${USER} --background --no-close --make-pidfile \
+                        --exec ${DAEMON} -- --config=${CONFIG}  >> ${DAEMON_LOGFILE} 2>&1
 
 		echo "${NAME}."
 		;;
