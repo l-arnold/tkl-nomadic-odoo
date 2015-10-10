@@ -104,7 +104,7 @@ chown -R $SERVICE_USER /var/log/odoo
 
 # Create PID file location
 mkdir /var/run/odoo
-chmod 664 /var/run/odoo
+chmod 774 /var/run/odoo
 chown $SERVICE_USER /var/run/odoo
 
 # Set Odoo app directory owner
