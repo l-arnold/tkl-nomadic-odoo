@@ -18,9 +18,20 @@ NAME=openerp-server
 DESC=openerp-server
 CONFIG=/etc/odoo/openerp-server.conf
 DAEMON_LOGFILE=/var/log/odoo/openerp-server-startup.log
+PID_DIR=/var/run/odoo
+PID_FILE=$PID_DIR/$NAME.pid
 USER=openerp
 
 test -x ${DAEMON} || exit 0
+
+# Create pid file dir if not exist
+if ! [ -d ${PID_DIR} ]; then
+	mkdir /var/run/odoo
+	chmod 775 /var/run/odoo
+	chown openerp /var/run/odoo
+fi
+
+test -d ${PID_DIR} || mkdir
 
 set -e
 
@@ -28,7 +39,7 @@ case "${1}" in
 	start)
 		echo -n "Starting ${DESC}: "
                 echo "`date` - Starting ${DESC}: " >> ${DAEMON_LOGFILE}
-                start-stop-daemon --start --quiet --pidfile /var/run/${NAME}.pid \
+                start-stop-daemon --start --quiet --pidfile ${PID_FILE} \
                         --chuid ${USER} --background --no-close \
                         --exec ${DAEMON} -- --config=${CONFIG} >> ${DAEMON_LOGFILE} 2>&1
 
@@ -38,7 +49,7 @@ case "${1}" in
 	stop)
 		echo -n "Stopping ${DESC}: "
 
-		start-stop-daemon --stop --quiet --pidfile /var/run/${NAME}.pid \
+		start-stop-daemon --stop --quiet --pidfile ${PID_FILE} \
 			--oknodo
 		echo "`date` - Stopping ${DESC}: " >> ${DAEMON_LOGFILE}
 		echo "${NAME}."
@@ -48,13 +59,13 @@ case "${1}" in
 		echo -n "Restarting ${DESC}: "
                 echo "`date` - Restarting ${DESC}: " >> ${DAEMON_LOGFILE}
                 echo "`date` - Stopping ${DESC}: " >> ${DAEMON_LOGFILE}
-                start-stop-daemon --stop --quiet --pidfile /var/run/${NAME}.pid \
+                start-stop-daemon --stop --quiet --pidfile ${PID_FILE} \
                         --oknodo
 
-		sleep 15
+		sleep 3
 
                 echo "`date` - Starting ${DESC}: " >> ${DAEMON_LOGFILE}
-                start-stop-daemon --start --quiet --pidfile /var/run/${NAME}.pid \
+                start-stop-daemon --start --quiet --pidfile ${PID_FILE} \
                         --chuid ${USER} --background --no-close \
                         --exec ${DAEMON} -- --config=${CONFIG}  >> ${DAEMON_LOGFILE} 2>&1
 

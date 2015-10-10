@@ -102,11 +102,6 @@ touch /var/log/odoo/openerp-server-startup.log
 chmod 664 /var/log/odoo/*.log 
 chown -R $SERVICE_USER /var/log/odoo
 
-# Create PID file location
-mkdir /var/run/odoo
-chmod 774 /var/run/odoo
-chown $SERVICE_USER /var/run/odoo
-
 # Set Odoo app directory owner
 chown -R $SERVICE_USER:$SERVICE_USER $OPENERP_DIR
 
