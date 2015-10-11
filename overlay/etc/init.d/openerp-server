@@ -31,8 +31,6 @@ if ! [ -d ${PID_DIR} ]; then
 	chown openerp /var/run/odoo
 fi
 
-test -d ${PID_DIR} || mkdir
-
 set -e
 
 case "${1}" in
