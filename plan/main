@@ -36,6 +36,7 @@ python-xlwt         /* module for reading/writing Microsoft Excel spreadsheet fi
 python-yaml         
 python-gevent       /* gevent is a coroutine-based Python networking library */
 
+wkhtmltopdf         /* Command line utilities to convert html to pdf or image using WebKit  */
 python-gdata        /* Google Data Python client library */
 
 python-pip          /* Needed to install psycogreen */
