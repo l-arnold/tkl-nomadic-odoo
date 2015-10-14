@@ -89,40 +89,87 @@ dbfilter = .*
 #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 # Logs Settings
 #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+#
+#
+# I found information from Odoo on logging was not very clear. So I complied
+# this helpful list and info about Odoo logging.
+#
+# Information was gleaned from the following sites:
+# - http://www.mindissoftware.com
+#   /2014/09/07/Odoo-logging-configuration-usage-implementation/
+# - https://www.odoo.com
+#   /forum/help-1/question/what-is-the-full-list-of-command-line-options-for-odoo-59139
+# - https://www.odoo.com/documentation/8.0/reference/cmdline.html
+#
+# Odoo uses the Python standard logging library. However, it uses a special 
+# configuration syntax to configure logging levels for its modules. 
+#
+# It's helpful to know what each level type means, so below is quick list:
+#
+# Level meanings:
+#    debug: Debug message for debugging only.
+#     info: Information message to report important modular event.
+#  warning: Warning message to report minor issues.
+#    error: Error message to report failed operations.
+# critical: A critical message -- so critical that the module cannot work
+#
+#
+# log_level: 
+#  any value in the list below. Odoo changed the log_level meaning 
+#  here because these level values are mapped to a set of predefined
+# 'module:log_level' pairs. These pairs are listed next to the log-level. 
+# You could get the same result by using the log_handler option
+#
+#
+# LOG LEVEL           / log_handler: module:log_level
+# ----------------------------------------------------------------------------
+# info                / [':INFO']
+# critical            / ['openerp:CRITICAL', 'werkzeug:CRITICAL']
+# error               / ['openerp:ERROR', 'werkzeug:ERROR']
+# warn                / ['openerp:WARNING', 'werkzeug:WARNING']
+# debug               / ['openerp:DEBUG']
+# debug_sql           / ['openerp.sql_db:DEBUG']
+# debug_rpc           / ['openerp:DEBUG','openerp.http.rpc.request:DEBUG']
+# debug_rpc_answer    / ['openerp:DEBUG','openerp.http.rpc.request:DEBUG', 
+#                       'openerp.http.rpc.response:DEBUG']
+#
+# End of Logging Info
+# ----------------------------------------------------------------------------
 
 #-----------------------------------------------------------------------------
-# The file where the server log will be stored (default False).
+# The log filename. If not set, use stdout.
 #-----------------------------------------------------------------------------
-logfile = /var/log/openerp-server.log
+logfile = /var/log/odoo/openerp-server.log
 
 #-----------------------------------------------------------------------------
-# Log level
-# 'CRITICAL', 'ERROR', 'WARNING', 'INFO', 'DEBUG', 'DEBUG_RPC', 'NOTSET'
-#-----------------------------------------------------------------------------
-log-level = 'WARNING'
-
-#-----------------------------------------------------------------------------
-# Enable debug mode (default False).
-#-----------------------------------------------------------------------------
-debug_mode = False
-
-#-----------------------------------------------------------------------------
-# Send the log to the syslog server
-#-----------------------------------------------------------------------------
-syslog = False
-
-#-----------------------------------------------------------------------------
-# enable logfile rotation
+# True/False. If True, create a daily log file and keep 30 files.
 #-----------------------------------------------------------------------------
 logrotate = True
 
 #-----------------------------------------------------------------------------
-# setup a handler at LEVEL for a given PREFIX. An empty
-#  PREFIX indicates the root logger. This option can be
-#  repeated. Example: "openerp.orm:DEBUG" or
-#  "werkzeug:CRITICAL" (default: ":INFO")
+# Ture/False. If True, also write log to 'ir_logging' table in database
 #-----------------------------------------------------------------------------
-log_handler = ['["[\':INFO\']"]']
+log-db = False
+
+#-----------------------------------------------------------------------------
+# True/False logs to the system's event logger: syslog
+#-----------------------------------------------------------------------------
+syslog = False
+
+#-----------------------------------------------------------------------------
+# Log level - One of the following:
+# info, debug_rpc, warn, test, critical, debug_sql, error, debug, 
+# debug_rpc_answer
+#-----------------------------------------------------------------------------
+log-level = info
+
+#-----------------------------------------------------------------------------
+# log_handler - can be a list of 'module:log_level' pairs. 
+# The default value is ':INFO' -- it means the default logging level 
+# is 'INFO' for all modules.
+#-----------------------------------------------------------------------------
+# log_handler = 
+
 
 
 
@@ -160,8 +207,9 @@ addons_path = /opt/openerp/odoo/addons
 
 #-----------------------------------------------------------------------------
 # The file where the server pid will be stored (default False).
+# We are letting the init create the pid
 #-----------------------------------------------------------------------------
-pidfile = False
+# pidfile = False
 
 #-----------------------------------------------------------------------------
 # specify reference timezone for the server (e.g. Europe/Brussels)
@@ -186,7 +234,7 @@ secure_pkey_file = server.pkey
 #   xmlrpcs_port - Specify the TCP port for the XML-RPC Secure protocol
 #-----------------------------------------------------------------------------
 xmlrpcs = True
-xmlrpcs_interface = 
+xmlrpcs_interface = 127.0.0.1 
 xmlrpcs_port = 8071
 
 #-----------------------------------------------------------------------------
@@ -197,7 +245,7 @@ xmlrpcs_port = 8071
 #   xmlrpc_port - Specify the TCP port for the XML-RPC protocol
 #-----------------------------------------------------------------------------
 xmlrpc = True
-xmlrpc_interface = 
+xmlrpc_interface = 127.0.0.1
 xmlrpc_port = 8069
 
 #-----------------------------------------------------------------------------
@@ -268,7 +316,7 @@ smtp_port = 25
 # Specify the number of workers, 0 disable prefork mode.
 # if count is not 0 (the default), enables multiprocessing and sets up the
 # specified number of HTTP workers (sub-processes processing HTTP and RPC 
-$ requests).
+# requests).
 #-----------------------------------------------------------------------------
 workers = 2
 
@@ -294,14 +342,14 @@ limit_time_real = 120
 # Maximum allowed virtual memory per worker. If the limit is exceeded, the 
 # worker is killed and recycled at the end of the current request. in kb
 #-----------------------------------------------------------------------------
-limit_memory_soft = 640MB
+limit_memory_soft = 671088640
 
 #-----------------------------------------------------------------------------
 # Hard limit on virtual memory, any worker exceeding the limit will be 
 # immediately killed without waiting for the end of the current request 
 # processing.
 #-----------------------------------------------------------------------------
-limit_memory_hard = 768MB
+limit_memory_hard = 805306368
 
 #-----------------------------------------------------------------------------
 # Number of requests a worker will process before being recycled and restarted.
