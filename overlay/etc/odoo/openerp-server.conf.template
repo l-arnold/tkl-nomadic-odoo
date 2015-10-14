@@ -249,6 +249,13 @@ xmlrpc_interface = 127.0.0.1
 xmlrpc_port = 8069
 
 #-----------------------------------------------------------------------------
+# Long polling port:
+#    TCP port for long-polling connections in multiprocessing or gevent mode, 
+#    defaults to 8072. Not used in default (threaded) mode.
+#-----------------------------------------------------------------------------
+longpolling_port = 8072
+
+#-----------------------------------------------------------------------------
 # Use this for big data importation, if it crashes you will be able to continue
 # at the current state. Provide a filename to store intermediate importation 
 # states.
