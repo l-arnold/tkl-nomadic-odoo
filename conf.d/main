@@ -17,6 +17,11 @@ ODOO_DIR=$OPENERP_DIR/odoo
 CONF=/etc/odoo/openerp-server.conf
 
 
+# Install deps that can't be installed via package using pip
+# *******************************************
+pip install psycogreen
+
+
 # Create database role for odoo
 # *******************************************
  
@@ -89,12 +94,13 @@ chown $SERVICE_USER /etc/odoo/openerp-server.conf
 mkdir /var/lib/odoo
 chown -R $SERVICE_USER:$SERVICE_USER /var/lib/odoo
 
-# Create log file
-touch /var/log/openerp-server.log
-chown $SERVICE_USER /var/log/openerp-server.log
-
-# Create PID file
-touch /var/run/openerp-server.pid
+# Create log files
+mkdir /var/log/odoo
+chmod 775 /var/log/odoo
+touch /var/log/odoo/openerp-server.log
+touch /var/log/odoo/openerp-server-startup.log
+chmod 664 /var/log/odoo/*.log 
+chown -R $SERVICE_USER /var/log/odoo
 
 # Set Odoo app directory owner
 chown -R $SERVICE_USER:$SERVICE_USER $OPENERP_DIR
