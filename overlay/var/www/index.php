@@ -21,8 +21,8 @@
         </script>
     </head>
 
-    <body>
-        <h1>TurnKey Odoo</h1>
+<body>
+<h1>TurnKey Odoo</h1>
         
         <div id="container-1">
             <ul>
@@ -30,58 +30,64 @@
             </ul>
 
             <div id="cp">
-                <div class="fragment-content">
+              <div class="fragment-content">
                     <div>
                         <a href="https://<?php print
-                        $_SERVER{'HTTP_HOST'}; ?>:12320"><img
+                        $_SERVER{'SERVER_NAME'}; ?>:12320"><img
                         src="images/shell.png"/>Web Shell</a>
                     </div>
                     <div>
                         <a href="https://<?php print
-                        $_SERVER{'HTTP_HOST'}; ?>:12321"><img
+                        $_SERVER{'SERVER_NAME'}; ?>:12321"><img
                         src="images/webmin.png"/>Webmin</a>
                     </div>
                     <div>
                         <a href="https://<?php print
-                        $_SERVER{'HTTP_HOST'}; ?>:12322"><img
-                        src="images/phppgadmin.png"/>PHPPgAdmin</a>
+                        $_SERVER{'SERVER_NAME'}; ?>:12322"><img
+                        src="images/adminer_logo.png"/>Adminer for Postgresql</a>
                     </div>
                     <div>
-                        <a href="https://<?php print
-                        $_SERVER{'HTTP_HOST'}; ?>:12325/web"><img
-                        src="images/odoo.png"/>Odoo (https)</a>
+                       <a href="https://<?php print
+                       $_SERVER{'SERVER_NAME'}; ?>/web"><img
+                        src="images/odoo.png"/>Odoo Main (https)</a>
                     </div>
                     <div>
-                        <a href="http://<?php print
-                        $_SERVER{'HTTP_HOST'}; ?>:8069"><img
-                        src="images/odoo.png"/>Odoo (http)</a>
-                    </div>
-                    <div></div>
+                       <a href="https://<?php print
+                       $_SERVER{'SERVER_NAME'}; ?>:12324/docs/"><img
+                        src="images/filemanager.png"/>Documentation (https)</a>
+                    </div>                 
+                 
                     <div></div>
 
-                    <h2>Resources and references</h2>
+                <h2>Resources and references</h2>
                     <ul>
                         <li>
-                          <a href="/phpinfo.php">Apache PHP information</a>
-                          (to disable: rm /var/www/phpinfo.php)
+                         	<a href="http://<?php print
+                        	$_SERVER{'SERVER_NAME'}; ?>:12325">
+                          	WebConsole (here) HTTP 12325 </a>(WebConsole - Open HTTP)
                         </li>
                         <li>
-                          <a href="/server-status">Apache server status</a>
-                          (to disable: a2dismod status)
+				<a href="https://<?php print
+                        	$_SERVER{'SERVER_NAME'}; ?>:12324">WebConsole - HTTPS 12324 </a>(also Ports 12320, 12321, 12322) 
                         </li>
                         <li>
-                          <a href="https://github.com/CLVsol/tkl-odoo">TurnKey Odoo on GitHub</a>
-                          (CLVsol/tkl-odoo)
+                        	<a href="/phpinfo.php">Apache PHP information</a>
+                       	(to disable: "rm /var/www/phpinfo.php")
                         </li>
                         <li>
-                          <a href="https://github.com/odoo">Odoo on GitHub</a>
-                          (formerly OpenERP)
+                        	<a href="https://github.com/l-arnold/tkl-nomadic-odoo">TKL Nomadic Odoo - GitHub</a>(l-arnold/tkl-nomadic-odoo)
+                        </li>
+                        <li>
+                        	<a href="https://github.com/odoo">Odoo on GitHub</a>(Odoo Source code)
+                        </li>
+                        <li>
+                        	<a href="/server-status">Apache server status</a>(to disable in shell "a2dismod status")
                         </li>
                     </ul>
 
-                </div>
-            </div>
+              </div>
+          </div>
 
-        </div>
-    </body>
+</div>
+</body>
 </html>
