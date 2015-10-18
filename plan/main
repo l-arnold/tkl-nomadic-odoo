@@ -34,9 +34,12 @@ python-vobject      /* VObject simplifies the process of parsing and creating iC
 python-werkzeug     /* collection of utilities for WSGI applications */
 python-xlwt         /* module for reading/writing Microsoft Excel spreadsheet files */
 python-yaml         
+python-gevent       /* gevent is a coroutine-based Python networking library */
 
 wkhtmltopdf         /* Command line utilities to convert html to pdf or image using WebKit  */
 python-gdata        /* Google Data Python client library */
+
+python-pip          /* Needed to install psycogreen */
 
 xfonts-base         /* Needed for upstream wkhtmltox package */
 xfonts-75dpi        /* Needed for upstream wkhtmltox package */
