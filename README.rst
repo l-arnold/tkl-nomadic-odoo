@@ -1,9 +1,10 @@
-Odoo - Open Source ERP & CRM (formerly OpenERP)
+Odoo - Open Source ERP & CRM
 =============================
 
-The main Odoo Apps include an Open Source CRM, Website Builder,
-eCommerce, Project Management, Billing & Accounting, Point of Sale,
-Human Resources, Marketing, Manufacturing, Purchase Management
+Odoo formerly known as OpenERP includes an Open Source CRM, Website 
+Builder, eCommerce, Project Management, Billing & Accounting, Point
+of Sale, Human Resources, Marketing, Manufacturing, 
+Purchase Management.
 
 Odoo Apps can be used as stand-alone applications, but they also
 integrate seamlessly so you get a full-featured Open Source ERP 
@@ -18,13 +19,19 @@ This appliance includes all the standard features in `TurnKey Core`_,
   port 12322 - uses SSL).
 - Webmin modules for configuring Apache2, PHP and PostgreSQL.
 
+For a roadmap on where this appliance is heading, visit the 
+`upstream`_ branch of the Odoo TKL build code and the release
+`roadmap`_ on Github
 
 Credentials *(passwords set at first boot)*
 -------------------------------------------
 
 -  Webmin, SSH: username **root**
 -  PostgreSQL, Adminer: username **postgres**
+-  Odoo Master Password: **admin**
 
 .. _Odoo: https://github.com/odoo/odoo
 .. _TurnKey Core: https://www.turnkeylinux.org/core
 .. _Adminer: http://www.adminer.org/
+.. _upstream: https://github.com/DocCyblade/tkl-odoo
+.. _roadmap: https://github.com/DocCyblade/tkl-odoo/milestones
