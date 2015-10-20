@@ -14,10 +14,10 @@ chown -R openerp:openerp $OCA_SERVER_TOOLS_DIR
 # Install Odoo Geospaial
 # Odoo generic connector framework (jobs queue, asynchronous tasks, channels)
 
-# GEOSPATIAL_DIR=/opt/openerp/oca/geospatial
-# mkdir $GEOSPATIAL_DIR
-# git clone https://github.com/OCA/geospatial.git --depth=1 $GEOSPATIAL_DIR -b 8.0
-# chown -R openerp:openerp $GEOSPATIAL_DIR
+GEOSPATIAL_DIR=/opt/openerp/oca/geospatial
+mkdir $GEOSPATIAL_DIR
+git clone https://github.com/OCA/geospatial.git --depth=1 $GEOSPATIAL_DIR -b 8.0
+chown -R openerp:openerp $GEOSPATIAL_DIR
 # 
 
 
@@ -54,10 +54,10 @@ chown -R openerp:openerp $CONNECTOR_MAGENTO_DIR
 # Install OCA - connector-woocommerce
 # Addons concerning odoo's social ERP features and messaging in generalConnect Odoo with Prestashop
 
-# OCA_WOOCOMMERCE_DIR=/opt/openerp/oca/connector-woocommerce
-# mkdir $OCA_WOOCOMMERCE_DIR
-# git clone https://github.com/OCA/connector-woocommerce.git --depth=1 $OCA_WOOCOMMERCE_DIR -b 8.0
-# chown -R openerp:openerp $OCA_WOOCOMMERCE_DIR
+OCA_WOOCOMMERCE_DIR=/opt/openerp/oca/connector-woocommerce
+mkdir $OCA_WOOCOMMERCE_DIR
+git clone https://github.com/OCA/connector-woocommerce.git --depth=1 $OCA_WOOCOMMERCE_DIR -b 8.0
+chown -R openerp:openerp $OCA_WOOCOMMERCE_DIR
 #
 
 
@@ -135,19 +135,19 @@ chown -R openerp:openerp $OCA_WEBSITE_DIR
 # Install OCA - CRM
 # Odoo CRM, Mail & Newsletter advanced features
 
-# OCA_CRM_DIR=/opt/openerp/oca/crm
-# mkdir $OCA_CRM_DIR
-# git clone https://github.com/OCA/crm.git --depth=1 $OCA_CRM_DIR -b 8.0
-# chown -R openerp:openerp $OCA_CRM_DIR
+OCA_CRM_DIR=/opt/openerp/oca/crm
+mkdir $OCA_CRM_DIR
+git clone https://github.com/OCA/crm.git --depth=1 $OCA_CRM_DIR -b 8.0
+chown -R openerp:openerp $OCA_CRM_DIR
 # 
 
 # Install OCA - RMA
 # Odoo for Return Of Material (RMA)
 
-# OCA_RMA_DIR=/opt/openerp/oca/rma
-# mkdir $OCA_RMA_DIR
-# git clone https://github.com/OCA/rma.git --depth=1 $OCA_RMA_DIR -b 8.0
-# chown -R openerp:openerp $OCA_RMA_DIR
+OCA_RMA_DIR=/opt/openerp/oca/rma
+mkdir $OCA_RMA_DIR
+git clone https://github.com/OCA/rma.git --depth=1 $OCA_RMA_DIR -b 8.0
+chown -R openerp:openerp $OCA_RMA_DIR
 #
 
 # Install OCA - DONATION
@@ -170,10 +170,10 @@ chown -R openerp:openerp $OCA_COMMISSION_DIR
 # Install OCA - Partner Contact
 # Odoo Partner and Contact related addons
 
-# OCA_PARTNER_CONTACT_DIR=/opt/openerp/oca/partner-contact
-# mkdir $OCA_PARTNER_CONTACT_DIR
-# git clone https://github.com/OCA/partner-contact.git --depth=1 $OCA_PARTNER_CONTACT_DIR -b 8.0
-# chown -R openerp:openerp $OCA_PARTNER_CONTACT_DIR
+OCA_PARTNER_CONTACT_DIR=/opt/openerp/oca/partner-contact
+mkdir $OCA_PARTNER_CONTACT_DIR
+git clone https://github.com/OCA/partner-contact.git --depth=1 $OCA_PARTNER_CONTACT_DIR -b 8.0
+chown -R openerp:openerp $OCA_PARTNER_CONTACT_DIR
 #
 
 #
@@ -188,96 +188,97 @@ chown -R openerp:openerp $OCA_COMMISSION_DIR
 # Install OCA - Multi Company
 # This repository provides addons for the management of multi company instances as well as inter company communication.
 
-# OCA_MULTI_COMPANY_DIR=/opt/openerp/oca/multi-company
-# mkdir $OCA_MULTI_COMPANY_DIR
-# git clone https://github.com/OCA/multi-company.git --depth=1 $OCA_MULTI_COMPANY_DIR -b 8.0
-# chown -R openerp:openerp $OCA_MULTI_COMPANY_DIR
+OCA_MULTI_COMPANY_DIR=/opt/openerp/oca/multi-company
+mkdir $OCA_MULTI_COMPANY_DIR
+git clone https://github.com/OCA/multi-company.git --depth=1 $OCA_MULTI_COMPANY_DIR -b 8.0
+chown -R openerp:openerp $OCA_MULTI_COMPANY_DIR
+#
 # 
 # Install OCA - Department
 #This project aims to add Department context information to Odoo Models.
 
-# OCA_DEPARTMENT_DIR=/opt/openerp/oca/department
-# mkdir $OCA_DEPARTMENT_DIR
-# git clone https://github.com/OCA/department.git --depth=1 $OCA_DEPARTMENT_DIR -b 8.0
-# chown -R openerp:openerp $OCA_DEPARTMENT_DIR
+OCA_DEPARTMENT_DIR=/opt/openerp/oca/department
+mkdir $OCA_DEPARTMENT_DIR
+git clone https://github.com/OCA/department.git --depth=1 $OCA_DEPARTMENT_DIR -b 8.0
+chown -R openerp:openerp $OCA_DEPARTMENT_DIR
 #
 # Install OCA - Manufacture
 # Odoo modules related to Manufacturing
 
-# OCA_MANUFACTURE_DIR=/opt/openerp/oca/manufacture
-# mkdir $OCA_MANUFACTURE_DIR
-# git clone https://github.com/OCA/manufacture.git --depth=1 $OCA_MANUFACTURE_DIR -b 8.0
-# chown -R openerp:openerp $OCA_MANUFACTURE_DIR
+OCA_MANUFACTURE_DIR=/opt/openerp/oca/manufacture
+mkdir $OCA_MANUFACTURE_DIR
+git clone https://github.com/OCA/manufacture.git --depth=1 $OCA_MANUFACTURE_DIR -b 8.0
+chown -R openerp:openerp $OCA_MANUFACTURE_DIR
 #
 
 # Install OCA - Knowledge
 # Odoo Document & Knowledge Management http://www.odoo-community.org/project/22
 
-# OCA_KNOWLEDGE_DIR=/opt/openerp/oca/knowledge
-# mkdir $OCA_KNOWLEDGE_DIR
-# git clone https://github.com/OCA/knowledge.git --depth=1 $OCA_KNOWLEDGE_DIR -b 8.0
-# chown -R openerp:openerp $OCA_KNOWLEDGE_DIR
+OCA_KNOWLEDGE_DIR=/opt/openerp/oca/knowledge
+mkdir $OCA_KNOWLEDGE_DIR
+git clone https://github.com/OCA/knowledge.git --depth=1 $OCA_KNOWLEDGE_DIR -b 8.0
+chown -R openerp:openerp $OCA_KNOWLEDGE_DIR
 
 #
 # Install OCA - Social
 # Addons concerning odoo's social ERP features and messaging in general
 
-# OCA_SOCIAL_DIR=/opt/openerp/oca/social
-# mkdir $OCA_SOCIAL_DIR
-# git clone https://github.com/OCA/social.git --depth=1 $OCA_SOCIAL_DIR -b 8.0
-# chown -R openerp:openerp $OCA_SOCIAL_DIR
+OCA_SOCIAL_DIR=/opt/openerp/oca/social
+mkdir $OCA_SOCIAL_DIR
+git clone https://github.com/OCA/social.git --depth=1 $OCA_SOCIAL_DIR -b 8.0
+chown -R openerp:openerp $OCA_SOCIAL_DIR
 #
 
 # Install OCA - POS
 # Odoo Point of sale Addons http://odoo-community.org/project/59
 
-# OCA_POS_DIR=/opt/openerp/oca/pos
-# mkdir $OCA_POS_DIR
-# git clone https://github.com/OCA/pos.git --depth=1 $OCA_POS_DIR -b 8.0
-# chown -R openerp:openerp $OCA_POS_DIR
+OCA_POS_DIR=/opt/openerp/oca/pos
+mkdir $OCA_POS_DIR
+git clone https://github.com/OCA/pos.git --depth=1 $OCA_POS_DIR -b 8.0
+chown -R openerp:openerp $OCA_POS_DIR
 
 # Install OCA - EVENT
 # Event Management addons
 
-# OCA_EVENT_DIR=/opt/openerp/oca/event
-# mkdir $OCA_EVENT_DIR
-# git clone https://github.com/OCA/event.git --depth=1 $OCA_EVENT_DIR -b 8.0
-# chown -R openerp:openerp $OCA_EVENT_DIR
+OCA_EVENT_DIR=/opt/openerp/oca/event
+mkdir $OCA_EVENT_DIR
+git clone https://github.com/OCA/event.git --depth=1 $OCA_EVENT_DIR -b 8.0
+chown -R openerp:openerp $OCA_EVENT_DIR
 
 # Install OCA - vertical-community
 # Odoo for Communities Verticalization
 
-# OCA_VERTICAL_COMMUNITY_DIR=/opt/openerp/oca/vertical-community
-# mkdir $OCA_VERTICAL_COMMUNITY_DIR
-# git clone https://github.com/OCA/vertical-community.git --depth=1 $OCA_VERTICAL_COMMUNITY_DIR -b 8.0
-# chown -R openerp:openerp $OCA_VERTICAL_COMMUNITY_DIR
+OCA_VERTICAL_COMMUNITY_DIR=/opt/openerp/oca/vertical-community
+mkdir $OCA_VERTICAL_COMMUNITY_DIR
+git clone https://github.com/OCA/vertical-community.git --depth=1 $OCA_VERTICAL_COMMUNITY_DIR -b 8.0
+chown -R openerp:openerp $OCA_VERTICAL_COMMUNITY_DIR
 #
 
 # Install OCA - vertical-association
 # Odoo addons for membership related tasks
 
-# OCA_VERTICAL_ASSOCIATION_DIR=/opt/openerp/oca/vertical-association
-# mkdir $OCA_VERTICAL_ASSOCIATION_DIR
-# git clone https://github.com/OCA/vertical-association.git --depth=1 $OCA_VERTICAL_ASSOCIATION_DIR -b 8.0
-# chown -R openerp:openerp $OCA_VERTICAL_ASSOCIATION_DIR
+OCA_VERTICAL_ASSOCIATION_DIR=/opt/openerp/oca/vertical-association
+mkdir $OCA_VERTICAL_ASSOCIATION_DIR
+git clone https://github.com/OCA/vertical-association.git --depth=1 $OCA_VERTICAL_ASSOCIATION_DIR -b 8.0
+chown -R openerp:openerp $OCA_VERTICAL_ASSOCIATION_DIR
 #
 
 # Install OCA - vertical-construction
 # OThis repository groups all OCA modules for construction companies.
 
-# OCA_VERTICAL_CONSTRUCTION_DIR=/opt/openerp/oca/vertical-construction
-# mkdir $OCA_VERTICAL_CONSTRUCTION_DIR
-# git clone https://github.com/OCA/vertical-construction.git --depth=1 $OCA_VERTICAL_CONSTRUCTION_DIR -b 8.0
-# chown -R openerp:openerp $OCA_VERTICAL_CONSTRUCTION_DIR
+OCA_VERTICAL_CONSTRUCTION_DIR=/opt/openerp/oca/vertical-construction
+mkdir $OCA_VERTICAL_CONSTRUCTION_DIR
+git clone https://github.com/OCA/vertical-construction.git --depth=1 $OCA_VERTICAL_CONSTRUCTION_DIR -b 8.0
+chown -R openerp:openerp $OCA_VERTICAL_CONSTRUCTION_DIR
 #
 
 # Install OCA Account-Financial-Tools
 #Odoo Accountant Financial Tools and Utils
 
-# OCA_ACCOUNT_FINANCIAL_TOOLS=/opt/openerp/oca/account-financial-tools
-# mkdir $OCA_ACCOUNT_FINANCIAL_TOOLS
-# git clone https://github.com/OCA/account-financial-tools.git --depth=1 $OCA_ACCOUNT_FINANCIAL_TOOLS -b 8.0
-# chown -R openerp:openerp $OCA_ACCOUNT_FINANCIAL_TOOLS
+OCA_ACCOUNT_FINANCIAL_TOOLS=/opt/openerp/oca/account-financial-tools
+mkdir $OCA_ACCOUNT_FINANCIAL_TOOLS
+git clone https://github.com/OCA/account-financial-tools.git --depth=1 $OCA_ACCOUNT_FINANCIAL_TOOLS -b 8.0
+chown -R openerp:openerp $OCA_ACCOUNT_FINANCIAL_TOOLS
 
 # 
 
