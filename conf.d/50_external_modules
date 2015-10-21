@@ -46,10 +46,10 @@ chown -R openerp:openerp $CONNECTOR_MAGENTO_DIR
 # Install OCA - connector-woocommerce
 # Addons concerning odoo's social ERP features and messaging in generalConnect Odoo with Prestashop
 
-OCA_WOOCOMMERCE_DIR=/opt/openerp/oca/connector-woocommerce
-mkdir $OCA_WOOCOMMERCE_DIR
-git clone https://github.com/OCA/connector-woocommerce.git --depth=1 $OCA_WOOCOMMERCE_DIR -b 8.0
-chown -R openerp:openerp $OCA_WOOCOMMERCE_DIR
+# OCA_WOOCOMMERCE_DIR=/opt/openerp/oca/connector-woocommerce
+# mkdir $OCA_WOOCOMMERCE_DIR
+# git clone https://github.com/OCA/connector-woocommerce.git --depth=1 $OCA_WOOCOMMERCE_DIR -b 8.0
+# chown -R openerp:openerp $OCA_WOOCOMMERCE_DIR
 #
 
 
@@ -136,10 +136,10 @@ chown -R openerp:openerp $OCA_CRM_DIR
 # Install OCA - DONATION
 # This project develops Odoo modules for advanced management of donations.
 
-OCA_DONATION_DIR=/opt/openerp/oca/donation
-mkdir $OCA_DONATION_DIR
-git clone https://github.com/OCA/donation.git --depth=1 $OCA_DONATION_DIR -b 8.0
-chown -R openerp:openerp $OCA_DONATION_DIR
+# OCA_DONATION_DIR=/opt/openerp/oca/donation
+# mkdir $OCA_DONATION_DIR
+# git clone https://github.com/OCA/donation.git --depth=1 $OCA_DONATION_DIR -b 8.0
+# chown -R openerp:openerp $OCA_DONATION_DIR
 # 
 
 # Install OCA - COMMISSION
@@ -257,10 +257,10 @@ chown -R openerp:openerp $OCA_MULTI_COMPANY_DIR
 # Install OCA - RMA
 # Odoo for Return Of Material (RMA)
 
-# OCA_RMA_DIR=/opt/openerp/oca/rma
-# mkdir $OCA_RMA_DIR
-# git clone https://github.com/OCA/rma.git --depth=1 $OCA_RMA_DIR -b 8.0
-# chown -R openerp:openerp $OCA_RMA_DIR
+OCA_RMA_DIR=/opt/openerp/oca/rma
+mkdir $OCA_RMA_DIR
+git clone https://github.com/OCA/rma.git --depth=1 $OCA_RMA_DIR -b 8.0
+chown -R openerp:openerp $OCA_RMA_DIR
 #
 
 # Install OCA Account-Financial-Tools
