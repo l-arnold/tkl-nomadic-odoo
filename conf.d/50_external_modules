@@ -6,10 +6,11 @@
 
 # Install OCA Server Tools
 # Tools for Odoo Administrators to improve some technical features on Odoo.
+# Not clear w mkdir $OCA)SRV)y (does not work)
 
 cd /
 OCA_SRV_TOOLS_DIR=/opt/openerp/oca/oca-server-tools
-mkdir $OCA_SRV_TOOLS_DIR
+# mkdir $OCA_SRV_TOOLS_DIR  (does not work)
 git clone https://github.com/OCA/server-tools.git --depth=1 $OCA_SRV_TOOLS_DIR --branch 8.0  
 chown -R openerp:openerp $OCA_SRV_TOOLS_DIR
 # 
