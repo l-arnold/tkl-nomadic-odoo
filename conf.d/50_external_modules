@@ -8,10 +8,10 @@
 # Tools for Odoo Administrators to improve some technical features on Odoo.
 
 cd /
-OCA_SERVER_TOOLS_DIR=/opt/openerp/oca/oca_server_tools
-mkdir $OCA_SERVER_TOOLS_DIR
-git clone https://github.com/OCA/server-tools.git --depth=1 $OCA_SERVER_TOOLS_DIR --branch 8.0  
-chown -R openerp:openerp $OCA_SERVER_TOOLS_DIR
+OCA_SRV_TOOLS_DIR=/opt/openerp/oca/oca_server_tools
+# mkdir $OCA_SRV_TOOLS_DIR
+git clone https://github.com/OCA/server-tools.git --depth=1 $OCA_SRV_TOOLS_DIR --branch 8.0  
+chown -R openerp:openerp $OCA_SRV_TOOLS_DIR
 # 
 
 # Install Odoo Connector
