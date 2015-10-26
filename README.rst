@@ -28,7 +28,7 @@ Credentials *(passwords set at first boot)*
 
 -  Webmin, SSH: username **root**
 -  PostgreSQL, Adminer: username **postgres**
--  Odoo Master Password: **admin**
+-  Odoo Master Account: **admin**
 
 .. _Odoo: https://www.odoo.com/
 .. _GitHub: https://github.com/odoo/odoo
