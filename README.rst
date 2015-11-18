@@ -1,5 +1,5 @@
-Odoo - Open Source ERP & CRM
-=============================
+Odoo - From ERP to CRM, eCommerce to CMS
+========================================
 
 `Odoo`_is an all-in-one business management suite of mobile-friendly web
 apps that integrates everything you need to grow your business: CRM,
