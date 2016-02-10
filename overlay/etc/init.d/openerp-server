@@ -45,14 +45,8 @@ function dlog(){
 function checkpid(){
         [ -f $PIDFILE ] || return 1
         pid=`cat $PIDFILE`
-        [ -d /proc/$pid ] && return 0
-        return 1
-}
-
-# Returns 0 if any process owned by $USER
-function checkproc(){
-        ps -U $USER -u $USER f | grep -qEv 'PID' || return 0
-        return 1
+        [ -d /proc/$pid ] && return 0 
+        return 1 
 }
 
 # Retruns the status of the server
@@ -87,12 +81,12 @@ function stop-wait(){
         until [ $XSTOP ]
         do
                 sleep 1
-                [! checkpid && checkproc ] || XSTOP=0 
+                [! checkpid ] || XSTOP=0 
                 [ $MAX_WAIT -ge $XCOUNT  ] && XSTOP=0
                 XCOUNT=$((XCOUNT+1))
         done
         
-        if [! checkpid && checkproc ]; then
+        if [! checkpid ]; then
                 return 0
         else
                 return 1
@@ -102,6 +96,8 @@ function stop-wait(){
 
 # Starts the server
 function server-start(){
+	# checkpid function seemed unreliable for unknown reasons so here we basically replicate it's functionality.
+	[ -f "$PIDFILE" ] && [ -d "/proc/$(cat $PIDFILE)" ] && echo "service already running" && return 1       
 
         dlog "Starting ${DESC}"
         start-stop-daemon --start --quiet --pidfile ${PIDFILE} \
