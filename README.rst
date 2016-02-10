@@ -1,16 +1,14 @@
-Odoo - Open Source ERP & CRM
-=============================
+Odoo - From ERP to CRM, eCommerce to CMS
+========================================
 
-`Odoo`_ formerly known as OpenERP includes an Open Source CRM, Website 
-Builder, eCommerce, Project Management, Billing & Accounting, Point
-of Sale, Human Resources, Marketing, Manufacturing, 
-Purchase Management.
+`Odoo`_is an all-in-one business management suite of mobile-friendly web
+apps that integrates everything you need to grow your business: CRM,
+website content management, project management, human resources,
+accounting, invoicing and more. Odoo apps integrate seamlessly to
+provide a full-featured open source ERP, but can also be used
+stand-alone.
 
-Odoo Apps can be used as stand-alone applications, but they also
-integrate seamlessly so you get a full-featured Open Source ERP 
-when you install several Apps.
-
-This appliance includes all the standard features in `TurnKey Core`_,
+This appliance includes all the standard features in `TurnKey Core`_:
 
 - Odoo v8 installed from upstream GIT source (`GitHub`_)
 - Includes all base modules from base install of Odoo
