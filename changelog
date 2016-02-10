@@ -1,3 +1,15 @@
+turnkey-odoo-14.1 (1) turnkey; urgency=low
+
+  * Odoo
+    
+      - Latest upstream version of odoo 8.0 branch via git
+      - Fixed bugs #521, #522
+
+  * Note: Please refer to turnkey-core's changelog for changes common to all
+    appliances.
+
+ -- Stefan Davis <nafets.sivad@gmail.com>  Wed, 10 Feb 2016 02:26:00 +1100
+
 turnkey-odoo-14.0 (1) turnkey; urgency=low
 
   * Initial release of appliance:
