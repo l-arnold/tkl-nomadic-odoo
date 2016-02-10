@@ -9,15 +9,15 @@
 # config: /etc/odoo/openerp-server.conf
 
 ### BEGIN INIT INFO
-# Provides:		openerp-server
-# Required-Start:	$remote_fs $syslog postgresql
-# Required-Stop:	$remote_fs $syslog postgresql
-# Should-Start:		$network
-# Should-Stop:		$network
-# Default-Start:	2 3 4 5
-# Default-Stop:		0 1 6
-# Short-Description:	Open Enterprise Resource Management software
-# Description:		Odoo is a complete ERP and CRM software.
+# Provides:             openerp-server
+# Required-Start:       $remote_fs $syslog postgresql
+# Required-Stop:        $remote_fs $syslog postgresql
+# Should-Start:         $network
+# Should-Stop:          $network
+# Default-Start:        2 3 4 5
+# Default-Stop:         0 1 6
+# Short-Description:    Open Enterprise Resource Management software
+# Description:          Odoo is a complete ERP and CRM software.
 ### END INIT INFO
 
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
@@ -34,115 +34,111 @@ MAX_WAIT=15
 
 # Log event to DAEMON_LOGFILE
 function dlog(){
-	DLOG_ENTRY=(`date -R`)" - $1"
-	echo "${DLOG_ENTRY}"
-	[ -f $DAEMON_LOGFILE ] || return 1
-	echo "${DLOG_ENTRY}" >> ${DAEMON_LOGFILE}
-	return 0
+        DLOG_ENTRY=(`date -R`)" - $1"
+        echo "${DLOG_ENTRY}"
+        [ -f $DAEMON_LOGFILE ] || return 1
+        echo "${DLOG_ENTRY}" >> ${DAEMON_LOGFILE}
+        return 0
 }
 
 # Returns 0 if pid/process exists 
 function checkpid(){
         [ -f $PIDFILE ] || return 1
         pid=`cat $PIDFILE`
-        [ -d /proc/$pid ] && return 0
-        return 1
-}
-
-# Returns 0 if any process owned by $USER
-function checkproc(){
-	ps -U $USER -u $USER f | grep -qEv 'PID' || return 0
-	return 1
+        [ -d /proc/$pid ] && return 0 
+        return 1 
 }
 
 # Retruns the status of the server
 function get-status(){
-	echo "Getting status of Odoo Server:"
-	ps -U $USER -u $USER f | grep -Ev 'PID' || echo "Odoo server is not running"
+        echo "Getting status of Odoo Server:"
+        ps -U $USER -u $USER f | grep -Ev 'PID' || echo "Odoo server is not running"
 }
 
 # Create lock file
 function start-lock(){
-	[ -f $LOCKFILE ] && return 1
-	touch $LOCKFILE || return 1
-	dlog "script called - lock file created"
-	dlog "created ${LOCKFILE}"
-	return 0
+        [ -f $LOCKFILE ] && return 1
+        touch $LOCKFILE || return 1
+        dlog "script called - lock file created"
+        dlog "created ${LOCKFILE}"
+        return 0
 }
 
 # Remove lock file
 function remove-lock(){
-	[ -f $LOCKFILE ] || return 1
-	rm $LOCKFILE || return 1
-	dlog "script ending - lock file removed"
+        [ -f $LOCKFILE ] || return 1
+        rm $LOCKFILE || return 1
+        dlog "script ending - lock file removed"
         dlog "removed ${LOCKFILE}"
-	return 0
+        return 0
 }
 
 # Wait until stopped
 function stop-wait(){
-	dlog "Waiting for process to stop"
-	XSTOP=1
-	XCOUNT=1
-	until [ $XSTOP ]
-	do
-		sleep 1
-		[! checkpid && checkproc ] || XSTOP=0 
-		[ $MAX_WAIT -ge $XCOUNT  ] && XSTOP=0
-		XCOUNT=$((XCOUNT+1))
-	done
-	
-	if [! checkpid && checkproc ]; then
-		return 0
-	else
-		return 1
-	fi
+        dlog "Waiting for process to stop"
+        XSTOP=1
+        XCOUNT=1
+        until [ $XSTOP ]
+        do
+                sleep 1
+                [! checkpid ] || XSTOP=0 
+                [ $MAX_WAIT -ge $XCOUNT  ] && XSTOP=0
+                XCOUNT=$((XCOUNT+1))
+        done
+        
+        if [! checkpid ]; then
+                return 0
+        else
+                return 1
+        fi
 }
 
 
 # Starts the server
 function server-start(){
+	# checkpid function seemed unreliable for unknown reasons so here we basically replicate it's functionality.
+	[ -f "$PIDFILE" ] && [ -d "/proc/$(cat $PIDFILE)" ] && echo "service already running" && return 1       
 
-	dlog "Starting ${DESC}"
-	start-stop-daemon --start --quiet --pidfile ${PIDFILE} \
-		--chuid ${USER} --background --no-close --make-pidfile \
-		--exec ${DAEMON} -- --config=${CONFIG} >> ${DAEMON_LOGFILE} 2>&1
-	
-	sleep 1
-	
-	if [ checkproc ]; then
-		dlog "${DESC} started!"
-		return 0
-	else
-		dlog "${DESC} failed to start!"
-		return 1
-	fi
+        dlog "Starting ${DESC}"
+        start-stop-daemon --start --quiet --pidfile ${PIDFILE} \
+                --chuid ${USER} --background --no-close --make-pidfile \
+                --exec ${DAEMON} -- --config=${CONFIG} >> ${DAEMON_LOGFILE} 2>&1
+        
+        sleep 1
+        
+        if [ checkproc ]; then
+                dlog "${DESC} started!"
+                return 0
+        else
+                dlog "${DESC} failed to start!"
+                return 1
+        fi
 }
 
 # Stops the server
 function server-stop(){
-	
-	dlog "Stopping ${DESC}"
-	start-stop-daemon --stop --quiet --pidfile ${PIDFILE} --remove-pidfile --oknodo
+        
+        dlog "Stopping ${DESC}"
+        start-stop-daemon --stop --quiet --pidfile ${PIDFILE} --remove-pidfile --oknodo
 
-	# Wait until process is stopped
+        # Wait until process is stopped
 
-	if [ stop-wait ]; then
-		dlog "${DESC} stopped"
-		return 0
-	else
-		dlog "${DESC} timed out while waiting to stop"
-		return 1
-	fi
+        if [ stop-wait ]; then
+                dlog "${DESC} stopped"
+                return 0
+        else
+                dlog "${DESC} timed out while waiting to stop"
+                return 1
+        fi
 
 }
 
 
 # Exit script with code
 function exit-script(){
-	remove-lock
-	dlog "script exit code: $1"
-	EXITCODE=$1	
+        remove-lock
+        dlog "script exit code: $1"
+        EXITCODE=$1     
 }
 
 set -e
@@ -159,30 +155,30 @@ start-lock || exit-script 1
 
 
 case "${1}" in
-	start)
-		server-start || exit-script 1
-		;;
+        start)
+                server-start || exit-script 1
+                ;;
 
-	stop)
-		server-stop || exit-script 1
-		;;
+        stop)
+                server-stop || exit-script 1
+                ;;
 
-	restart|force-reload)
-               	dlog "Restarting ${DESC}"
-		server-stop || exit-script 1
-		sleep 1
-		server-start || exit-script 1
-		;;
+        restart|force-reload)
+                dlog "Restarting ${DESC}"
+                server-stop || exit-script 1
+                sleep 1
+                server-start || exit-script 1
+                ;;
 
-	status)
-		get-status
-		;;
+        status)
+                get-status
+                ;;
 
-	*)
-		N=/etc/init.d/${NAME}
-		echo "Usage: ${NAME} {start|stop|status|restart|force-reload}" >&2
-		exit-script 1
-		;;
+        *)
+                N=/etc/init.d/${NAME}
+                echo "Usage: ${NAME} {start|stop|status|restart|force-reload}" >&2
+                exit-script 1
+                ;;
 esac
 
 exit-script 0
