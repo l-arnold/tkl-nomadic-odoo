@@ -1,3 +1,14 @@
+turnkey-odoo-14.2 (1) turnkey; urgency=low
+
+  * Latest upstream version of odoo 8.0 branch via git
+
+  * Updated Adminer to 4.2.5
+
+  * Note: Please refer to turnkey-core's changelog for changes common to all
+    appliances.
+
+ -- Ken Robinson <ken@turnkeylinux.org>  Wed, 28 Jun 2017 22:40:46 -0400
+
 turnkey-odoo-14.1 (1) turnkey; urgency=low
 
   * Odoo
