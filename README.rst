@@ -1,7 +1,7 @@
 Odoo - From ERP to CRM, eCommerce to CMS
 ========================================
 
-`Odoo`_is an all-in-one business management suite of mobile-friendly web
+`Odoo`_ is an all-in-one business management suite of mobile-friendly web
 apps that integrates everything you need to grow your business: CRM,
 website content management, project management, human resources,
 accounting, invoicing and more. Odoo apps integrate seamlessly to
