@@ -8,7 +8,7 @@ python3
 wkhtmltopdf         /* Command line utilities to convert html to pdf or image using WebKit  */
 python-gdata        /* Google Data Python client library */
 
-python3-pip3        /* Needed to install psycogreen */
+python3-pip         /* Needed to install psycogreen */
 python3-setuptools  /* Needed to install psycogreen */
 python3-wheel       /* Needed to install psycogreen */
 

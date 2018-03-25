@@ -1,10 +1,11 @@
-#!/bin/sh -ex
+#!/bin/bash -ex
 
 # Set variables
 #
  
 DB_USER=odoo
 DB_PASS=$(mcookie)
+DB_NAME=odoo
 
 # We will use a random password for now. Set it during inithook
 ODOO_ADMIN_PASSWORD=$(mcookie)
@@ -22,7 +23,7 @@ apt-get install -y odoo
 
 # Install deps that can't be installed via package using pip
 # *******************************************
-pip install psycogreen
+pip3 install psycogreen
 
 
 # Create database role for odoo
@@ -37,6 +38,9 @@ su postgres -c "createuser --superuser --createdb --no-createrole $DB_USER"
 # Set db user password
 su postgres -c "psql postgres" << EOF
 alter user $DB_USER with encrypted password '$DB_PASS';
+EOF
+su postgres -c "psql postgres" << EOF
+create database $DB_NAME owner $DB_USER;
 EOF
 
 # Set password/name in config file
@@ -58,24 +62,23 @@ usermod -L $SERVICE_USER
 # Add service to startup
 update-rc.d odoo defaults
 
-# Change ownership for Odoo config file
-chown $SERVICE_USER /etc/odoo/openerp-server.conf
-
-# Create /var/lib/odoo
-mkdir /var/lib/odoo
-chown -R $SERVICE_USER:$SERVICE_USER /var/lib/odoo
-
-# Create log files
-mkdir /var/log/odoo
-chmod 775 /var/log/odoo
-touch /var/log/odoo/odoo.log
-touch /var/log/odoo/odoo.log
-chmod 664 /var/log/odoo/*.log 
-chown -R $SERVICE_USER /var/log/odoo
-
 # Enable needed modules
 a2enmod proxy_http headers rewrite		
 
 # Configure sites
 a2dissite 000-default
 a2ensite odoo.conf
+
+
+# Populate database
+service postgresql start
+service apache2 start
+service odoo start
+
+while [[ "$(curl -Lk http://localhost)" = *"Unavailable"* ]]; do
+    sleep 1
+done
+
+service postgresql stop
+service apache2 stop
+service odoo stop
