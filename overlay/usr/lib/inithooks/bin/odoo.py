@@ -15,6 +15,8 @@ import hashlib
 
 from dialog_wrapper import Dialog
 from executil import system
+from pgsqlconf import PostgreSQL
+from passlib.context import CryptContext
 
 def usage(s=None):
     if s:
@@ -44,8 +46,9 @@ def main():
             "Odoo Database Managment Screen Password",
             "Enter new database management screen password. This is used for Odoo database functions.")
 
-    config = "/etc/odoo/openerp-server.conf"
-    system("sed -i \"s|admin_passwd =.*|admin_passwd = \"%s\"|\" %s" % (password, config))
+    p = PostgreSQL('odoo')
+    p.execute("UPDATE res_users SET password='', password_crypt='{}' WHERE id=1".format(
+        CryptContext(['pbkdf2_sha512']).encrypt(password)))
 
 if __name__ == "__main__":
     main()
