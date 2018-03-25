@@ -3,43 +3,16 @@
 
 adduser             
 postgresql-client   
-python              
-python-dateutil     /* Dateutil : provides powerful extensions to the standard datetime module, available in Python 2.3+. */
-python-decorator    
-python-docutils     
-python-feedparser   /* universal Feed Parser for Python */
-python-imaging      /* provides image processing functionality and supports many file formats. */
-python-jinja2       
-python-ldap         /* LDAP interface module */
-python-libxslt1     /* python bindings for XSLT transformation library */
-python-lxml         /* lxml is the most feature-rich and easy-to-use library for working with XML and HTML in the Python language. */
-python-mako         /* fast and lightweight templating for the Python platform. */
-python-mock         
-python-openid       /* OpenID authentication support for servers and consumers */
-python-passlib      
-python-psutil       
-python-psycopg2     /* Odoo says - the most popular PostgreSQL adapter for the Python programming language */
-python-pybabel      /* tools for internationalizing Python applications */
-python-pychart      /* library for creating high quality Encapsulated Postscript, PDF, PNG, or SVG charts. */
-python-pydot        /* provides a full interface to create, handle, modify and process graphs in Graphviz's dot language. */
-python-pyparsing    /* library for parsing Python code */
-python-pypdf        
-python-reportlab    /* The ReportLab Toolkit is engine for programmatically creating PDF documents and forms the foundation of RML. */
-python-requests     
-python-simplejson   /* simple, fast, extensible JSON encoder/decoder */
-python-tz           /* World Timezone Definitions for Python */
-python-unittest2    
-python-vatnumber    /* module to validate VAT numbers for European countries */
-python-vobject      /* VObject simplifies the process of parsing and creating iCalendar and vCard objects. */
-python-werkzeug     /* collection of utilities for WSGI applications */
-python-xlwt         /* module for reading/writing Microsoft Excel spreadsheet files */
-python-yaml         
-python-gevent       /* gevent is a coroutine-based Python networking library */
+python3
 
 wkhtmltopdf         /* Command line utilities to convert html to pdf or image using WebKit  */
 python-gdata        /* Google Data Python client library */
 
-python-pip          /* Needed to install psycogreen */
+python3-pip3        /* Needed to install psycogreen */
+python3-setuptools  /* Needed to install psycogreen */
+python3-wheel       /* Needed to install psycogreen */
+
+python-passlib      /* Needed to set admin password */
 
 xfonts-base         /* Needed for upstream wkhtmltox package */
 xfonts-75dpi        /* Needed for upstream wkhtmltox package */
