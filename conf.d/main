@@ -45,7 +45,8 @@ EOF
 
 # Set password/name in config file
 sed -i "s|db_password =.*|db_password = $DB_PASS|" $CONF
-sed -i "s|db_name =.*|db_name = $DB_NAME|" $CONF
+echo "db_name = $DB_NAME" >> $CONF
+
 
 # Stop postgresql server
 /etc/init.d/postgresql stop
@@ -53,8 +54,8 @@ sed -i "s|db_name =.*|db_name = $DB_NAME|" $CONF
 # Set admin password to random value for now
 sed -i "s|admin_passwd =.*|admin_passwd = $ODOO_ADMIN_PASSWORD|" $CONF
 
-# Install Odoo as a service
-# *******************************************
+# Fixes longpolling
+sed -i '/start-stop-daemon/ s/ -- / -- --workers=1 /' /etc/init.d/odoo
 
 # Add and disable service user
 usermod -L $SERVICE_USER

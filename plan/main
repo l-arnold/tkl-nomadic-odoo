@@ -12,6 +12,8 @@ python3-pip         /* Needed to install psycogreen */
 python3-setuptools  /* Needed to install psycogreen */
 python3-wheel       /* Needed to install psycogreen */
 
+python-gevent
+
 python-passlib      /* Needed to set admin password */
 
 xfonts-base         /* Needed for upstream wkhtmltox package */
