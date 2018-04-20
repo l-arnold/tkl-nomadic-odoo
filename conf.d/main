@@ -1,10 +1,11 @@
-#!/bin/sh -ex
+#!/bin/bash -ex
 
 # Set variables
 #
  
-DB_USER=openerp
+DB_USER=odoo
 DB_PASS=$(mcookie)
+DB_NAME=odoo
 
 # We will use a random password for now. Set it during inithook
 ODOO_ADMIN_PASSWORD=$(mcookie)
@@ -12,14 +13,17 @@ ODOO_ADMIN_PASSWORD=$(mcookie)
 # User name that Odoo will run under
 SERVICE_USER=$DB_USER
 
-OPENERP_DIR=/opt/openerp
 ODOO_DIR=$OPENERP_DIR/odoo
-CONF=/etc/odoo/openerp-server.conf
+CONF=/etc/odoo/odoo.conf
+
+# Install odoo from third party repo
+apt-get update
+apt-get install -y odoo
 
 
 # Install deps that can't be installed via package using pip
 # *******************************************
-pip install psycogreen
+pip3 install psycogreen
 
 
 # Create database role for odoo
@@ -35,78 +39,29 @@ su postgres -c "createuser --superuser --createdb --no-createrole $DB_USER"
 su postgres -c "psql postgres" << EOF
 alter user $DB_USER with encrypted password '$DB_PASS';
 EOF
+su postgres -c "psql postgres" << EOF
+create database $DB_NAME owner $DB_USER;
+EOF
 
-# Set password in config file
+# Set password/name in config file
 sed -i "s|db_password =.*|db_password = $DB_PASS|" $CONF
+echo "db_name = $DB_NAME" >> $CONF
+
 
 # Stop postgresql server
 /etc/init.d/postgresql stop
 
-
-# Intall wkhtmltox from Odoo - Used for HTML to PDF for reports 
-# *************************************************************
-#    We need the upstream version, taken from URL:
-#    https://www.odoo.com/documentation/8.0/setup/install.html
-# ---------------------------------------------------------------------------
-# Danager
-#  To print PDF reports, you must install wkhtmltopdf yourself: the version of 
-#  wkhtmltopdf available in debian repositories does not support headers and 
-#  footers so it can not be installed automatically. The recommended version is 
-#  0.12.1 and is available on the wkhtmltopdf download page, in the archive 
-#  section. As there is no official release for Debian Jessie, you can find 
-#  ours on http://nightly.odoo.com/extra/.
-# ---------------------------------------------------------------------------
-#
-cd /tmp
-[ "$FAB_HTTP_PROXY" ] && export HTTP_PROXY=$FAB_HTTP_PROXY
-wget http://nightly.odoo.com/extra/wkhtmltox-0.12.1.2_linux-jessie-amd64.deb
-unset HTTP_PROXY
-dpkg -i wkhtmltox-*.deb
-ln -s /usr/local/bin/wkhtmltopdf /usr/bin/wkhtmltopdf
-ln -s /usr/local/bin/wkhtmltoimage /usr/bin/wkhtmltoimage
-
-
-
-# Install Odoo from GIT repo
-#
-git clone https://github.com/odoo/odoo.git --branch 8.0 --depth=1 $ODOO_DIR
-
-
 # Set admin password to random value for now
 sed -i "s|admin_passwd =.*|admin_passwd = $ODOO_ADMIN_PASSWORD|" $CONF
 
+# Fixes longpolling
+sed -i '/start-stop-daemon/ s/ -- / -- --workers=1 /' /etc/init.d/odoo
 
-
-# Install Odoo as a service
-# *******************************************
-
-# Add service user and disable it
-useradd -c "Odoo Service Account" -d "$OPENERP_DIR" -r -s "/bin/bash" $SERVICE_USER
+# Add and disable service user
 usermod -L $SERVICE_USER
 
 # Add service to startup
-update-rc.d openerp-server defaults
-
-# Change ownership for Odoo config file
-chown $SERVICE_USER /etc/odoo/openerp-server.conf
-
-# Create /var/lib/odoo
-mkdir /var/lib/odoo
-chown -R $SERVICE_USER:$SERVICE_USER /var/lib/odoo
-
-# Create log files
-mkdir /var/log/odoo
-chmod 775 /var/log/odoo
-touch /var/log/odoo/openerp-server.log
-touch /var/log/odoo/openerp-server-startup.log
-chmod 664 /var/log/odoo/*.log 
-chown -R $SERVICE_USER /var/log/odoo
-
-# Set Odoo app directory owner
-chown -R $SERVICE_USER:$SERVICE_USER $OPENERP_DIR
-
-# Perform apache config		
-#
+update-rc.d odoo defaults
 
 # Enable needed modules
 a2enmod proxy_http headers rewrite		
@@ -114,3 +69,17 @@ a2enmod proxy_http headers rewrite
 # Configure sites
 a2dissite 000-default
 a2ensite odoo.conf
+
+
+# Populate database
+service postgresql start
+service apache2 start
+service odoo start
+
+while [[ "$(curl -Lk http://localhost)" = *"Unavailable"* ]]; do
+    sleep 1
+done
+
+service postgresql stop
+service apache2 stop
+service odoo stop
