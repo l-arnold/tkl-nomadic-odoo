@@ -1,6 +1,14 @@
 turnkey-odoo-15.0 (1) turnkey; urgency=low
 
-  * Latest upstream version of odoo from odoo apt repos.
+  * Latest upstream version of Odoo11 from odoo apt repos.
+
+  * Install Adminer directly from stretch/main repo
+
+  * Includes PHP7.0 (installed from Debian repos)
+
+  * Updated PHP default settings
+
+  * Remove phpsh (no longer maintained)
 
   * Note: Please refer to turnkey-core's changelog for changes common to all
     appliances.
