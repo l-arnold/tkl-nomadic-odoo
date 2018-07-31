@@ -1,6 +1,6 @@
 turnkey-odoo-15.0 (1) turnkey; urgency=low
 
-  * Latest upstream version of Odoo11 from odoo apt repos.
+  * Latest upstream version of odoo (v11) from odoo apt repos.
 
   * Install Adminer directly from stretch/main repo
 
@@ -13,7 +13,7 @@ turnkey-odoo-15.0 (1) turnkey; urgency=low
   * Note: Please refer to turnkey-core's changelog for changes common to all
     appliances.
 
- -- Stefan Davis <stefan@turnkeylinux.org>  Mon, 02 Jul 2018 11:52:16 +1000
+ -- Stefan Davis <stefan@turnkeylinux.org>  Tue, 31 Jul 2018 10:40:38 +1000
 
 turnkey-odoo-14.2 (1) turnkey; urgency=low
 
