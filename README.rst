@@ -10,8 +10,15 @@ stand-alone.
 
 This appliance includes all the standard features in `TurnKey Core`_:
 
-- Odoo v11 installed from official odoo debian repo.
-- Includes all base modules from base install of Odoo.
+- Odoo configurations:
+
+    - Odoo v11 installed from official Odoo Debian repo.
+    - Includes all base modules from base install of Odoo.
+
+    **Security note**: Updates to Odoo may require supervision so
+    they **ARE NOT** configured to install automatically. See below for
+    updating Odoo.
+
 - SSL support out of the box.
 - `Adminer`_ administration frontend for PostgreSQL (listening on
   port 12322 - uses SSL).
@@ -21,12 +28,20 @@ For a roadmap on where this appliance is heading, visit the
 `upstream`_ branch of the Odoo TKL build code and the release
 `roadmap`_ on Github
 
+Supervised Manual Odoo Update
+-----------------------------
+
+To upgrade to the latest version of Odoo from the command line::
+
+    apt-get update
+    apt-get install odoo
+
 Credentials *(passwords set at first boot)*
 -------------------------------------------
 
-**Note**: the inithook which sets the odoo password applies to both the
-odoo admin account AND the masterpassword however these can be changed
-individually after firstboot initialization.
+**Note**: the Odoo password set at firstboot applies to both the Odoo
+admin account AND the masterpassword however these can be changed
+individually after firstboot.
 
 -  Webmin, SSH: username **root**
 -  PostgreSQL, Adminer: username **postgres**
