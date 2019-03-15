@@ -7,13 +7,12 @@ DB_USER=odoo
 DB_PASS=$(mcookie)
 DB_NAME=odoo
 
-# We will use a random password for now. Set it during inithook
+# We will use a random password for now. Reset during inithook
 ODOO_ADMIN_PASSWORD=$(mcookie)
 
 # User name that Odoo will run under
 SERVICE_USER=$DB_USER
 
-ODOO_DIR=$OPENERP_DIR/odoo
 CONF=/etc/odoo/odoo.conf
 
 # Install odoo from third party repo
@@ -30,7 +29,7 @@ pip3 install psycogreen
 # *******************************************
  
 # Start postgresql server
-/etc/init.d/postgresql start
+service postgresql start
 
 # Create db user
 su postgres -c "createuser --superuser --createdb --no-createrole $DB_USER"
@@ -47,9 +46,8 @@ EOF
 sed -i "s|db_password =.*|db_password = $DB_PASS|" $CONF
 echo "db_name = $DB_NAME" >> $CONF
 
-
 # Stop postgresql server
-/etc/init.d/postgresql stop
+service postgresql stop
 
 # Set admin password to random value for now
 sed -i "s|admin_passwd =.*|admin_passwd = $ODOO_ADMIN_PASSWORD|" $CONF
@@ -69,7 +67,6 @@ a2enmod proxy_http headers rewrite
 # Configure sites
 a2dissite 000-default
 a2ensite odoo.conf
-
 
 # Populate database
 service postgresql start
