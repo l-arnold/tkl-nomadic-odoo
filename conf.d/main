@@ -44,7 +44,7 @@ EOF
 
 # Set password/name in config file
 sed -i "s|db_password =.*|db_password = $DB_PASS|" $CONF
-echo "db_name = $DB_NAME" >> $CONF
+echo "db_name =" >> $CONF
 
 # Stop postgresql server
 service postgresql stop
