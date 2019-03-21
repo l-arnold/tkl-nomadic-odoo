@@ -1,3 +1,15 @@
+turnkey-odoo-15.1 (1) turnkey; urgency=low
+
+  * Latest upstream version of Odoo v11.x from 3rd upstream apt repo - 
+    v11.0.20190320.
+
+  * Set default DB to blank so using alternate DBs is obvious to new users -
+    closes #1289.
+
+  * Update readme to explictly note "python" - closes #1303.
+
+ -- Jeremy Davis <jeremy@turnkeylinux.org>  Thu, 21 Mar 2019 14:02:17 +1100
+
 turnkey-odoo-15.0 (1) turnkey; urgency=low
 
   * Latest upstream version of odoo (v11) from odoo apt repos.
