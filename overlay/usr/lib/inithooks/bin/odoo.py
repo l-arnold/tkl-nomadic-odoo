@@ -44,8 +44,9 @@ def main():
     if not password:
         d = Dialog('TurnKey Linux - First boot configuration')
         password = d.get_password(
-            "Odoo Database Managment Screen Password",
-            "Enter new database management screen password. This is used for Odoo database functions.")
+            "Odoo Database Managment & example 'admin' Password",
+            "Enter new password for Odoo Database Management - create/delete/manage Odoo DBs. "
+                "This password will also login to 'admin' accounf of default/example Odoo.")
 
     processed_password = CryptContext(['pbkdf2_sha512']).encrypt(password)
 

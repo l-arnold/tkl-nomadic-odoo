@@ -6,7 +6,8 @@ apps that integrates everything you need to grow your business: CRM,
 website content management, project management, human resources,
 accounting, invoicing and more. Odoo apps integrate seamlessly to
 provide a full-featured open source ERP, but can also be used
-stand-alone.
+stand-alone. Python programmers can develop their own app modules, or
+choose from an array of free open source; or paid commerical ones.
 
 This appliance includes all the standard features in `TurnKey Core`_:
 
