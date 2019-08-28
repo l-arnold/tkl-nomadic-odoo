@@ -19,6 +19,11 @@ CONF=/etc/odoo/odoo.conf
 apt-get update
 apt-get install -y odoo
 
+DEB='wkhtmltox_0.12.5-1.stretch_amd64.deb'
+URL='https://downloads.wkhtmltopdf.org/0.12/0.12.5'
+wget $URL/$DEB
+dpkg -i $DEB
+rm $DEB
 
 # Install deps that can't be installed via package using pip
 # *******************************************
@@ -53,7 +58,7 @@ service postgresql stop
 sed -i "s|admin_passwd =.*|admin_passwd = $ODOO_ADMIN_PASSWORD|" $CONF
 
 # Fixes longpolling
-sed -i '/start-stop-daemon/ s/ -- / -- --workers=1 /' /etc/init.d/odoo
+sed -i '/start-stop-daemon/ s/ -- / -- --workers=2 /' /etc/init.d/odoo
 
 # Add and disable service user
 usermod -L $SERVICE_USER

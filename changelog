@@ -1,3 +1,12 @@
+turnkey-odoo-15.2 (1) turnkey; urgency=low
+
+  * Latest upstream version of Odoo v11.x from 3rd upstream apt repo - 
+    v11.0.20190805.
+
+  * Includes wkhtmltox 0.12.5 from upstream - closes #1343.
+
+ -- Stefan Davis <stefan@turnkeylinux.org>  Tue, 06 Aug 2019 03:57:27 +0000
+
 turnkey-odoo-15.1 (1) turnkey; urgency=low
 
   * Latest upstream version of Odoo v11.x from 3rd upstream apt repo - 
