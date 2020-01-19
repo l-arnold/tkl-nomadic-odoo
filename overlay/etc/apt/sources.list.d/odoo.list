@@ -1,2 +1,3 @@
 # odoo debian repo
 deb [signed-by=/usr/share/keyrings/odoo.gpg] http://nightly.odoo.com/9.0/nightly/deb/ ./
+dpkg --ignore-depends=python-pypdf -i odoo_*
