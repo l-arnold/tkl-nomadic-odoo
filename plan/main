@@ -10,6 +10,7 @@ python-gdata        /* Google Data Python client library */
 python3-pip         /* Needed to install psycogreen */
 python3-setuptools  /* Needed to install psycogreen */
 python3-wheel       /* Needed to install psycogreen */
+python-pypdf2		/* ADDED per lack of python-pypdf 
 
 python-gevent       /* gevent is a coroutine-based Python networking library */
 
