@@ -1,3 +1,41 @@
+turnkey-odoo-15.2 (1) turnkey; urgency=low
+
+  * Latest upstream version of Odoo v11.x from 3rd upstream apt repo - 
+    v11.0.20190805.
+
+  * Includes wkhtmltox 0.12.5 from upstream - closes #1343.
+
+ -- Stefan Davis <stefan@turnkeylinux.org>  Tue, 06 Aug 2019 03:57:27 +0000
+
+turnkey-odoo-15.1 (1) turnkey; urgency=low
+
+  * Latest upstream version of Odoo v11.x from 3rd upstream apt repo - 
+    v11.0.20190320.
+
+  * Set default DB to blank so using alternate DBs is obvious to new users -
+    closes #1289.
+
+  * Update readme to explictly note "python" - closes #1303.
+
+ -- Jeremy Davis <jeremy@turnkeylinux.org>  Thu, 21 Mar 2019 14:02:17 +1100
+
+turnkey-odoo-15.0 (1) turnkey; urgency=low
+
+  * Latest upstream version of odoo (v11) from odoo apt repos.
+
+  * Install Adminer directly from stretch/main repo
+
+  * Includes PHP7.0 (installed from Debian repos)
+
+  * Updated PHP default settings
+
+  * Remove phpsh (no longer maintained)
+
+  * Note: Please refer to turnkey-core's changelog for changes common to all
+    appliances.
+
+ -- Stefan Davis <stefan@turnkeylinux.org>  Tue, 31 Jul 2018 10:40:38 +1000
+
 turnkey-odoo-14.2 (1) turnkey; urgency=low
 
   * Latest upstream version of odoo 8.0 branch via git
