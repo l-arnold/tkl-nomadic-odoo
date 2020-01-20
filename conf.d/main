@@ -28,6 +28,7 @@ rm $DEB
 # Install deps that can't be installed via package using pip
 # *******************************************
 pip3 install psycogreen
+pip install pypdf
 
 
 # Create database role for odoo
