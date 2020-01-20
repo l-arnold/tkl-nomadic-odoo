@@ -28,11 +28,6 @@ rm $DEB
 # Install deps that can't be installed via package using pip
 # *******************************************
 pip3 install psycogreen
-<<<<<<< HEAD
-=======
-pip3 install pyPdf
-dpkg --ignore-depends=python-pypdf -i odoo_*
->>>>>>> e09c991f3468e1f55f299c568e492da4ed8288a2
 
 
 # Create database role for odoo
