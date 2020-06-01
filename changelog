@@ -1,3 +1,15 @@
+turnkey-odoo-16.0 (1) turnkey; urgency=low
+
+  * Latest upstream version of Odoo v11.x from 3rd upstream apt repo - 
+    v12.0.20200531.
+
+  * Renamed default db to "Turnkeylinux Example".
+
+  * Note: Please refer to turnkey-core's changelog for changes common to all
+    appliances.
+
+ -- Stefan Davis <stefan@turnkeylinux.org>  Mon, 01 Jun 2020 13:30:52 +1000
+
 turnkey-odoo-15.2 (1) turnkey; urgency=low
 
   * Latest upstream version of Odoo v11.x from 3rd upstream apt repo - 
