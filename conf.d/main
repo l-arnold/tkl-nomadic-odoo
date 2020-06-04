@@ -5,7 +5,7 @@
  
 DB_USER=odoo
 DB_PASS=$(mcookie)
-DB_NAME=odoo
+DB_NAME="Turnkeylinux Example"
 
 # We will use a random password for now. Reset during inithook
 ODOO_ADMIN_PASSWORD=$(mcookie)
@@ -44,7 +44,7 @@ su postgres -c "psql postgres" << EOF
 alter user $DB_USER with encrypted password '$DB_PASS';
 EOF
 su postgres -c "psql postgres" << EOF
-create database $DB_NAME owner $DB_USER;
+create database "$DB_NAME" owner $DB_USER;
 EOF
 
 # Set password/name in config file
@@ -76,6 +76,9 @@ a2ensite odoo.conf
 # Populate database
 service postgresql start
 service apache2 start
+
+odoo -i base -d "$DB_NAME" --stop-after-init --db_host=localhost -r $DB_USER -w $DB_PASS
+
 service odoo start
 
 while [[ "$(curl -Lk http://localhost)" = *"Unavailable"* ]]; do
@@ -88,6 +91,6 @@ CURL="curl --insecure -c /tmp/cookie -b /tmp/cookie"
 $CURL $URL/manager
 $CURL $URL/change_password --data "master_pwd=admin&master_pwd_new=${ODOO_ADMIN_PASSWORD}"
 
+service odoo stop
 service postgresql stop
 service apache2 stop
-service odoo stop

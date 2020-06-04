@@ -5,15 +5,11 @@ adduser
 postgresql-client   
 python3
 
-python-gdata        /* Google Data Python client library */
-
 python3-pip         /* Needed to install psycogreen */
 python3-setuptools  /* Needed to install psycogreen */
 python3-wheel       /* Needed to install psycogreen */
 
-python-gevent       /* gevent is a coroutine-based Python networking library */
-
-python-passlib      /* Needed to set admin password */
+python3-passlib      /* Needed to set admin password */
 
 xfonts-base         /* Needed for upstream wkhtmltox package */
 xfonts-75dpi        /* Needed for upstream wkhtmltox package */

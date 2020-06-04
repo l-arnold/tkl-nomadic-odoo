@@ -1,2 +1,2 @@
 # odoo debian repo
-deb [signed-by=/usr/share/keyrings/odoo.gpg] http://nightly.odoo.com/11.0/nightly/deb/ ./
+deb [signed-by=/usr/share/keyrings/odoo.gpg] http://nightly.odoo.com/12.0/nightly/deb/ ./
