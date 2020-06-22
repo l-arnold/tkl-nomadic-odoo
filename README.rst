@@ -13,7 +13,7 @@ This appliance includes all the standard features in `TurnKey Core`_:
 
 - Odoo configurations:
 
-    - Odoo v11 installed from official Odoo Debian repo.
+    - Odoo v12 installed from official Odoo Debian repo.
     - Includes all base modules from base install of Odoo.
 
     **Security note**: Updates to Odoo may require supervision so
@@ -53,3 +53,7 @@ individually after firstboot.
 .. _Adminer: http://www.adminer.org/
 .. _upstream: https://github.com/DocCyblade/tkl-odoo
 .. _roadmap: https://github.com/DocCyblade/tkl-odoo/milestones
+
+**Notice for speciall Odoo Localization**
+
+In case that you run a L10n Odoo Localization you will need other PIP Packages and Libs installed on your system, please check your localization support on [OCA](https://github.com/OCA)
