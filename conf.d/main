@@ -19,9 +19,10 @@ CONF=/etc/odoo/odoo.conf
 apt-get update
 apt-get install -y odoo
 
-DEB='wkhtmltox_0.12.5-1.stretch_amd64.deb'
-URL='https://downloads.wkhtmltopdf.org/0.12/0.12.5'
-wget $URL/$DEB
+VER=0.12.6-1
+DEB="wkhtmltox_${VER}.buster_amd64.deb"
+URL="https://github.com/wkhtmltopdf/packaging/releases/download/${VER}"
+wget $UR}/$DE}
 dpkg -i $DEB
 rm $DEB
 
