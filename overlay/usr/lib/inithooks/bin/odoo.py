@@ -46,7 +46,8 @@ def main():
         password = d.get_password(
             "Odoo Database Managment & example 'admin' Password",
             "Enter new password for Odoo Database Management - create/delete/manage Odoo DBs. "
-                "This password will also login to 'admin' accounf of default/example Odoo.")
+                "This password will also login to 'admin' accounf of default/example Odoo.",
+            blacklist=['\\', '/'])
 
     processed_password = CryptContext(['pbkdf2_sha512']).hash(password)
 
