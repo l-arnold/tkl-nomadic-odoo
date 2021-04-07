@@ -22,7 +22,7 @@ apt-get install -y odoo
 VER=0.12.6-1
 DEB="wkhtmltox_${VER}.buster_amd64.deb"
 URL="https://github.com/wkhtmltopdf/packaging/releases/download/${VER}"
-wget $UR}/$DE}
+wget ${URL}/${DEB}
 dpkg -i $DEB
 rm $DEB
 
