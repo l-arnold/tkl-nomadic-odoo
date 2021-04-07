@@ -7,6 +7,10 @@ DB_USER=odoo
 DB_PASS=$(mcookie)
 DB_NAME="Turnkeylinux Example"
 
+# download current Odoo apt repo GPG key (was previously in overlay)
+wget -O - https://nightly.odoo.com/odoo.key \
+    | apt-key --keyring /usr/share/keyrings/odoo.gpg add -
+
 # We will use a random password for now. Reset during inithook
 ODOO_ADMIN_PASSWORD=$(mcookie)
 
