@@ -13,7 +13,7 @@ This appliance includes all the standard features in `TurnKey Core`_:
 
 - Odoo configurations:
 
-    - Odoo v12 installed from official Odoo Debian repo.
+    - Odoo v12 installed from 3rd party (official) Odoo apt repo.
     - Includes all base modules from base install of Odoo.
 
 - **Security note**: Updates to Odoo may require supervision so they
