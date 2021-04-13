@@ -1,3 +1,23 @@
+turnkey-odoo-16.1 (1) turnkey; urgency=low
+
+  * Move to Odoo v14.x branch and install latest release from 3rd upstream apt
+    repo - v14.0.20210408 (or newer).
+    [ Marcos Mendez Quintero <support@popsolutions.co> ]
+
+  * Download Odoo apt repo key at build time (ensure that it is always up to
+    date).
+
+  * Update wkhtmltox download url and install latest version (0.12.6-1) -
+    closes #1581.
+
+  * Do not allow use of slash/backslash characters in Odoo Master DB password
+    - closes #1336.
+
+  * Note: Please refer to turnkey-core's 16.1 changelog for changes common to
+    all appliances. Here we only describe changes specific to this appliance.
+
+ -- Jeremy Davis <jeremy@turnkeylinux.org>  Mon, 12 Apr 2021 16:08:07 +1000
+
 turnkey-odoo-16.0 (1) turnkey; urgency=low
 
   * Latest upstream version of Odoo v12.x from 3rd upstream apt repo -

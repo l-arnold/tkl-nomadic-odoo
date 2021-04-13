@@ -7,6 +7,10 @@ DB_USER=odoo
 DB_PASS=$(mcookie)
 DB_NAME="Turnkeylinux Example"
 
+# download current Odoo apt repo GPG key (was previously in overlay)
+wget -O - https://nightly.odoo.com/odoo.key \
+    | apt-key --keyring /usr/share/keyrings/odoo.gpg add -
+
 # We will use a random password for now. Reset during inithook
 ODOO_ADMIN_PASSWORD=$(mcookie)
 
@@ -19,9 +23,10 @@ CONF=/etc/odoo/odoo.conf
 apt-get update
 apt-get install -y odoo
 
-DEB='wkhtmltox_0.12.5-1.stretch_amd64.deb'
-URL='https://downloads.wkhtmltopdf.org/0.12/0.12.5'
-wget $URL/$DEB
+VER=0.12.6-1
+DEB="wkhtmltox_${VER}.buster_amd64.deb"
+URL="https://github.com/wkhtmltopdf/packaging/releases/download/${VER}"
+wget ${URL}/${DEB}
 dpkg -i $DEB
 rm $DEB
 
@@ -85,11 +90,14 @@ while [[ "$(curl -Lk http://localhost)" = *"Unavailable"* ]]; do
     sleep 1
 done
 
-URL="https://127.0.0.1/web/database"
+URL="https://127.0.0.1/web"
 CURL="curl --insecure -c /tmp/cookie -b /tmp/cookie"
 
-$CURL $URL/manager
-$CURL $URL/change_password --data "master_pwd=admin&master_pwd_new=${ODOO_ADMIN_PASSWORD}"
+$CURL $URL/login
+sleep 1
+$CURL $URL/database/manager
+sleep 1
+$CURL $URL/database/change_password --data-raw "master_pwd=admin&master_pwd_new=${ODOO_ADMIN_PASSWORD}"
 
 service odoo stop
 service postgresql stop
