@@ -28,7 +28,7 @@ This appliance includes all the standard features in `TurnKey Core`_:
 
 **Notice for special Odoo Localization**
 
-In case tyou run a L10n Odoo Localization you will need other PIP Packages
+In case you run a L10n Odoo Localization you will need other PIP Packages
 and Libs installed on your system, please check your localization support on
 OCA_.
 
