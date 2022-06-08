@@ -5,11 +5,7 @@
  
 DB_USER=odoo
 DB_PASS=$(mcookie)
-DB_NAME="Turnkeylinux Example"
-
-# download current Odoo apt repo GPG key (was previously in overlay)
-wget -O - https://nightly.odoo.com/odoo.key \
-    | apt-key --keyring /usr/share/keyrings/odoo.gpg add -
+DB_NAME="TurnkeylinuxExample"
 
 # We will use a random password for now. Reset during inithook
 ODOO_ADMIN_PASSWORD=$(mcookie)
@@ -18,22 +14,6 @@ ODOO_ADMIN_PASSWORD=$(mcookie)
 SERVICE_USER=$DB_USER
 
 CONF=/etc/odoo/odoo.conf
-
-# Install odoo from third party repo
-apt-get update
-apt-get install -y odoo
-
-VER=0.12.6-1
-DEB="wkhtmltox_${VER}.buster_amd64.deb"
-URL="https://github.com/wkhtmltopdf/packaging/releases/download/${VER}"
-wget ${URL}/${DEB}
-dpkg -i $DEB
-rm $DEB
-
-# Install deps that can't be installed via package using pip
-# *******************************************
-pip3 install psycogreen
-
 
 # Create database role for odoo
 # *******************************************
@@ -54,16 +34,15 @@ EOF
 
 # Set password/name in config file
 sed -i "s|db_password =.*|db_password = $DB_PASS|" $CONF
-echo "db_name =" >> $CONF
+sed -i "s|db_host =.*|db_host = localhost|" $CONF
+echo "db_name = $DB_NAME" >> $CONF
 
 # Stop postgresql server
 service postgresql stop
 
 # Set admin password to random value for now
 sed -i "s|admin_passwd =.*|admin_passwd = $ODOO_ADMIN_PASSWORD|" $CONF
-
-# Fixes longpolling
-sed -i '/start-stop-daemon/ s/ -- / -- --workers=2 /' /etc/init.d/odoo
+chown odoo:odoo $CONF
 
 # Add and disable service user
 usermod -L $SERVICE_USER
@@ -82,7 +61,12 @@ a2ensite odoo.conf
 service postgresql start
 service apache2 start
 
-odoo -i base -d "$DB_NAME" --stop-after-init --db_host=localhost -r $DB_USER -w $DB_PASS
+su odoo -g odoo -s '/bin/bash' -c 'odoo -i base \
+    --stop-after-init --db_host=localhost \
+    -d '"\"$DB_NAME\""' \
+    -r '"\"$DB_USER\""' \
+    -w '"\"$DB_PASS\""' \
+    -s -c '"\"$CONF\""
 
 service odoo start
 

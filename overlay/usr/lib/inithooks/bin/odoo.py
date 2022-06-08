@@ -15,7 +15,7 @@ import hashlib
 import configparser
 
 import subprocess
-from dialog_wrapper import Dialog
+from libinithooks.dialog_wrapper import Dialog
 from pgsqlconf import PostgreSQL
 from passlib.context import CryptContext
 
@@ -51,7 +51,7 @@ def main():
 
     processed_password = CryptContext(['pbkdf2_sha512']).hash(password)
 
-    p = PostgreSQL('Turnkeylinux Example')
+    p = PostgreSQL('TurnkeylinuxExample')
     p.execute("UPDATE res_users SET password='{}' WHERE id=2".format(
         processed_password).encode('utf8'))
 
