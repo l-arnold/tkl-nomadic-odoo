@@ -1,16 +1,10 @@
 #include <turnkey/base>
 #include <turnkey/lapp>
 
+odoo-14
+
 adduser             
 postgresql-client   
 python3
 
-python3-pip         /* Needed to install psycogreen */
-python3-setuptools  /* Needed to install psycogreen */
-python3-wheel       /* Needed to install psycogreen */
-
 python3-passlib      /* Needed to set admin password */
-
-xfonts-base         /* Needed for upstream wkhtmltox package */
-xfonts-75dpi        /* Needed for upstream wkhtmltox package */
-
