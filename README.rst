@@ -13,11 +13,12 @@ This appliance includes all the standard features in `TurnKey Core`_:
 
 - Odoo configurations:
 
-    - Odoo v14 installed from debian apt repo.
+    - Odoo v16 installed from 3rd party (official) Odoo apt repo.
     - Includes modules from base install of Odoo.
 
-- **Security note**: As of 17.0, due to now using the official debian repo
-  Updates to Odoo **ARE** configured to install automatically.
+- **Security note**: Updates to Odoo may require supervision so they
+  **ARE NOT** configured to install automatically. See below for
+  updating Odoo.
 
 - SSL support out of the box.
 - `Adminer`_ administration frontend for PostgreSQL (listening on
@@ -30,6 +31,14 @@ This appliance includes all the standard features in `TurnKey Core`_:
 In case you run a L10n Odoo Localization you will need other PIP Packages
 and Libs installed on your system, please check your localization support on
 OCA_.
+
+Supervised Manual Odoo Update
+-----------------------------
+
+To upgrade to the latest version of Odoo from the command line::
+
+    apt-get update
+    apt-get install odoo
 
 Credentials *(passwords set at first boot)*
 -------------------------------------------

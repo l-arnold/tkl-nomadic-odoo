@@ -1,0 +1,8 @@
+turnkey-odoo-18 (1) turnkey; urgency=low
+
+  * Updated all Debian packages to latest.
+
+  * Update to Odoo 16 (with old methog of Odoo Nightly repo like in https://github.com/turnkeylinux-apps/odoo/tree/cfc0fe5d82764c9846f5b319b054a37a6c218124 )
+
+ -- Daniele Lolli (UncleDan) <uncledan74@gmail.com>  Tue, 1 Aug 2023 15:55:00 +0200
+ 
