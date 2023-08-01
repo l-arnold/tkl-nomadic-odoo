@@ -6,3 +6,5 @@ postgresql-client
 python3
 
 python3-passlib      /* Needed to set admin password */
+
+libapache2-mod-security2
