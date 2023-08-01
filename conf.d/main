@@ -92,7 +92,7 @@ su odoo -g odoo -s '/bin/bash' -c 'odoo -i base \
     -w '"\"$DB_PASS\""' \
     -s -c '"\"$CONF\""
 
-service odoo start
+systemctl start odoo
 
 while [[ "$(curl -Lk http://localhost)" = *"Unavailable"* ]]; do
     sleep 1
