@@ -7,13 +7,6 @@ DB_USER=odoo
 DB_PASS=$(mcookie)
 DB_NAME="TurnkeylinuxExample"
 
-### Setup of the Debian nightly repository from: https://nightly.odoo.com/ (I need only the kee here) ### UncleDan 1 Aug 2023
-# wget -O - https://nightly.odoo.com/odoo.key | sudo gpg --dearmor -o /usr/share/keyrings/odoo-archive-keyring.gpg
-# echo 'deb [signed-by=/usr/share/keyrings/odoo-archive-keyring.gpg] https://nightly.odoo.com/16.0/nightly/deb/ ./' | sudo tee /etc/apt/sources.list.d/odoo.list
-# sudo apt-get update && sudo apt-get install odoo
-
-wget -O - https://nightly.odoo.com/odoo.key | gpg --dearmor -o /usr/share/keyrings/odoo-archive-keyring.gpg
-
 # We will use a random password for now. Reset during inithook
 ODOO_ADMIN_PASSWORD=$(mcookie)
 
@@ -21,23 +14,6 @@ ODOO_ADMIN_PASSWORD=$(mcookie)
 SERVICE_USER=$DB_USER
 
 CONF=/etc/odoo/odoo.conf
-
-# Install odoo from third party repo
-apt update
-apt install -y wkhtmltopdf odoo
-
-### No wkhtmltopdf for bookworm yet. I will try with the one in the debian repo (see apt install up here) ### UncleDan 1 Aug 2023
-# VER=0.12.6-1
-# DEB="wkhtmltox_${VER}.buster_amd64.deb"
-# URL="https://github.com/wkhtmltopdf/packaging/releases/download/${VER}"
-# wget ${URL}/${DEB}
-# dpkg -i $DEB
-# rm $DEB
-
-# # Install deps that can't be installed via package using pip
-# # *******************************************
-# pip3 install psycogreen
-
 
 # Create database role for odoo
 # *******************************************
@@ -71,9 +47,6 @@ chown odoo:odoo $CONF
 # Add and disable service user
 usermod -L $SERVICE_USER
 
-# Add service to startup
-update-rc.d odoo defaults
-
 # Enable needed modules
 a2enmod proxy_http headers rewrite		
 
@@ -92,7 +65,8 @@ su odoo -g odoo -s '/bin/bash' -c 'odoo -i base \
     -w '"\"$DB_PASS\""' \
     -s -c '"\"$CONF\""
 
-systemctl start odoo
+# enable and start odoo
+systemctl enable --now odoo
 
 while [[ "$(curl -Lk http://localhost)" = *"Unavailable"* ]]; do
     sleep 1

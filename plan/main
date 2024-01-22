@@ -2,6 +2,8 @@
 #include <turnkey/lapp>
 
 odoo-16
+wkhtmltopdf
+python3-psycogreen
 
 adduser             
 postgresql-client   
