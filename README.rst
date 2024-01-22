@@ -34,7 +34,7 @@ Credentials *(passwords set at first boot)*
 -------------------------------------------
 
 **Note**: the Odoo password set at firstboot applies to both the Odoo
-admin account (example app) AND the masterpassword however these can be
+admin account (example app) AND the masterpassword  - however these can be
 changed individually after firstboot.
 
 -  Webmin, SSH: username **root**
