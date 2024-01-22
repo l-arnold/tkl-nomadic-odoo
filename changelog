@@ -1,7 +1,10 @@
 turnkey-odoo-18.0 (1) turnkey; urgency=low
 
   * Install Odoo v16.x from Debian backports (bookworm-backports) apt
-    repository.
+    repository (package name: odoo-16).
+
+  * Tweak inithook so will not fail if default example DB has been removed &
+    restart Odoo to ensure password is applied (intermittant issues reported).
 
   * Special thanks to Daniele Lolli aka UncleDan <github@uncledan.it>
     for his work on this and many other v18.0 apps.
