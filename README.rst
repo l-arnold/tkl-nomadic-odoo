@@ -13,17 +13,16 @@ This appliance includes all the standard features in `TurnKey Core`_:
 
 - Odoo configurations:
 
-    - Odoo v14 installed from debian apt repo.
+    - Odoo v16 installed from debian backports apt repo.
     - Includes modules from base install of Odoo.
 
-- **Security note**: As of 17.0, due to now using the official debian repo
-  Updates to Odoo **ARE** configured to install automatically.
+- **Security note**: As of 18.0, due to using the debian backports repo
+  Updates to Odoo **ARE NOT** configured to install automatically.
 
 - SSL support out of the box.
 - `Adminer`_ administration frontend for PostgreSQL (listening on
   port 12322 - uses SSL).
 - Webmin modules for configuring Apache2, PHP and PostgreSQL.
-
 
 **Notice for special Odoo Localization**
 
@@ -35,8 +34,8 @@ Credentials *(passwords set at first boot)*
 -------------------------------------------
 
 **Note**: the Odoo password set at firstboot applies to both the Odoo
-admin account AND the masterpassword however these can be changed
-individually after firstboot.
+admin account (example app) AND the masterpassword  - however these can be
+changed individually after firstboot.
 
 -  Webmin, SSH: username **root**
 -  PostgreSQL, Adminer: username **postgres**

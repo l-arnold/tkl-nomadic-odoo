@@ -19,7 +19,7 @@ CONF=/etc/odoo/odoo.conf
 # *******************************************
  
 # Start postgresql server
-service postgresql start
+systemctl start postgresql
 
 # Create db user
 su postgres -c "createuser --superuser --createdb --no-createrole $DB_USER"
@@ -38,7 +38,7 @@ sed -i "s|db_host =.*|db_host = localhost|" $CONF
 echo "db_name = $DB_NAME" >> $CONF
 
 # Stop postgresql server
-service postgresql stop
+systemctl stop postgresql
 
 # Set admin password to random value for now
 sed -i "s|admin_passwd =.*|admin_passwd = $ODOO_ADMIN_PASSWORD|" $CONF
@@ -46,9 +46,6 @@ chown odoo:odoo $CONF
 
 # Add and disable service user
 usermod -L $SERVICE_USER
-
-# Add service to startup
-update-rc.d odoo defaults
 
 # Enable needed modules
 a2enmod proxy_http headers rewrite		
@@ -58,8 +55,8 @@ a2dissite 000-default
 a2ensite odoo.conf
 
 # Populate database
-service postgresql start
-service apache2 start
+systemctl start postgresql
+systemctl start apache2
 
 su odoo -g odoo -s '/bin/bash' -c 'odoo -i base \
     --stop-after-init --db_host=localhost \
@@ -68,7 +65,9 @@ su odoo -g odoo -s '/bin/bash' -c 'odoo -i base \
     -w '"\"$DB_PASS\""' \
     -s -c '"\"$CONF\""
 
-service odoo start
+# enable and start odoo
+systemctl enable odoo
+systemctl start odoo
 
 while [[ "$(curl -Lk http://localhost)" = *"Unavailable"* ]]; do
     sleep 1
@@ -83,6 +82,6 @@ $CURL $URL/database/manager
 sleep 1
 $CURL $URL/database/change_password --data-raw "master_pwd=admin&master_pwd_new=${ODOO_ADMIN_PASSWORD}"
 
-service odoo stop
-service postgresql stop
-service apache2 stop
+systemctl stop odoo
+systemctl stop postgresql
+systemctl stop apache2 
