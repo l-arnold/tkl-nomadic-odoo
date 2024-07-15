@@ -7,13 +7,14 @@ website content management, project management, human resources,
 accounting, invoicing and more. Odoo apps integrate seamlessly to
 provide a full-featured open source ERP, but can also be used
 stand-alone. Python programmers can develop their own app modules, or
-choose from an array of free open source; or paid commerical ones.
+choose from an array of free open source such as those provided by OCA_;
+or paid commercial ones.
 
 This appliance includes all the standard features in `TurnKey Core`_:
 
-- Odoo configurations:
+- Odoo configurations for TurnKey v18.x:
 
-    - Odoo v16 installed from debian backports apt repo.
+    - Odoo v16 installed from debian backports apt repo (v18.x).
     - Includes modules from base install of Odoo.
 
 - **Security note**: As of 18.0, due to using the debian backports repo
@@ -22,7 +23,42 @@ This appliance includes all the standard features in `TurnKey Core`_:
 - SSL support out of the box.
 - `Adminer`_ administration frontend for PostgreSQL (listening on
   port 12322 - uses SSL).
-- Webmin modules for configuring Apache2, PHP and PostgreSQL.
+- Webmin modules for configuring Apache2, PostgreSQL and Postfix.
+
+**To create a new Odoo Databse (i.e. site)**
+
+To create a new Odoo DB, the Odoo config file needs to be edited and the
+Odoo service restarted.
+
+Overview of process:
+1. Edit /etc/odoo/odoo
+   - change value of "db_name" from "TurnkeylinuxExample" to your desired DB
+     name
+2. Restart odoo.service
+3. Reload Odoo login screen in your browser and you should be good to go
+
+Webmin steps:
+1.
+    - Browse to 'Tools' >> 'FileManager'
+    - Navigate to '/etc/odoo' and edit the 'odoo.conf' file
+    - Edit as per step 1 above
+    - Save changes
+2.
+    - Navigate to 'System' >> 'Bootup and Shutdown'
+    - Find the "odoo.service" in the list and select it via the checkbox
+    - Scroll to the bottom and select 'Restart'
+3.
+    - As per step 3 above
+
+CLI steps:
+1.
+    - Edit /etc/odoo/odoo as per step 1
+2.
+    - Restart odoo.service::
+
+        systemctl restart odoo
+3.
+    - As per step 3 above
 
 **Notice for special Odoo Localization**
 
