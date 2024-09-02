@@ -2,6 +2,7 @@
 #include <turnkey/lapp>
 
 odoo-16
+xfonts-75dpi
 wkhtmltopdf
 python3-psycogreen
 
