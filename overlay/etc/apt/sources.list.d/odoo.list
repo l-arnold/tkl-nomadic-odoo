@@ -1,2 +1,4 @@
+# comment out deb below then add bookworm-backports
 # odoo debian repo
-deb [signed-by=/usr/share/keyrings/odoo.gpg] http://nightly.odoo.com/14.0/nightly/deb/ ./
+# deb [signed-by=/usr/share/keyrings/odoo.gpg] http://nightly.odoo.com/14.0/nightly/deb/ ./
+bookworm-backports.list
