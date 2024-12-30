@@ -1,7 +1,0 @@
-Package: *
-Pin: origin nightly.odoo.com
-Pin-Priority: 100
-
-Package: odoo
-Pin: origin nightly.odoo.com
-Pin-Priority: 500

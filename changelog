@@ -1,3 +1,170 @@
+turnkey-odoo-18.0 (1) turnkey; urgency=low
+
+  * Install Odoo v16.x from Debian backports (bookworm-backports) apt
+    repository (package name: odoo-16).
+
+  * Tweak inithook so will not fail if default example DB has been removed &
+    restart Odoo to ensure password is applied (intermittant issues reported).
+
+  * Special thanks to Daniele Lolli aka UncleDan <github@uncledan.it>
+    for his work on this and many other v18.0 apps.
+
+  * Confconsole: bugfix broken DNS-01 Let's Encrypt challenge- closes #1876 &
+    #1895.
+    [Jeremy Davis <jeremy@turnkeylinux.org>]
+
+  * Ensure hashfile includes URL to public key - closes #1864.
+
+  * Include webmin-logviewer module by default - closes #1866.
+
+  * Upgraded base distribution to Debian 12.x/Bookworm.
+
+  * Configuration console (confconsole):
+    - Support for DNS-01 Let's Encrypt challenges.
+      [ Oleh Dmytrychenko <dmytrychenko.oleh@gmail.com> github: @NitrogenUA ]
+    - Support for getting Let's Encrypt cert via IPv6 - closes #1785.
+    - Refactor network interface code to ensure that it works as expected and
+      supports more possible network config (e.g. hotplug interfaces & wifi).
+    - Show error message rather than stacktrace when window resized to
+      incompatable resolution - closes  #1609.
+      [ Stefan Davis <stefan@turnkeylinux.org> ]
+    - Bugfix exception when quitting configuration of mail relay.
+      [ Oleh Dmytrychenko <dmytrychenko.oleh@gmail.com> github: @NitrogenUA ]
+    - Improve code quality: implement typing, fstrings and make (mostly) PEP8
+      compliant.
+      [Stefan Davis <stefan@turnkeylinux.org> & Jeremy Davis
+
+  * Firstboot Initialization (inithooks):
+    - Refactor start up (now hooks into getty process, rather than having it's
+      own service).
+      [ Stefan Davis <stefan@turnkeylinux.org> ]
+    - Refactor firstboot.d/01ipconfig (and 09hostname) to ensure that hostname
+      is included in dhcp info when set via inithooks.
+    - Package turnkey-make-ssl-cert script (from common overlay - now packaged
+      as turnkey-ssl). Refactor relevant scripts to leverage turnkey-ssl.
+    - Refactor run script - use bashisms and general tidying.
+    - Show blacklisted password characters more nicely.
+    - Misc packaging changes/improvements.
+    - Support returning output from MySQL - i.e. support 'SELECT'. (Only
+      applies to apps that include MySQL/MariaDB).
+
+  * Web management console (webmin):
+    - Upgraded webmin to v2.105.
+    - Replace webmin-shell with webmin-xterm module by default - closes #1904.
+    - Removed stunnel reverse proxy (Webmin hosted directly now).
+    - Ensure that Webmin uses HTTPS with default cert
+      (/etc/ssl/private/cert.pem).
+    - Disabled Webmin Let's Encrypt (for now).
+
+  * Web shell (shellinabox):
+    - Completely removed in v18.0 (Webmin now has a proper interactive shell).
+
+  * Backup (tklbam):
+    - Ported dependencies to Debian Bookworm; otherwise unchanged.
+
+  * Security hardening & improvements:
+    - Generate and use new TurnKey Bookworm keys.
+    - Automate (and require) default pinning for packages from Debian
+      backports. Also support non-free backports.
+
+  * IPv6 support:
+    - Adminer (only on LAMP based apps) listen on IPv6.
+    - Nginx/NodeJS (NodeJS based apps only) listen on IPv6.
+
+  * Misc bugfixes & feature implementations:
+    - Remove rsyslog package (systemd journal now all that's needed).
+    - Include zstd compression support.
+    - Enable new non-free-firmware apt repo by default.
+    - Improve turnkey-artisan so that it works reliably in cron jobs (only
+      Laravel based LAMP apps).
+
+  * Set mod_evasive log location - makes debugging easier.
+    [ Jeremy Davis <jeremy@turnkeylinux.org> ]
+
+  * Include and enable mod_evasive and mod_security2 by default in Apache.
+    [ Stefan Davis <Stefan@turnkeylinux.org> ]
+
+  * Includes new 'tkl-upgrade-php' helper script - to allow easy update/change
+    of PHP version - closes #1892.
+    [Marcos Méndez @ POPSOLUTIONS <https://github.com/marcos-mendez>]
+
+  * Debian default PHP updated to v8.2.
+
+  * DEV: Add support for setting max_execution_time & max_input_vars in
+    php.ini via appliance Makefile (PHP_MAX_EXECUTION_TIME &
+    PHP_MAX_INPUT_VARS).
+
+  * Use PostgreSQL v15 (from debian repos).
+    [ Stefan Davis <stefan@turnkeylinux.org> ]
+
+  * Upstream/Debian Adminer update - closes #1758.
+    [ Stefan Davis <stefan@turnkeylinux.org> ]
+
+ -- Jeremy Davis <jeremy@turnkeylinux.org>  Tue, 23 Apr 2024 05:05:57 +0000
+
+turnkey-odoo-17.1 (1) turnkey; urgency=low
+
+  * Updated all Debian packages to latest.
+    [ autopatched by buildtasks ]
+
+  * Patched bugfix release. Closes #1734.
+    [ autopatched by buildtasks ]
+
+ -- Jeremy Davis <jeremy@turnkeylinux.org>  Wed, 14 Sep 2022 06:55:34 +0000
+
+turnkey-odoo-17.0 (1) turnkey; urgency=low
+
+  * Install Odoo v14.x from official debian apt repos.
+
+  * Updated PostgreSQL packages for Python to the latest version.
+
+  * Updated all relevant Debian packages to Bullseye/11 versions
+
+  * Note: Please refer to turnkey-core's 17.0 changelog for changes common to all
+    appliances. Here we only describe changes specific to this appliance.
+
+ -- Stefan Davis <stefan@turnkeylinux.org>  Wed, 08 Jun 2022 04:05:00 +0000
+
+turnkey-odoo-16.1 (1) turnkey; urgency=low
+
+  * Move to Odoo v14.x branch and install latest release from 3rd upstream apt
+    repo - v14.0.20210408 (or newer).
+    [ Marcos Mendez Quintero <support@popsolutions.co> ]
+
+  * Download Odoo apt repo key at build time (ensure that it is always up to
+    date).
+
+  * Update wkhtmltox download url and install latest version (0.12.6-1) -
+    closes #1581.
+
+  * Do not allow use of slash/backslash characters in Odoo Master DB password
+    - closes #1336.
+
+  * Note: Please refer to turnkey-core's 16.1 changelog for changes common to
+    all appliances. Here we only describe changes specific to this appliance.
+
+ -- Jeremy Davis <jeremy@turnkeylinux.org>  Mon, 12 Apr 2021 16:08:07 +1000
+
+turnkey-odoo-16.0 (1) turnkey; urgency=low
+
+  * Latest upstream version of Odoo v12.x from 3rd upstream apt repo -
+    v12.0.20200604.
+
+  * Renamed default db to "Turnkeylinux Example".
+
+  * Explcitly disable TLS<1.2 (i.e. SSLv3, TLSv1, TLSv1.1). (v15.x
+    TurnKey releases supported TLS 1.2, but could fallback as low as TLSv1).
+
+  * Update SSL/TLS cyphers to provide "Intermediate" browser/client support
+    (suitable for "General-purpose servers with a variety of clients,
+    recommended for almost all systems"). As provided by Mozilla via
+    https://ssl-config.mozilla.org/.
+
+  * Note: Please refer to turnkey-core's changelog for changes common to all
+    appliances.
+
+ -- Stefan Davis <stefan@turnkeylinux.org>  Mon, 01 Jun 2020 13:30:52 +1000
+
 turnkey-odoo-15.2 (1) turnkey; urgency=low
 
   * Latest upstream version of Odoo v11.x from 3rd upstream apt repo - 

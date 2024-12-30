@@ -5,7 +5,7 @@
  
 DB_USER=odoo
 DB_PASS=$(mcookie)
-DB_NAME=odoo
+DB_NAME="TurnkeylinuxExample"
 
 # We will use a random password for now. Reset during inithook
 ODOO_ADMIN_PASSWORD=$(mcookie)
@@ -15,26 +15,11 @@ SERVICE_USER=$DB_USER
 
 CONF=/etc/odoo/odoo.conf
 
-# Install odoo from third party repo
-apt-get update
-apt-get install -y odoo
-
-DEB='wkhtmltox_0.12.5-1.stretch_amd64.deb'
-URL='https://downloads.wkhtmltopdf.org/0.12/0.12.5'
-wget $URL/$DEB
-dpkg -i $DEB
-rm $DEB
-
-# Install deps that can't be installed via package using pip
-# *******************************************
-pip3 install psycogreen
-
-
 # Create database role for odoo
 # *******************************************
  
 # Start postgresql server
-service postgresql start
+systemctl start postgresql
 
 # Create db user
 su postgres -c "createuser --superuser --createdb --no-createrole $DB_USER"
@@ -44,27 +29,23 @@ su postgres -c "psql postgres" << EOF
 alter user $DB_USER with encrypted password '$DB_PASS';
 EOF
 su postgres -c "psql postgres" << EOF
-create database $DB_NAME owner $DB_USER;
+create database "$DB_NAME" owner $DB_USER;
 EOF
 
 # Set password/name in config file
 sed -i "s|db_password =.*|db_password = $DB_PASS|" $CONF
-echo "db_name =" >> $CONF
+sed -i "s|db_host =.*|db_host = localhost|" $CONF
+echo "db_name = $DB_NAME" >> $CONF
 
 # Stop postgresql server
-service postgresql stop
+systemctl stop postgresql
 
 # Set admin password to random value for now
 sed -i "s|admin_passwd =.*|admin_passwd = $ODOO_ADMIN_PASSWORD|" $CONF
-
-# Fixes longpolling
-sed -i '/start-stop-daemon/ s/ -- / -- --workers=2 /' /etc/init.d/odoo
+chown odoo:odoo $CONF
 
 # Add and disable service user
 usermod -L $SERVICE_USER
-
-# Add service to startup
-update-rc.d odoo defaults
 
 # Enable needed modules
 a2enmod proxy_http headers rewrite		
@@ -74,20 +55,33 @@ a2dissite 000-default
 a2ensite odoo.conf
 
 # Populate database
-service postgresql start
-service apache2 start
-service odoo start
+systemctl start postgresql
+systemctl start apache2
+
+su odoo -g odoo -s '/bin/bash' -c 'odoo -i base \
+    --stop-after-init --db_host=localhost \
+    -d '"\"$DB_NAME\""' \
+    -r '"\"$DB_USER\""' \
+    -w '"\"$DB_PASS\""' \
+    -s -c '"\"$CONF\""
+
+# enable and start odoo
+systemctl enable odoo
+systemctl start odoo
 
 while [[ "$(curl -Lk http://localhost)" = *"Unavailable"* ]]; do
     sleep 1
 done
 
-URL="https://127.0.0.1/web/database"
+URL="https://127.0.0.1/web"
 CURL="curl --insecure -c /tmp/cookie -b /tmp/cookie"
 
-$CURL $URL/manager
-$CURL $URL/change_password --data "master_pwd=admin&master_pwd_new=${ODOO_ADMIN_PASSWORD}"
+$CURL $URL/login
+sleep 1
+$CURL $URL/database/manager
+sleep 1
+$CURL $URL/database/change_password --data-raw "master_pwd=admin&master_pwd_new=${ODOO_ADMIN_PASSWORD}"
 
-service postgresql stop
-service apache2 stop
-service odoo stop
+systemctl stop odoo
+systemctl stop postgresql
+systemctl stop apache2 

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 """Set Odoo Admin Password
 Option:
@@ -12,25 +12,25 @@ import getopt
 import crypt
 import random
 import hashlib
-import ConfigParser
+import configparser
 
-from dialog_wrapper import Dialog
-from executil import system
+import subprocess
+from libinithooks.dialog_wrapper import Dialog
 from pgsqlconf import PostgreSQL
 from passlib.context import CryptContext
 
 def usage(s=None):
     if s:
-        print >> sys.stderr, "Error:", s
-    print >> sys.stderr, "Syntax: %s [options]" % sys.argv[0]
-    print >> sys.stderr, __doc__
+        print("Error:", s, file=sys.stderr)
+    print("Syntax: %s [options]" % sys.argv[0], file=sys.stderr)
+    print(__doc__, file=sys.stderr)
     sys.exit(1)
 
 def main():
     try:
         opts, args = getopt.gnu_getopt(sys.argv[1:], "h",
                                        ['help', 'pass='])
-    except getopt.GetoptError, e:
+    except getopt.GetoptError as e:
         usage(e)
 
     password = ""
@@ -46,22 +46,32 @@ def main():
         password = d.get_password(
             "Odoo Database Managment & example 'admin' Password",
             "Enter new password for Odoo Database Management - create/delete/manage Odoo DBs. "
-                "This password will also login to 'admin' accounf of default/example Odoo.")
+                "This password will also login to 'admin' account of default/example Odoo.",
+            blacklist=['\\', '/'])
 
-    processed_password = CryptContext(['pbkdf2_sha512']).encrypt(password)
+    processed_password = CryptContext(['pbkdf2_sha512']).hash(password)
 
-    p = PostgreSQL('odoo')
-    p.execute("UPDATE res_users SET password='', password_crypt='{}' WHERE id=1".format(
-        processed_password))
+    default_db = 'TurnkeylinuxExample'
+    default_db_exists = True
+    try:
+        p = PostgreSQL(default_db)
+        p.execute("UPDATE res_users SET password='{}' WHERE id=2".format(
+            processed_password).encode('utf8'))
+    except subprocess.CalledProcessError as e:
+        default_db_exists = False
+        print(f"Default DB ({default_db}) not found - skipping setting passsword for that")
 
-    config = ConfigParser.RawConfigParser()
-    config_path = '/etc/odoo/odoo.conf'
-    config.read(config_path)
+    sys.path.insert(0, '/usr/lib/python3/dist-packages')
+    import odoo
+    odoo.tools.config.parse_config(['--config=/etc/odoo/odoo.conf'])
+    odoo.tools.config.set_admin_password(password)
+    odoo.tools.config.save()
 
-    config.set('options', 'admin_passwd', processed_password)
+    # restart odoo to apply updated password
+    subprocess.run(['systemctl', 'restart', 'odoo'])
 
-    with open(config_path, 'w') as config_file:
-        config.write(config_file)
+    if not default_db_exists:
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
