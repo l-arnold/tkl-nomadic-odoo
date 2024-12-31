@@ -1,6 +1,8 @@
 #include <turnkey/base>
 #include <turnkey/lapp>
 
+apt-update
+
 odoo-16
 xfonts-75dpi
 wkhtmltopdf
