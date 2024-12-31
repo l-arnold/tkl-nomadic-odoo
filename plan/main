@@ -1,8 +1,8 @@
 #include <turnkey/base>
 #include <turnkey/lapp>
 
-#odoo-14
-apt install -t bullseye-backports odoo-14
+odoo-14
+#apt install -t bullseye-backports odoo-14
 xfonts-75dpi
 wkhtmltopdf
 python3-psycogreen
