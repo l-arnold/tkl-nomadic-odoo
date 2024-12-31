@@ -1,1 +1,2 @@
+deb http://deb.debian.org/debian stable-backports main contrib non-free
 deb http://deb.debian.org/debian bullseye-backports main contrib non-free
