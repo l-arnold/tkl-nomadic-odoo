@@ -1,7 +1,7 @@
 #include <turnkey/base>
 #include <turnkey/lapp>
 
-apt-update
+BACKPORTS=y
 
 odoo-16
 xfonts-75dpi
