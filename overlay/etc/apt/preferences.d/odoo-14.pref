@@ -7,5 +7,5 @@
 # Pin-Priority: 500
 
 Package: odoo-14
-Pin: origin bullseye-backports
+Pin: origin stable-backports
 Pin-Priority: 10
