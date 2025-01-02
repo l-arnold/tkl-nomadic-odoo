@@ -8,4 +8,4 @@
 
 Package: odoo-14
 Pin: origin bullseye-backports
-Pin-Priority: 100
+Pin-Priority: 10
