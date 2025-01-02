@@ -2,10 +2,10 @@
 # Pin: origin nightly.odoo.com
 # Pin-Priority: 100
 
-# Package: odoo
-# Pin: origin nightly.odoo.com
-# Pin-Priority: 500
+Package: odoo
+Pin: origin nightly.odoo.com
+Pin-Priority: 100
 
 Package: odoo-14
-Pin: origin stable-backports
-Pin-Priority: 10
+Pin: origin bullseye-backports
+Pin-Priority: 200
