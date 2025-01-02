@@ -1,7 +1,11 @@
-P# ackage: *
+# Package: *
 # Pin: origin nightly.odoo.com
 # Pin-Priority: 100
 
 # Package: odoo
 # Pin: origin nightly.odoo.com
 # Pin-Priority: 500
+
+Package: odoo-14
+Pin: origin bullseye-backports
+Pin-Priority: 100
