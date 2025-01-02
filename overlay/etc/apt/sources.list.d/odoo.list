@@ -2,4 +2,4 @@
 # odoo debian repo
 # deb [signed-by=/usr/share/keyrings/odoo.gpg] http://nightly.odoo.com/14.0/nightly/deb/ ./
 # bookworm-backports.list
-# bullseye-backports.list
+bullseye-backports.list
