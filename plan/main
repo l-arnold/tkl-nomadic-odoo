@@ -1,7 +1,7 @@
 #include <turnkey/base>
 #include <turnkey/lapp>
 
-odoo-14
+odoo
 #apt install -t bullseye-backports odoo-14
 xfonts-75dpi
 wkhtmltopdf
