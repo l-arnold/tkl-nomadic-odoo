@@ -5,3 +5,6 @@ BACKPORTS_PINS=odoo-14
 
 include $(FAB_PATH)/common/mk/turnkey/lapp.mk
 include $(FAB_PATH)/common/mk/turnkey.mk
+
+update-packages: apt-get update 
+build: update-packages
