@@ -7,7 +7,7 @@ xfonts-75dpi
 
 wkhtmltopdf
 python3-psycogreen
-python3-pypdf2
+python3-pypdf
 
 adduser             
 postgresql-client   
