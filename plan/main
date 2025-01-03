@@ -3,7 +3,7 @@
 
 odoo-14
 xfonts-75dpi
-PyPDF2 
+
 
 wkhtmltopdf
 python3-psycogreen
@@ -11,5 +11,6 @@ python3-psycogreen
 adduser             
 postgresql-client   
 python3
+PyPDF2 
 
 python3-passlib      /* Needed to set admin password */
