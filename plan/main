@@ -7,10 +7,10 @@ xfonts-75dpi
 
 wkhtmltopdf
 python3-psycogreen
+python3-pypdf2
 
 adduser             
 postgresql-client   
 python3
-python2-pypdf2
 
 python3-passlib      /* Needed to set admin password */
