@@ -3,6 +3,8 @@
 
 odoo-14
 xfonts-75dpi
+PyPDF2 
+
 wkhtmltopdf
 python3-psycogreen
 
