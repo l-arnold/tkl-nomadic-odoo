@@ -1,6 +1,7 @@
 #!/bin/bash -ex
 
 # create symlink for pypdf-utils
+ln -sf usr/lib/python3/dist-packages/pypdf2/utils.py usr/lib/python3/dist-packages/pypdf/_utils.py
 ln -sf usr/lib/python3/dist-packages/pypdf/utils.py usr/lib/python3/dist-packages/pypdf/_utils.py
 
 # Set variables
